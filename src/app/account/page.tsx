@@ -73,7 +73,7 @@ export default function AccountPage() {
       status: 'delivered',
       items: [
         {
-          name: 'KURA Bento Pro Modular Lunch Box',
+          name: 'Urban Essentials Bento Pro Modular Lunch Box',
           variant: 'Forest Green (1200ml)',
           quantity: 1,
           price: 1499,

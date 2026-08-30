@@ -73,10 +73,10 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-brand-forest-700 flex items-center justify-center text-white font-serif font-bold text-lg">
-                K
+                U
               </div>
               <span className="font-serif font-bold text-2xl tracking-tight text-white">
-                KURA
+                Urban Essentials
               </span>
             </div>
             <p className="text-sm text-brand-cream-300/80 leading-relaxed max-w-sm">
@@ -84,7 +84,7 @@ export function Footer() {
             </p>
             <div className="pt-2">
               <p className="text-xs font-semibold text-white uppercase tracking-wider mb-2">
-                Join KURA Club & Get 10% Off
+                Join Urban Club & Get 10% Off
               </p>
               <form onSubmit={handleSubscribe} className="flex max-w-sm">
                 <input
@@ -201,7 +201,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-brand-forest-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-cream-300/60">
-        <p>© {new Date().getFullYear()} KURA Essentials Inc. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Urban Essentials Inc. All rights reserved.</p>
         <div className="flex items-center gap-6">
           <Link href="/about" className="hover:text-white">Privacy Policy</Link>
           <Link href="/about" className="hover:text-white">Terms of Service</Link>

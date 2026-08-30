@@ -133,7 +133,7 @@ export default function CheckoutPage() {
           key: orderData.keyId,
           amount: orderData.amountInPaisa,
           currency: 'INR',
-          name: 'KURA Essentials',
+          name: 'Urban Essentials',
           description: `Order #${orderData.orderNumber}`,
           image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=200&q=80',
           order_id: orderData.razorpayOrderId.startsWith('order_') ? orderData.razorpayOrderId : undefined,

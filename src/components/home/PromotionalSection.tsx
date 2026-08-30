@@ -30,7 +30,7 @@ export function PromotionalSection() {
             {/* Luxury Coupon Code Bar */}
             <div className="p-4 bg-black/40 border border-white/15 inline-flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="text-xs text-brand-cream-100 uppercase tracking-wider font-semibold">
-                Use Promotional Code: <span className="font-mono font-bold text-white bg-brand-forest-800 px-2 py-0.5 ml-1">KURA20</span>
+                Use Promotional Code: <span className="font-mono font-bold text-white bg-brand-forest-800 px-2 py-0.5 ml-1">URBAN20</span>
               </div>
               <span className="text-[11px] text-brand-cream-300 sm:border-l sm:border-white/20 sm:pl-3 uppercase tracking-wider">
                 Extra 20% OFF above ₹1,500

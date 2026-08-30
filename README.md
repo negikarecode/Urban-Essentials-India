@@ -1,4 +1,4 @@
-# KURA Essentials — Premium Everyday Carry Ecommerce Platform
+# Urban Essentials — Premium Everyday Carry Ecommerce Platform
 
 A production-ready, Shopify-inspired modern ecommerce platform engineered with Next.js App Router, TypeScript, Tailwind CSS, Supabase (PostgreSQL, Auth, Storage, RLS), and Razorpay payments.
 
@@ -85,7 +85,7 @@ RAZORPAY_KEY_SECRET=your_razorpay_secret_key
 RAZORPAY_WEBHOOK_SECRET=your_webhook_secret_key
 
 # Admin Secret Token
-ADMIN_SECRET_TOKEN=kura_admin_secure_token_change_in_prod
+ADMIN_SECRET_TOKEN=urban_admin_secure_token_change_in_prod
 ```
 
 ### 3. Database Schema Setup
@@ -106,5 +106,5 @@ Access the admin portal at [http://localhost:3000/admin](http://localhost:3000/a
 ## 🧪 Testing Credentials & Demo Profiles
 The application includes pre-configured demo sign-in shortcuts in the header and account menus:
 - **Demo Customer:** `alex.student@gmail.com`
-- **Demo Admin:** `admin@kuraessentials.com` (Grants full access to `/admin`)
-- **Active Promotional Coupons:** `WELCOME10` (10% off), `KURA20` (20% off above ₹1500), `FLAT250` (Flat ₹250 off above ₹2000)
+- **Demo Admin:** `admin@urbanessentials.com` (Grants full access to `/admin`)
+- **Active Promotional Coupons:** `WELCOME10` (10% off), `URBAN20` (20% off above ₹1500), `FLAT250` (Flat ₹250 off above ₹2000)

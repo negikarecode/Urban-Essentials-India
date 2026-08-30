@@ -52,10 +52,10 @@ export default function AdminLayout({
             <div className="h-4 w-px bg-brand-forest-800" />
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg bg-brand-forest-800 flex items-center justify-center font-serif font-bold text-sm">
-                K
+                U
               </div>
               <span className="font-serif font-bold text-base tracking-tight">
-                KURA Admin Portal
+                Urban Essentials Admin Portal
               </span>
             </div>
           </div>

@@ -31,7 +31,7 @@ export function TrustSection() {
         
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-forest-700">
-            The KURA Standard
+            The Urban Essentials Standard
           </span>
           <h2 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl text-brand-forest-950 mt-1">
             Built for Durability. Backed by Trust.

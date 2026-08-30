@@ -1,5 +1,5 @@
 -- ============================================================================
--- KURA ESSENTIALS — COMPLETE SUPABASE POSTGRESQL SCHEMA
+-- Urban Essentials ESSENTIALS — COMPLETE SUPABASE POSTGRESQL SCHEMA
 -- Migration: 001_initial_schema.sql
 -- ============================================================================
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS public.products (
     compare_at_price NUMERIC(10, 2) CHECK (compare_at_price >= price OR compare_at_price IS NULL),
     discount NUMERIC(5, 2) DEFAULT 0 CHECK (discount >= 0 AND discount <= 100),
     target_audience target_audience_type DEFAULT 'all' NOT NULL,
-    brand TEXT DEFAULT 'KURA' NOT NULL,
+    brand TEXT DEFAULT 'Urban Essentials' NOT NULL,
     tags TEXT[] DEFAULT '{}' NOT NULL,
     rating NUMERIC(3, 2) DEFAULT 5.0 NOT NULL CHECK (rating >= 0 AND rating <= 5),
     review_count INT DEFAULT 0 NOT NULL CHECK (review_count >= 0),

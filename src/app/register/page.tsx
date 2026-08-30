@@ -60,17 +60,17 @@ function RegisterForm() {
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md">
-              K
+              U
             </div>
             <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-950">
-              KURA
+              Urban Essentials
             </span>
           </Link>
           <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950 pt-2">
             Create Your Account
           </h1>
           <p className="text-xs sm:text-sm text-brand-charcoal-500">
-            Join KURA to track orders, save multiple addresses, and enjoy faster checkout.
+            Join Urban Essentials to track orders, save multiple addresses, and enjoy faster checkout.
           </p>
         </div>
 

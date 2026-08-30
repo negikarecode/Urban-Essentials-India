@@ -3,7 +3,7 @@ import { getProducts } from '@/lib/data/products';
 import { ProductCatalogClient } from './ProductCatalogClient';
 
 export const metadata = {
-  title: 'All Products | KURA Essentials',
+  title: 'All Products | Urban Essentials',
   description:
     'Shop all bento lunch boxes, insulated water bottles, backpacks, school bags, journals, and desk accessories.',
 };

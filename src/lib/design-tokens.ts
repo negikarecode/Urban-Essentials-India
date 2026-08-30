@@ -1,5 +1,5 @@
 /**
- * Global Design Tokens for KURA Essentials Ecommerce Platform
+ * Global Design Tokens for Urban Essentials Ecommerce Platform
  * Single source of truth for colors, typography, spacing, elevations, and radii.
  */
 

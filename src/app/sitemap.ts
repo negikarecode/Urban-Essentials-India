@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getProducts, getCategories } from '@/lib/data/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://kuraessentials.com';
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://urbanessentials.com';
   const products = getProducts();
   const categories = getCategories();
 

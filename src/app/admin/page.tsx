@@ -60,7 +60,7 @@ export default function AdminDashboardPage() {
       date: 'Today, 2:40 PM',
       total: 1499,
       status: 'delivered',
-      items: '1x KURA Bento Pro (Forest Green)',
+      items: '1x Urban Essentials Bento Pro (Forest Green)',
     },
     {
       id: 'ord-102',

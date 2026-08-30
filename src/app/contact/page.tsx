@@ -50,10 +50,10 @@ export default function ContactPage() {
                 <h4 className="font-bold text-sm text-brand-charcoal-900">Email Support</h4>
                 <p className="text-xs text-brand-charcoal-500 mt-0.5">Response within 24 hours</p>
                 <a
-                  href="mailto:support@kuraessentials.com"
+                  href="mailto:support@urbanessentials.com"
                   className="text-xs font-bold text-brand-forest-800 hover:underline mt-1 block"
                 >
-                  support@kuraessentials.com
+                  support@urbanessentials.com
                 </a>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
               <div>
                 <h4 className="font-bold text-sm text-brand-charcoal-900">Registered Office</h4>
                 <p className="text-xs text-brand-charcoal-600 mt-0.5 leading-relaxed">
-                  KURA Essentials Pvt Ltd<br />
+                  Urban Essentials Pvt Ltd<br />
                   84 Indiranagar 100ft Road, Bengaluru, Karnataka 560038
                 </p>
               </div>

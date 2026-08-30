@@ -96,7 +96,7 @@ export const CATEGORIES: Category[] = [
 export const PRODUCTS: Product[] = [
   {
     id: 'p1',
-    name: 'KURA Bento Pro Modular Lunch Box',
+    name: 'Urban Essentials Bento Pro Modular Lunch Box',
     slug: 'kura-bento-pro-modular-lunch-box',
     description: 'The Bento Pro is engineered with 304 food-grade stainless steel compartments, silicone airtight seals, and an insulated thermal outer casing. Keeps hot meals steaming for 6 hours and crisp salads chilled. Includes leak-proof dip containers and stainless steel cutlery.',
     short_description: '3-Tier airtight insulated stainless steel bento lunch box with cutlery set.',
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Lunch Boxes',
     category_slug: 'lunch-boxes',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['bento', 'lunch box', 'stainless steel', 'leak-proof', 'bestseller'],
     images: [
       { id: 'img1-1', image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -159,7 +159,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Water Bottles',
     category_slug: 'water-bottles',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['water bottle', 'insulated', 'flask', 'bpa-free', 'bestseller'],
     images: [
       { id: 'img2-1', image_url: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -211,7 +211,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Backpacks',
     category_slug: 'backpacks',
     target_audience: 'college',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['backpack', 'laptop bag', 'campus', 'ergonomic', 'college', 'bestseller'],
     images: [
       { id: 'img3-1', image_url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -262,7 +262,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'School Bags',
     category_slug: 'school-bags',
     target_audience: 'school',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['school bag', 'kids', 'orthopedic', 'spine care', 'school', 'new'],
     images: [
       { id: 'img4-1', image_url: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -311,7 +311,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Desk Accessories',
     category_slug: 'desk-accessories',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['desk mat', 'desk pad', 'leather', 'office', 'minimalist', 'bestseller'],
     images: [
       { id: 'img5-1', image_url: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -359,7 +359,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Stationery',
     category_slug: 'stationery',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['journal', 'notebook', 'stationery', 'dot grid', 'college', 'office', 'bestseller'],
     images: [
       { id: 'img6-1', image_url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -408,7 +408,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Pencil Cases',
     category_slug: 'pencil-cases',
     target_audience: 'school',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['pencil case', 'pen pouch', 'stationery', 'school', 'college', 'new'],
     images: [
       { id: 'img7-1', image_url: 'https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -455,7 +455,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Laptop Bags',
     category_slug: 'laptop-bags',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['laptop sleeve', 'macbook case', 'shockproof', 'office', 'college', 'bestseller'],
     images: [
       { id: 'img8-1', image_url: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -503,7 +503,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Lunch Boxes',
     category_slug: 'lunch-boxes',
     target_audience: 'school',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['soup jar', 'food flask', 'lunch box', 'school', 'office'],
     images: [
       { id: 'img9-1', image_url: 'https://images.unsplash.com/photo-1577906096429-f73c2c312435?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -549,7 +549,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Water Bottles',
     category_slug: 'water-bottles',
     target_audience: 'college',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['tritan', 'water bottle', 'infuser', 'gym', 'college', 'office', 'new'],
     images: [
       { id: 'img10-1', image_url: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -595,7 +595,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Stationery',
     category_slug: 'stationery',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['brass pen', 'stationery', 'luxury', 'office', 'gift set', 'bestseller'],
     images: [
       { id: 'img11-1', image_url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -641,7 +641,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Gift Sets',
     category_slug: 'gift-sets',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['gift set', 'bundle', 'campus', 'school', 'college', 'featured', 'bestseller'],
     images: [
       { id: 'img12-1', image_url: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -676,7 +676,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'p13',
-    name: 'KURA Bento Mini Kids Leak-Proof Bento Box',
+    name: 'Urban Essentials Bento Mini Kids Leak-Proof Bento Box',
     slug: 'kura-bento-mini-kids-bento-box',
     description: 'Designed specifically for younger students with 4 portion-perfect compartments, kid-friendly easy-snap latches, and rubberized drop-proof corners.',
     short_description: '4-Compartment kid-friendly leak-proof bento box with rubber drop bumpers.',
@@ -688,7 +688,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Lunch Boxes',
     category_slug: 'lunch-boxes',
     target_audience: 'school',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['kids bento', 'lunch box', 'school', 'drop-proof'],
     images: [
       { id: 'img13-1', image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -723,7 +723,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Water Bottles',
     category_slug: 'water-bottles',
     target_audience: 'college',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['tumbler', 'water bottle', 'hydration', 'college', 'gym', 'new'],
     images: [
       { id: 'img14-1', image_url: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -758,7 +758,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'School Bags',
     category_slug: 'school-bags',
     target_audience: 'school',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['school bag', 'junior', 'kids', 'ergonomic'],
     images: [
       { id: 'img15-1', image_url: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -789,7 +789,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Laptop Bags',
     category_slug: 'laptop-bags',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['messenger bag', 'laptop bag', 'office', 'commute', 'bestseller'],
     images: [
       { id: 'img16-1', image_url: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -820,7 +820,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Desk Accessories',
     category_slug: 'desk-accessories',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['desk stand', 'walnut wood', 'phone stand', 'office', 'minimalist'],
     images: [
       { id: 'img17-1', image_url: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -851,7 +851,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Stationery',
     category_slug: 'stationery',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['gel pens', 'stationery', 'pens', 'school', 'college'],
     images: [
       { id: 'img18-1', image_url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -882,7 +882,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Lunch Boxes',
     category_slug: 'lunch-boxes',
     target_audience: 'all',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['lunch bag', 'thermal bag', 'insulated', 'school', 'office'],
     images: [
       { id: 'img19-1', image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -913,7 +913,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Desk Accessories',
     category_slug: 'desk-accessories',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['tech pouch', 'cable organizer', 'folio', 'travel', 'office'],
     images: [
       { id: 'img20-1', image_url: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -944,7 +944,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Water Bottles',
     category_slug: 'water-bottles',
     target_audience: 'college',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['water bottle', 'sports flask', 'gym', 'college'],
     images: [
       { id: 'img21-1', image_url: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -975,7 +975,7 @@ export const PRODUCTS: Product[] = [
     category_name: 'Desk Accessories',
     category_slug: 'desk-accessories',
     target_audience: 'office',
-    brand: 'KURA',
+    brand: 'Urban Essentials',
     tags: ['brass ruler', 'stationery', 'desk accessories', 'office', 'gift set'],
     images: [
       { id: 'img22-1', image_url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1000&q=80', sort_order: 1, is_primary: true },
@@ -1110,7 +1110,7 @@ export const COUPONS_DATA: Coupon[] = [
   },
   {
     id: 'c-kura20',
-    code: 'KURA20',
+    code: 'URBAN20',
     description: 'Flat 20% off on orders above ₹1,500 (Max savings ₹600)',
     discount_type: 'percentage',
     discount_value: 20,

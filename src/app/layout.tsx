@@ -9,7 +9,7 @@ import { CartDrawer } from '@/components/layout/CartDrawer';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'KURA Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
+  title: 'Urban Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
   description:
     'Thoughtfully engineered everyday carry, leak-proof bento lunch boxes, vacuum insulated water bottles, campus backpacks, and minimalist desk stationery for School, College & Work.',
   keywords: [
@@ -26,19 +26,19 @@ export const metadata: Metadata = {
     'college essentials',
     'office accessories',
   ],
-  authors: [{ name: 'KURA Essentials' }],
+  authors: [{ name: 'Urban Essentials' }],
   openGraph: {
-    title: 'KURA Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
+    title: 'Urban Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
     description:
       'Engineered everyday essentials for School, College & Work. 100% Food-Grade, BPA Free, 1-Year Guarantee.',
-    url: 'https://kuraessentials.com',
-    siteName: 'KURA Essentials',
+    url: 'https://urbanessentials.com',
+    siteName: 'Urban Essentials',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
         width: 1200,
         height: 630,
-        alt: 'KURA Essentials',
+        alt: 'Urban Essentials',
       },
     ],
     locale: 'en_IN',

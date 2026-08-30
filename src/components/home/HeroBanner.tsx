@@ -66,7 +66,7 @@ export function HeroBanner() {
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-cream-200 shadow-xl border border-brand-cream-300">
               <Image
                 src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80"
-                alt="KURA Everyday Carry Essentials"
+                alt="Urban Essentials Everyday Carry Essentials"
                 fill
                 priority
                 className="object-cover hover:scale-103 transition-transform duration-1000 ease-out"

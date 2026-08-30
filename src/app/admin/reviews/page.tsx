@@ -9,7 +9,7 @@ const INITIAL_MODERATION_REVIEWS: (Review & { product_name: string })[] = [
   {
     id: 'r-mod-1',
     product_id: 'p1',
-    product_name: 'KURA Bento Pro Modular Lunch Box',
+    product_name: 'Urban Essentials Bento Pro Modular Lunch Box',
     author_name: 'Ananya Sharma',
     rating: 5,
     title: 'Best lunch box ever bought!',

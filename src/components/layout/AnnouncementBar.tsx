@@ -12,7 +12,7 @@ const ANNOUNCEMENTS = [
   },
   {
     icon: <Tag className="w-3.5 h-3.5 text-brand-amber-400" />,
-    text: 'Back to Routine: Use code KURA20 for 20% OFF on orders over ₹1,500',
+    text: 'Back to Routine: Use code URBAN20 for 20% OFF on orders over ₹1,500',
     link: '/products',
   },
   {

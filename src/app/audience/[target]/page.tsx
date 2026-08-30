@@ -22,7 +22,7 @@ const AUDIENCE_META: Record<
   }
 > = {
   school: {
-    title: 'School Essentials | KURA',
+    title: 'School Essentials | Urban Essentials',
     headline: 'Orthopedic, Non-Toxic & Built for School Kids',
     description:
       'Spine-protecting lightweight school bags, leak-proof stainless steel bento lunch boxes, and standing pen cases engineered for kindergarten to high school.',
@@ -36,7 +36,7 @@ const AUDIENCE_META: Record<
     bgGradient: 'from-emerald-900 via-brand-forest-900 to-teal-950',
   },
   college: {
-    title: 'College & University Carry | KURA',
+    title: 'College & University Carry | Urban Essentials',
     headline: 'Engineered for Campus Life & Everyday Commutes',
     description:
       'Weather-resistant 16" laptop backpacks, 24-hour icy hydration flasks, 100GSM dot-grid journals, and streamlined tech organizers.',
@@ -50,7 +50,7 @@ const AUDIENCE_META: Record<
     bgGradient: 'from-slate-900 via-brand-forest-950 to-emerald-950',
   },
   office: {
-    title: 'Executive Office & Work Essentials | KURA',
+    title: 'Executive Office & Work Essentials | Urban Essentials',
     headline: 'Sophisticated Workspace & Everyday Carry for Professionals',
     description:
       'Dual-sided vegan leather desk pads, solid machined brass pens, minimalist bento meal prep boxes, and ballistic nylon laptop sleeves.',
@@ -71,7 +71,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props): Metadata {
   const meta = AUDIENCE_META[params.target.toLowerCase()];
-  if (!meta) return { title: 'Segment Not Found | KURA Essentials' };
+  if (!meta) return { title: 'Segment Not Found | Urban Essentials' };
 
   return {
     title: meta.title,

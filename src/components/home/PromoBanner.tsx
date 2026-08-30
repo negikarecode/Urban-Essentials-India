@@ -45,7 +45,7 @@ export function PromoBanner() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <span className="text-xs text-brand-amber-300 font-semibold flex items-center gap-1">
-                  <Percent className="w-3.5 h-3.5" /> Use code <strong>KURA20</strong> for additional 20% off!
+                  <Percent className="w-3.5 h-3.5" /> Use code <strong>URBAN20</strong> for additional 20% off!
                 </span>
               </div>
             </div>

@@ -14,13 +14,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props): Metadata {
   const product = getProductBySlug(params.slug);
-  if (!product) return { title: 'Product Not Found | KURA Essentials' };
+  if (!product) return { title: 'Product Not Found | Urban Essentials' };
 
   return {
-    title: `${product.name} | KURA Essentials`,
+    title: `${product.name} | Urban Essentials`,
     description: product.short_description || product.description,
     openGraph: {
-      title: `${product.name} | KURA Essentials`,
+      title: `${product.name} | Urban Essentials`,
       description: product.short_description || product.description,
       images: product.images.map((img) => ({ url: img.image_url })),
     },

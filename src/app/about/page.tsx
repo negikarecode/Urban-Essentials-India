@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ShieldCheck, Leaf, Award, Heart, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'Our Story & Materials | KURA Essentials',
+  title: 'Our Story & Materials | Urban Essentials',
   description:
     'Discover our philosophy of everyday carry engineered for longevity, food safety, and ergonomic wellness.',
 };
@@ -15,7 +15,7 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4 mb-16">
         <span className="text-xs font-bold text-brand-forest-700 uppercase tracking-widest">
-          The KURA Philosophy
+          The Urban Essentials Philosophy
         </span>
         <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-brand-forest-950 tracking-tight leading-tight">
           Thoughtful objects for your daily rhythm.
@@ -45,7 +45,7 @@ export default function AboutPage() {
               Every day, millions of kids head to school, students navigate sprawling college campuses, and professionals commute to work carrying poorly constructed containers that leak, leach microplastics, or strain their backs.
             </p>
             <p className="text-sm sm:text-base text-brand-charcoal-700 leading-relaxed">
-              We founded <strong>KURA</strong> with a simple mission: create durable, 100% food-safe everyday essentials that marry precision Japanese minimalist design with uncompromising material standards.
+              We founded <strong>Urban Essentials</strong> with a simple mission: create durable, 100% food-safe everyday essentials that marry precision Japanese minimalist design with uncompromising material standards.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <Leaf className="w-8 h-8 text-brand-amber-400" />
               <h4 className="font-serif font-bold text-lg text-white">Circular & Plastic-Neutral</h4>
               <p className="text-xs text-brand-cream-300 leading-relaxed">
-                By investing in a reusable KURA bottle or lunch box, you eliminate up to 300 single-use plastic bottles and takeout containers per year.
+                By investing in a reusable Urban Essentials bottle or lunch box, you eliminate up to 300 single-use plastic bottles and takeout containers per year.
               </p>
             </div>
           </div>

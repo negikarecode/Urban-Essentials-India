@@ -36,8 +36,8 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const GUEST_CART_KEY = 'kura_guest_cart_v2';
-const SAVED_ITEMS_KEY = 'kura_saved_for_later_v2';
+const GUEST_CART_KEY = 'urban_guest_cart_v2';
+const SAVED_ITEMS_KEY = 'urban_saved_for_later_v2';
 const FREE_SHIPPING_THRESHOLD = 999;
 const STANDARD_SHIPPING_FEE = 99;
 

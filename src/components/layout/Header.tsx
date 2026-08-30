@@ -76,11 +76,11 @@ export function Header() {
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md group-hover:bg-brand-forest-900 transition-colors">
-              K
+              U
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-900 leading-none">
-                KURA
+                URBAN
               </span>
               <span className="text-[10px] tracking-[0.2em] font-semibold text-brand-forest-600 uppercase mt-0.5">
                 Essentials
@@ -230,7 +230,7 @@ export function Header() {
                     <div className="space-y-2.5">
                       <div className="pb-2 border-b border-brand-cream-200 text-center">
                         <h4 className="font-serif font-bold text-xs text-brand-forest-950">
-                          Welcome to KURA
+                          Welcome to Urban Essentials
                         </h4>
                         <p className="text-[11px] text-brand-charcoal-500">
                           Sign in for orders, wishlist & fast checkout

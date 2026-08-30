@@ -73,7 +73,7 @@ export default function AdminProductsPage() {
       category_name: matchedCat.name,
       category_slug: matchedCat.slug,
       target_audience: newAudience,
-      brand: 'KURA',
+      brand: 'Urban Essentials',
       tags: [matchedCat.slug, newAudience],
       images: newImages.length > 0 ? newImages : [
         {

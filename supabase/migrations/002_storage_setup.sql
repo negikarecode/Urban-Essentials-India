@@ -1,5 +1,5 @@
 -- ============================================================================
--- KURA ESSENTIALS — PHASE 9: STORAGE SETUP & POLICIES
+-- Urban Essentials ESSENTIALS — PHASE 9: STORAGE SETUP & POLICIES
 -- ============================================================================
 
 -- 1. Create product-images storage bucket (if not exists)

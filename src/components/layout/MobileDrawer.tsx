@@ -52,10 +52,10 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         <div className="p-4 border-b border-brand-cream-300 flex items-center justify-between bg-white">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
-              K
+              U
             </div>
             <span className="font-serif font-bold text-xl tracking-tight text-brand-forest-900">
-              KURA
+              Urban Essentials
             </span>
           </div>
           <button

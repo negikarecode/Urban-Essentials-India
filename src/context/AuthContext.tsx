@@ -19,7 +19,7 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-const DEMO_USER_KEY = 'kura_demo_auth_user';
+const DEMO_USER_KEY = 'urban_demo_auth_user';
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null);
@@ -168,7 +168,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         };
         setUser(mockUser);
         localStorage.setItem(DEMO_USER_KEY, JSON.stringify(mockUser));
-        toast.success(`Account created! Welcome to KURA Essentials, ${fullName}!`);
+        toast.success(`Account created! Welcome to Urban Essentials, ${fullName}!`);
         return { success: true };
       }
 
@@ -259,7 +259,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const demoLoginAsAdmin = useCallback(() => {
     const adminUser: UserProfile = {
       id: 'admin-demo-1',
-      email: 'admin@kuraessentials.com',
+      email: 'admin@urbanessentials.com',
       full_name: 'Lead Admin',
       role: 'admin',
     };

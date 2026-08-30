@@ -24,7 +24,7 @@ const INITIAL_ORDERS: AdminOrderRow[] = [
     order_number: 'KUR-2026-9042',
     customer_name: 'Ananya Sharma',
     customer_email: 'ananya@gmail.com',
-    items_summary: '1x KURA Bento Pro (Forest Green)',
+    items_summary: '1x Urban Essentials Bento Pro (Forest Green)',
     total_amount: 1499,
     payment_status: 'paid',
     order_status: 'delivered',

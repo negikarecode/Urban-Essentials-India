@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const metadata = {
-  title: 'Order Confirmed | KURA Essentials',
+  title: 'Order Confirmed | Urban Essentials',
   description: 'Your order has been successfully placed.',
 };
 
@@ -33,7 +33,7 @@ export default function OrderSuccessPage({ params }: Props) {
     shipping_fee: 0,
     tax_amount: 0,
     total_amount: 1999,
-    coupon_code: 'KURA20',
+    coupon_code: 'URBAN20',
     order_status: 'confirmed',
     payment_status: 'paid',
     payment_method: 'razorpay',
@@ -44,7 +44,7 @@ export default function OrderSuccessPage({ params }: Props) {
         id: 'item-1',
         order_id: orderNumber,
         product_id: 'p1',
-        product_name: 'KURA Bento Pro Modular Lunch Box',
+        product_name: 'Urban Essentials Bento Pro Modular Lunch Box',
         variant_name: 'Forest Green (1200ml)',
         sku: 'KUR-LB-001-GRN',
         unit_price: 1499,

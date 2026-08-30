@@ -17,13 +17,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props): Metadata {
   const category = getCategoryBySlug(params.slug);
-  if (!category) return { title: 'Category Not Found | KURA Essentials' };
+  if (!category) return { title: 'Category Not Found | Urban Essentials' };
 
   return {
-    title: `${category.name} | KURA Essentials`,
+    title: `${category.name} | Urban Essentials`,
     description: category.description,
     openGraph: {
-      title: `${category.name} | KURA Essentials`,
+      title: `${category.name} | Urban Essentials`,
       description: category.description,
       images: [{ url: category.image_url }],
     },

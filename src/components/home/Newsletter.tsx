@@ -31,7 +31,7 @@ export function Newsletter() {
         
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest-100 text-brand-forest-900 text-xs font-bold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5 text-brand-forest-700" />
-          <span>Join the KURA Inner Circle</span>
+          <span>Join the Urban Essentials Inner Circle</span>
         </div>
 
         <div className="space-y-2">

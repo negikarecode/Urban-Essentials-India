@@ -10,7 +10,7 @@ import { TrustSection } from '@/components/home/TrustSection';
 import { Newsletter } from '@/components/home/Newsletter';
 
 export const metadata = {
-  title: 'KURA Essentials | Everyday Carry for School, College & Office',
+  title: 'Urban Essentials | Everyday Carry for School, College & Office',
   description:
     'Thoughtfully engineered leak-proof bento boxes, vacuum insulated water bottles, ergonomic backpacks, and minimalist stationery for modern daily routines.',
 };
