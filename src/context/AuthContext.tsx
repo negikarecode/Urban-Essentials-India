@@ -21,9 +21,9 @@ const DEMO_USER_KEY = 'kura_demo_auth_user';
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const supabase = createClient();
-
   useEffect(() => {
+    const supabase = createClient();
+
     async function loadUser() {
       try {
         // First check Supabase live session if configured
@@ -95,6 +95,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = async () => {
     try {
+      const supabase = createClient();
       await supabase.auth.signOut();
     } catch {
       // ignore
