@@ -11,8 +11,6 @@ import {
   ShoppingBag,
   User,
   ChevronDown,
-  X,
-  ArrowRight,
   ShieldCheck,
   Package,
 } from 'lucide-react';
@@ -22,22 +20,18 @@ import { useAuth } from '@/context/AuthContext';
 import { MobileDrawer } from './MobileDrawer';
 import { AnnouncementBar } from './AnnouncementBar';
 import { SearchAutocompleteModal } from '@/components/search/SearchAutocompleteModal';
-import { CATEGORIES, PRODUCTS } from '@/lib/data/products';
-import { formatCurrency } from '@/lib/utils';
 
 export function Header() {
   const router = useRouter();
   const { itemCount, openCart } = useCart();
   const { wishlistCount } = useWishlist();
-  const { user, signOut, demoLoginAsCustomer, demoLoginAsAdmin, isAdmin } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
-  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   const accountRef = useRef<HTMLDivElement>(null);
-  const categoryRef = useRef<HTMLDivElement>(null);
 
   // Global Keyboard Shortcut: Cmd+K / Ctrl+K to open Search
   useEffect(() => {
@@ -51,14 +45,11 @@ export function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Click outside listener for dropdowns
+  // Click outside listener for account dropdown
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
         setIsAccountMenuOpen(false);
-      }
-      if (categoryRef.current && !categoryRef.current.contains(e.target as Node)) {
-        setIsCategoryMenuOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -97,79 +88,32 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+          {/* Desktop Navigation Links: ONLY Bottles, Bags, Lunchboxes, and Shop All */}
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-4">
             <Link
-              href="/"
-              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+              href="/category/water-bottles"
+              className="px-3 py-2 text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
             >
-              Home
+              Bottles
+            </Link>
+            <Link
+              href="/category/backpacks"
+              className="px-3 py-2 text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+            >
+              Bags
+            </Link>
+            <Link
+              href="/category/lunch-boxes"
+              className="px-3 py-2 text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+            >
+              Lunchboxes
             </Link>
             <Link
               href="/products"
-              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+              className="px-3 py-2 text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
             >
-              Shop
+              Shop All
             </Link>
-
-            {/* Target Audience Quick Links */}
-            <Link
-              href="/audience/school"
-              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
-            >
-              School
-            </Link>
-            <Link
-              href="/audience/college"
-              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
-            >
-              College
-            </Link>
-            <Link
-              href="/audience/office"
-              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
-            >
-              Office
-            </Link>
-
-            <Link
-              href="/products?sort=bestseller"
-              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
-            >
-              Best Sellers
-            </Link>
-            <Link
-              href="/products?sort=newest"
-              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
-            >
-              New Arrivals
-            </Link>
-
-            {/* Categories Dropdown */}
-            <div className="relative" ref={categoryRef}>
-              <button
-                onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
-                className="flex items-center gap-1 px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
-              >
-                <span>Categories</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-
-              {isCategoryMenuOpen && (
-                <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-brand-cream-300 p-2 z-50 animate-slide-down">
-                  {CATEGORIES.map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/category/${cat.slug}`}
-                      onClick={() => setIsCategoryMenuOpen(false)}
-                      className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-brand-charcoal-700 hover:bg-brand-cream-100 hover:text-brand-forest-900 rounded-xl transition-colors"
-                    >
-                      <span>{cat.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
           </nav>
 
           {/* Search Trigger Button & Actions */}
