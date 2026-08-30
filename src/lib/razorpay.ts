@@ -35,3 +35,20 @@ export function verifyRazorpaySignature({
 
   return expectedSignature === signature;
 }
+
+export function verifyRazorpayWebhookSignature({
+  rawBody,
+  signature,
+}: {
+  rawBody: string;
+  signature: string;
+}): boolean {
+  const secret = process.env.RAZORPAY_WEBHOOK_SECRET || process.env.RAZORPAY_KEY_SECRET || 'rzp_webhook_test_placeholder';
+
+  const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(rawBody)
+    .digest('hex');
+
+  return expectedSignature === signature;
+}
