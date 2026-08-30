@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
@@ -7,6 +8,18 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/layout/CartDrawer';
 import { Toaster } from 'sonner';
+
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const serifFont = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Urban Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
@@ -56,8 +69,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="flex flex-col min-h-screen">
+    <html
+      lang="en"
+      className={`${sansFont.variable} ${serifFont.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 antialiased selection:bg-brand-forest-800 selection:text-white" suppressHydrationWarning>
         <AuthProvider>
           <WishlistProvider>
             <CartProvider>

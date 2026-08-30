@@ -27,11 +27,17 @@ export function Header() {
   const { wishlistCount } = useWishlist();
   const { user, signOut, isAdmin } = useAuth();
 
+  const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   const accountRef = useRef<HTMLDivElement>(null);
+
+  // Client mounted hydration guard
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Global Keyboard Shortcut: Cmd+K / Ctrl+K to open Search
   useEffect(() => {
@@ -146,7 +152,7 @@ export function Header() {
               aria-label="View wishlist"
             >
               <Heart className="w-5 h-5" />
-              {wishlistCount > 0 && (
+              {mounted && wishlistCount > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center">
                   {wishlistCount}
                 </span>
@@ -160,7 +166,7 @@ export function Header() {
               aria-label="Open shopping cart"
             >
               <ShoppingBag className="w-5 h-5" />
-              {itemCount > 0 && (
+              {mounted && itemCount > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 bg-brand-forest-800 text-white rounded-full text-[10px] font-bold flex items-center justify-center animate-scale-in">
                   {itemCount}
                 </span>
@@ -175,7 +181,7 @@ export function Header() {
                 aria-label="Account options"
               >
                 <div className="w-6 h-6 rounded-full bg-brand-forest-800 text-white text-xs font-serif font-bold flex items-center justify-center">
-                  {user ? user.full_name?.charAt(0).toUpperCase() || 'U' : <User className="w-3.5 h-3.5" />}
+                  {mounted && user ? user.full_name?.charAt(0).toUpperCase() || 'U' : <User className="w-3.5 h-3.5" />}
                 </div>
                 <ChevronDown className="w-3 h-3 text-brand-charcoal-400" />
               </button>
@@ -183,7 +189,7 @@ export function Header() {
               {/* Account Dropdown */}
               {isAccountMenuOpen && (
                 <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-brand-cream-300 p-3 z-50 animate-slide-down">
-                  {user ? (
+                  {mounted && user ? (
                     <div className="space-y-2">
                       <div className="pb-2 border-b border-brand-cream-200">
                         <p className="text-xs font-bold text-brand-charcoal-900 truncate">
