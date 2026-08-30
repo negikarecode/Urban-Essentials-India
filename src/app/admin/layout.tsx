@@ -8,9 +8,9 @@ import {
   Package,
   Boxes,
   ShoppingBag,
+  Users,
   Tag,
   Star,
-  Layers,
   ArrowLeft,
   ShieldCheck,
   LogOut,
@@ -31,6 +31,7 @@ export default function AdminLayout({
     { href: '/admin/products', label: 'Products', icon: Package },
     { href: '/admin/inventory', label: 'Inventory', icon: Boxes },
     { href: '/admin/orders', label: 'Orders', icon: ShoppingBag },
+    { href: '/admin/customers', label: 'Customers', icon: Users },
     { href: '/admin/coupons', label: 'Coupons', icon: Tag },
     { href: '/admin/reviews', label: 'Reviews', icon: Star },
   ];
