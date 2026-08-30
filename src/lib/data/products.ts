@@ -1051,31 +1051,91 @@ export const COUPONS_DATA: Coupon[] = [
   {
     id: 'c-welcome10',
     code: 'WELCOME10',
-    description: '10% off on your first order',
+    description: '10% off on your first order (Min order ₹499)',
     discount_type: 'percentage',
     discount_value: 10,
-    min_order_value: 500,
+    min_order_value: 499,
     max_discount: 300,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 10000,
+    used_count: 420,
+    per_user_limit: 1,
+    is_active: true,
+  },
+  {
+    id: 'c-campus15',
+    code: 'CAMPUS15',
+    description: '15% off for college & campus essentials (Min order ₹999)',
+    discount_type: 'percentage',
+    discount_value: 15,
+    min_order_value: 999,
+    max_discount: 500,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 5000,
+    used_count: 310,
+    per_user_limit: 2,
+    is_active: true,
+  },
+  {
+    id: 'c-school20',
+    code: 'SCHOOL20',
+    description: '20% off for school lunch & bags bundle (Min order ₹1,499)',
+    discount_type: 'percentage',
+    discount_value: 20,
+    min_order_value: 1499,
+    max_discount: 600,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 3000,
+    used_count: 184,
+    per_user_limit: 2,
+    is_active: true,
+  },
+  {
+    id: 'c-office10',
+    code: 'OFFICE10',
+    description: '10% off for work & office accessories (Min order ₹799)',
+    discount_type: 'percentage',
+    discount_value: 10,
+    min_order_value: 799,
+    max_discount: 400,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 5000,
+    used_count: 98,
+    per_user_limit: 2,
     is_active: true,
   },
   {
     id: 'c-kura20',
     code: 'KURA20',
-    description: 'Flat 20% off on orders above ₹1500',
+    description: 'Flat 20% off on orders above ₹1,500 (Max savings ₹600)',
     discount_type: 'percentage',
     discount_value: 20,
     min_order_value: 1500,
     max_discount: 600,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 2000,
+    used_count: 520,
+    per_user_limit: 1,
     is_active: true,
   },
   {
     id: 'c-flat250',
     code: 'FLAT250',
-    description: 'Flat ₹250 instant discount on orders above ₹2000',
+    description: 'Flat ₹250 instant discount on orders above ₹1,299',
     discount_type: 'fixed',
     discount_value: 250,
-    min_order_value: 2000,
+    min_order_value: 1299,
     max_discount: 250,
+    start_date: '2026-01-01T00:00:00Z',
+    expiry_date: '2026-12-31T23:59:59Z',
+    usage_limit: 1000,
+    used_count: 215,
+    per_user_limit: 1,
     is_active: true,
   },
 ];
@@ -1128,16 +1188,49 @@ export function getProductReviews(productId: string): import('@/types').Review[]
   return REVIEWS_DATA[productId] || [];
 }
 
-export function validateCoupon(code: string, subtotal: number): { valid: boolean; coupon?: Coupon; error?: string; discountAmount: number } {
-  const coupon = COUPONS_DATA.find((c) => c.code.toUpperCase() === code.toUpperCase() && c.is_active);
-  if (!coupon) {
-    return { valid: false, error: 'Invalid coupon code', discountAmount: 0 };
+export function validateCoupon(
+  code: string,
+  subtotal: number,
+  userId?: string
+): { valid: boolean; coupon?: Coupon; error?: string; discountAmount: number } {
+  if (!code || !code.trim()) {
+    return { valid: false, error: 'Please enter a coupon code', discountAmount: 0 };
   }
 
+  const cleanCode = code.trim().toUpperCase();
+  const coupon = COUPONS_DATA.find((c) => c.code.toUpperCase() === cleanCode);
+
+  if (!coupon) {
+    return { valid: false, error: `Coupon code "${cleanCode}" does not exist.`, discountAmount: 0 };
+  }
+
+  if (!coupon.is_active) {
+    return { valid: false, error: `Coupon code "${cleanCode}" is no longer active.`, discountAmount: 0 };
+  }
+
+  const now = new Date();
+
+  // Start date verification
+  if (coupon.start_date && new Date(coupon.start_date) > now) {
+    return { valid: false, error: `Coupon code "${cleanCode}" has not started yet.`, discountAmount: 0 };
+  }
+
+  // Expiry date verification
+  if (coupon.expiry_date && new Date(coupon.expiry_date) < now) {
+    return { valid: false, error: `Coupon code "${cleanCode}" has expired.`, discountAmount: 0 };
+  }
+
+  // Usage limit verification
+  if (coupon.usage_limit && coupon.used_count && coupon.used_count >= coupon.usage_limit) {
+    return { valid: false, error: `Coupon code "${cleanCode}" usage limit has been reached.`, discountAmount: 0 };
+  }
+
+  // Minimum Order Value verification
   if (subtotal < coupon.min_order_value) {
+    const diff = coupon.min_order_value - subtotal;
     return {
       valid: false,
-      error: `Minimum order value for ${coupon.code} is ₹${coupon.min_order_value}`,
+      error: `Add ₹${diff} more to your cart to use "${coupon.code}" (Min order ₹${coupon.min_order_value}).`,
       discountAmount: 0,
     };
   }
@@ -1152,5 +1245,9 @@ export function validateCoupon(code: string, subtotal: number): { valid: boolean
     discountAmount = coupon.discount_value;
   }
 
-  return { valid: true, coupon, discountAmount: Math.round(discountAmount) };
+  return {
+    valid: true,
+    coupon,
+    discountAmount: Math.min(Math.round(discountAmount), subtotal),
+  };
 }

@@ -134,6 +134,11 @@ export interface Coupon {
   discount_value: number;
   min_order_value: number;
   max_discount?: number;
+  start_date?: string;
+  expiry_date?: string;
+  usage_limit?: number;
+  used_count?: number;
+  per_user_limit?: number;
   is_active: boolean;
 }
 
