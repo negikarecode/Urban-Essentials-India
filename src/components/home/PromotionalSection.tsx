@@ -24,7 +24,7 @@ export function PromotionalSection() {
             </div>
 
             <p className="text-sm sm:text-base text-brand-cream-200 leading-relaxed max-w-xl font-normal">
-              Gear up for campus or the boardroom with our iconic essentials: SUS304 insulated meal box, double-wall vacuum flask, 100GSM dot journal, and telescopic carry pouch.
+              Enjoy complete routine preparedness with our signature bundle: SUS304 insulated meal box, double-wall vacuum flask, and everyday carry gear.
             </p>
 
             {/* Luxury Coupon Code Bar */}

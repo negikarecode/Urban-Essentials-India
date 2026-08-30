@@ -108,56 +108,27 @@ export function Footer() {
           {/* Shop Categories */}
           <div className="space-y-3">
             <h5 className="text-xs font-bold uppercase tracking-widest text-brand-amber-400">
-              Categories
-            </h5>
-            <ul className="space-y-2 text-sm text-brand-cream-300/80">
-              {CATEGORIES.slice(0, 6).map((cat) => (
-                <li key={cat.id}>
-                  <Link
-                    href={`/category/${cat.slug}`}
-                    className="hover:text-white transition-colors"
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Shop By Segment */}
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-widest text-brand-amber-400">
-              By Audience
+              Shop Essentials
             </h5>
             <ul className="space-y-2 text-sm text-brand-cream-300/80">
               <li>
-                <Link href="/audience/school" className="hover:text-white transition-colors">
-                  School Kids (Ages 6-14)
+                <Link href="/category/water-bottles" className="hover:text-white transition-colors">
+                  Bottles & Flasks
                 </Link>
               </li>
               <li>
-                <Link href="/audience/college" className="hover:text-white transition-colors">
-                  College & Campus
+                <Link href="/category/backpacks" className="hover:text-white transition-colors">
+                  Bags & Backpacks
                 </Link>
               </li>
               <li>
-                <Link href="/audience/office" className="hover:text-white transition-colors">
-                  Office & Professionals
+                <Link href="/category/lunch-boxes" className="hover:text-white transition-colors">
+                  Lunchboxes & Meal Jars
                 </Link>
               </li>
               <li>
-                <Link href="/products?filter=bestseller" className="hover:text-white transition-colors">
-                  Best Sellers
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?filter=new" className="hover:text-white transition-colors">
-                  New Arrivals
-                </Link>
-              </li>
-              <li>
-                <Link href="/category/gift-sets" className="hover:text-white transition-colors">
-                  Gift Sets & Bundles
+                <Link href="/products" className="hover:text-white transition-colors">
+                  All Products (Shop All)
                 </Link>
               </li>
             </ul>
@@ -171,22 +142,22 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-brand-cream-300/80">
               <li>
                 <Link href="/account" className="hover:text-white transition-colors">
-                  Track Order
+                  Track Orders
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Us / Inquiries
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  Materials & Sustainability
+                  Contact Us & FAQs
                 </Link>
               </li>
               <li>
                 <Link href="/wishlist" className="hover:text-white transition-colors">
-                  My Wishlist
+                  Saved Wishlist
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  Materials & Standards
                 </Link>
               </li>
               <li>
@@ -194,6 +165,19 @@ export function Footer() {
                   Admin Dashboard
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Guarantees & Info */}
+          <div className="space-y-3">
+            <h5 className="text-xs font-bold uppercase tracking-widest text-brand-amber-400">
+              Urban Promise
+            </h5>
+            <ul className="space-y-2 text-sm text-brand-cream-300/80">
+              <li>SUS304 Food-Grade Steel</li>
+              <li>100% BPA Free & Non-Toxic</li>
+              <li>Free Shipping Over ₹999</li>
+              <li>1-Year Quality Warranty</li>
             </ul>
           </div>
         </div>

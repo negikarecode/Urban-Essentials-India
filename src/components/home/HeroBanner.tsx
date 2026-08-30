@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function HeroBanner() {
   return (
@@ -24,7 +24,7 @@ export function HeroBanner() {
             </div>
 
             <p className="text-sm sm:text-base text-brand-charcoal-700 leading-relaxed max-w-xl font-normal">
-              Precision-engineered bottles, backpacks, lunchboxes, and carry gear tailored for school, university campus, and executive office routines.
+              Precision-engineered bottles, durable backpacks, and stainless steel lunchboxes designed for seamless daily hydration, storage, and meals.
             </p>
 
             {/* High-End Brand Buttons (Sharp, Bold, High Contrast) */}
@@ -33,14 +33,14 @@ export function HeroBanner() {
                 href="/products"
                 className="px-8 py-4 bg-brand-forest-950 hover:bg-black text-white text-xs font-bold uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 group text-center"
               >
-                <span>Shop Collection</span>
+                <span>Shop All Essentials</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="#shop-by-need"
+                href="/category/backpacks"
                 className="px-8 py-4 bg-transparent hover:bg-brand-cream-200 text-brand-forest-950 border border-brand-forest-950 text-xs font-bold uppercase tracking-[0.18em] transition-all text-center"
               >
-                Explore By Segment
+                Explore Bags
               </Link>
             </div>
 

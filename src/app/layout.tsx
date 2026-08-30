@@ -23,28 +23,23 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Urban Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
+  title: 'Urban Essentials | Premium Bottles, Bags & Lunchboxes',
   description:
-    'Thoughtfully engineered everyday carry, leak-proof bento lunch boxes, vacuum insulated water bottles, campus backpacks, and minimalist desk stationery for School, College & Work.',
+    'Thoughtfully engineered stainless steel water bottles, everyday backpacks, and leak-proof lunchboxes.',
   keywords: [
     'lunch box',
-    'bento box',
     'water bottle',
     'insulated flask',
     'backpack',
-    'school bag',
-    'stationery',
-    'desk accessories',
+    'bags',
+    'meal jars',
     'everyday carry',
-    'school gear',
-    'college essentials',
-    'office accessories',
   ],
   authors: [{ name: 'Urban Essentials' }],
   openGraph: {
-    title: 'Urban Essentials | Premium Bento Boxes, Bottles, Bags & Everyday Carry',
+    title: 'Urban Essentials | Premium Bottles, Bags & Lunchboxes',
     description:
-      'Engineered everyday essentials for School, College & Work. 100% Food-Grade, BPA Free, 1-Year Guarantee.',
+      'Engineered everyday essentials: 100% Food-Grade 304 Steel, BPA Free, 1-Year Guarantee.',
     url: 'https://urbanessentials.com',
     siteName: 'Urban Essentials',
     images: [

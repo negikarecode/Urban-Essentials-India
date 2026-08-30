@@ -81,35 +81,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </form>
         </div>
 
-        {/* Audience Segment Tabs */}
-        <div className="p-4 bg-brand-cream-200/60 border-b border-brand-cream-300">
-          <p className="text-xs font-semibold text-brand-charcoal-500 uppercase tracking-wider mb-2">
-            Shop By Segment
-          </p>
-          <div className="grid grid-cols-3 gap-1.5">
-            <Link
-              href="/audience/school"
-              onClick={onClose}
-              className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
-            >
-              School
-            </Link>
-            <Link
-              href="/audience/college"
-              onClick={onClose}
-              className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
-            >
-              College
-            </Link>
-            <Link
-              href="/audience/office"
-              onClick={onClose}
-              className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
-            >
-              Office
-            </Link>
-          </div>
-        </div>
+
 
         {/* Categories List */}
         <div className="p-4 flex-1">

@@ -1,18 +1,16 @@
 import React from 'react';
 import { HeroBanner } from '@/components/home/HeroBanner';
-import { ShopByNeed } from '@/components/home/ShopByNeed';
 import { ShopByCategory } from '@/components/home/ShopByCategory';
 import { PromotionalSection } from '@/components/home/PromotionalSection';
 import { TrendingProducts } from '@/components/home/TrendingProducts';
 import { BestSellers } from '@/components/home/BestSellers';
-import { FeaturedCollection } from '@/components/home/FeaturedCollection';
 import { TrustSection } from '@/components/home/TrustSection';
 import { Newsletter } from '@/components/home/Newsletter';
 
 export const metadata = {
-  title: 'Urban Essentials | Everyday Carry for School, College & Office',
+  title: 'Urban Essentials | Premium Bottles, Bags & Lunchboxes',
   description:
-    'Thoughtfully engineered leak-proof bento boxes, vacuum insulated water bottles, ergonomic backpacks, and minimalist stationery for modern daily routines.',
+    'Thoughtfully engineered stainless steel water bottles, everyday backpacks, and leak-proof lunchboxes built for pristine daily routines.',
 };
 
 export default function HomePage() {
@@ -21,28 +19,22 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <HeroBanner />
 
-      {/* 2. Shop by Need (Audience Curation: School, College, Office) */}
-      <ShopByNeed />
-
-      {/* 3. Shop by Category (7 Visual Category Cards) */}
+      {/* 2. Core Categories (Bottles, Bags, Lunchboxes) */}
       <ShopByCategory />
 
-      {/* 4. Promotional Banner (Back to Routine: Save up to 30%) */}
-      <PromotionalSection />
-
-      {/* 5. Trending Products (Dynamic with Skeleton Loaders) */}
-      <TrendingProducts />
-
-      {/* 6. Best Sellers (Dynamic with Skeleton Loaders) */}
+      {/* 3. Best Sellers */}
       <BestSellers />
 
-      {/* 7. Featured Collection (Campus Essentials) */}
-      <FeaturedCollection />
+      {/* 4. Promotional Banner */}
+      <PromotionalSection />
 
-      {/* 8. Trust Section (Secure Payments, Easy Returns, Quality, Fast Shipping) */}
+      {/* 5. Trending Products */}
+      <TrendingProducts />
+
+      {/* 6. Trust Section */}
       <TrustSection />
 
-      {/* 9. Newsletter Section (10% Off Signup) */}
+      {/* 7. Newsletter Section */}
       <Newsletter />
     </div>
   );

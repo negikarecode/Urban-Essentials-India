@@ -94,12 +94,10 @@ export function ProductDetailClient({
 
         {/* Right Col: Product Information & Purchase Panel */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Top Badges & Audience */}
+          {/* Top Badges */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-forest-100 text-brand-forest-900 border border-brand-forest-200">
-              {product.target_audience === 'all'
-                ? 'All Segments'
-                : `For ${product.target_audience}`}
+              {product.category_name || 'Essential'}
             </span>
             {product.is_bestseller && (
               <span className="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-200">
@@ -365,10 +363,10 @@ export function ProductDetailClient({
                       <td className="py-2.5 text-brand-charcoal-800">{product.brand}</td>
                     </tr>
                   )}
-                  <tr>
-                    <td className="py-2.5 font-bold text-brand-charcoal-700">Target Audience</td>
-                    <td className="py-2.5 text-brand-charcoal-800 capitalize">{product.target_audience}</td>
-                  </tr>
+                    <tr>
+                      <td className="py-2.5 font-bold text-brand-charcoal-700">Category</td>
+                      <td className="py-2.5 text-brand-charcoal-800">{product.category_name}</td>
+                    </tr>
                 </tbody>
               </table>
             </div>

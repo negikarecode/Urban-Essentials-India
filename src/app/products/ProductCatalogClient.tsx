@@ -2,14 +2,19 @@
 
 import React, { useState, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Filter, SlidersHorizontal, X, Search, RotateCcw, ChevronDown } from 'lucide-react';
-import { Product, TargetAudience } from '@/types';
-import { CATEGORIES } from '@/lib/data/products';
+import { Filter, SlidersHorizontal, X, Search, RotateCcw } from 'lucide-react';
+import { Product } from '@/types';
 import { ProductGrid } from '@/components/product/ProductGrid';
 
 interface ProductCatalogClientProps {
   initialProducts: Product[];
 }
+
+const CORE_CATEGORIES = [
+  { slug: 'water-bottles', name: 'Bottles & Flasks' },
+  { slug: 'backpacks', name: 'Bags & Backpacks' },
+  { slug: 'lunch-boxes', name: 'Lunchboxes & Food Jars' },
+];
 
 export function ProductCatalogClient({ initialProducts }: ProductCatalogClientProps) {
   const router = useRouter();
@@ -17,13 +22,11 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
 
   // Search Param Initializers
   const queryParam = searchParams.get('q') || '';
-  const audienceParam = searchParams.get('audience') as TargetAudience | null;
   const categoryParam = searchParams.get('category') || '';
   const filterFlagParam = searchParams.get('filter') || ''; // 'bestseller' | 'new'
 
   // Local Filter States
   const [searchQuery, setSearchQuery] = useState(queryParam);
-  const [selectedAudience, setSelectedAudience] = useState<string>(audienceParam || 'all');
   const [selectedCategory, setSelectedCategory] = useState<string>(categoryParam || 'all');
   const [priceMax, setPriceMax] = useState<number>(5000);
   const [onlyInStock, setOnlyInStock] = useState<boolean>(false);
@@ -42,7 +45,6 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
         const descLower = product.description.toLowerCase();
         const skuLower = product.sku.toLowerCase();
         const catLower = (product.category_name || '').toLowerCase();
-        const audLower = product.target_audience.toLowerCase();
         const tagsLower = product.tags.map((t) => t.toLowerCase());
 
         const matchesQuery = tokens.every(
@@ -51,18 +53,10 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
             descLower.includes(t) ||
             skuLower.includes(t) ||
             catLower.includes(t) ||
-            audLower.includes(t) ||
             tagsLower.some((tag) => tag.includes(t))
         );
 
         if (!matchesQuery) return false;
-      }
-
-      // Audience filter
-      if (selectedAudience !== 'all') {
-        if (product.target_audience !== selectedAudience && product.target_audience !== 'all') {
-          return false;
-        }
       }
 
       // Category filter
@@ -95,7 +89,6 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
   }, [
     initialProducts,
     searchQuery,
-    selectedAudience,
     selectedCategory,
     priceMax,
     onlyInStock,
@@ -106,7 +99,6 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
 
   const activeFilterCount = useMemo(() => {
     let count = 0;
-    if (selectedAudience !== 'all') count++;
     if (selectedCategory !== 'all') count++;
     if (priceMax < 5000) count++;
     if (onlyInStock) count++;
@@ -114,11 +106,10 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
     if (onlyNewArrivals) count++;
     if (searchQuery.trim()) count++;
     return count;
-  }, [selectedAudience, selectedCategory, priceMax, onlyInStock, onlyBestsellers, onlyNewArrivals, searchQuery]);
+  }, [selectedCategory, priceMax, onlyInStock, onlyBestsellers, onlyNewArrivals, searchQuery]);
 
   const resetFilters = () => {
     setSearchQuery('');
-    setSelectedAudience('all');
     setSelectedCategory('all');
     setPriceMax(5000);
     setOnlyInStock(false);
@@ -152,33 +143,6 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
         )}
       </div>
 
-      {/* Target Audience Segment */}
-      <div>
-        <label className="block text-xs font-bold text-brand-charcoal-700 uppercase tracking-wider mb-2.5">
-          Audience Segment
-        </label>
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { id: 'all', label: 'All Segments' },
-            { id: 'school', label: 'School' },
-            { id: 'college', label: 'College' },
-            { id: 'office', label: 'Office' },
-          ].map((aud) => (
-            <button
-              key={aud.id}
-              onClick={() => setSelectedAudience(aud.id)}
-              className={`px-3 py-2 rounded-xl text-xs font-semibold border transition-all text-left ${
-                selectedAudience === aud.id
-                  ? 'border-brand-forest-800 bg-brand-forest-50 text-brand-forest-900 font-bold shadow-xs'
-                  : 'border-brand-cream-300 text-brand-charcoal-700 hover:bg-brand-cream-100'
-              }`}
-            >
-              {aud.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Categories */}
       <div>
         <label className="block text-xs font-bold text-brand-charcoal-700 uppercase tracking-wider mb-2">
@@ -187,25 +151,25 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
         <div className="space-y-1">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+            className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
               selectedCategory === 'all'
-                ? 'bg-brand-forest-800 text-white font-bold'
+                ? 'bg-brand-forest-950 text-white font-bold'
                 : 'text-brand-charcoal-700 hover:bg-brand-cream-200'
             }`}
           >
-            All Categories ({initialProducts.length})
+            All Products ({initialProducts.length})
           </button>
-          {CATEGORIES.map((cat) => {
+          {CORE_CATEGORIES.map((cat) => {
             const count = initialProducts.filter(
-              (p) => p.category_slug === cat.slug || p.category_id === cat.id
+              (p) => p.category_slug === cat.slug
             ).length;
             return (
               <button
-                key={cat.id}
+                key={cat.slug}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                   selectedCategory === cat.slug
-                    ? 'bg-brand-forest-800 text-white font-bold'
+                    ? 'bg-brand-forest-950 text-white font-bold'
                     : 'text-brand-charcoal-700 hover:bg-brand-cream-200'
                 }`}
               >
@@ -273,20 +237,10 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950">
-          All Products & Essentials
-        </h1>
-        <p className="text-sm text-brand-charcoal-600 mt-1">
-          Explore durable, leak-proof lunch boxes, insulated water bottles, orthopedic backpacks, and desk stationery.
-        </p>
-      </div>
-
-      {/* Top Filter & Sort Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-brand-cream-300 shadow-xs mb-8">
-        {/* Mobile Filter Trigger */}
+    <div className="space-y-8">
+      {/* Top Filter Bar & Search */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-brand-cream-300 shadow-xs">
+        {/* Mobile Filter Button */}
         <button
           onClick={() => setIsMobileFilterOpen(true)}
           className="lg:hidden flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-brand-forest-800 text-white text-xs font-bold shadow-xs"
@@ -341,7 +295,7 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
       {/* Main Layout (Sidebar + Grid) */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
         {/* Desktop Filter Sidebar */}
-        <aside className="hidden lg:block lg:col-span-1 p-6 rounded-3xl bg-white border border-brand-cream-300 shadow-xs sticky top-28">
+        <aside className="hidden lg:block lg:col-span-1 p-6 rounded-2xl bg-white border border-brand-cream-300 shadow-xs sticky top-28">
           {FilterSidebarContent}
         </aside>
 
@@ -358,28 +312,39 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/50 backdrop-blur-xs"
             onClick={() => setIsMobileFilterOpen(false)}
           />
-          <div className="relative w-full max-w-xs bg-white h-full flex flex-col z-10 shadow-2xl p-6 overflow-y-auto">
-            <div className="flex items-center justify-between pb-4 border-b border-brand-cream-300 mb-6">
-              <h3 className="font-serif font-bold text-lg text-brand-forest-950">Filters</h3>
-              <button
-                onClick={() => setIsMobileFilterOpen(false)}
-                className="p-1.5 rounded-full hover:bg-brand-cream-200 text-brand-charcoal-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
+          <div className="relative w-full max-w-xs bg-white h-full p-6 overflow-y-auto shadow-2xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-brand-cream-300 mb-6">
+                <h3 className="font-serif font-bold text-lg text-brand-forest-950">Filters</h3>
+                <button
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="p-1 rounded-lg text-brand-charcoal-500 hover:bg-brand-cream-200"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              {FilterSidebarContent}
             </div>
 
-            <div className="flex-1">{FilterSidebarContent}</div>
-
-            <button
-              onClick={() => setIsMobileFilterOpen(false)}
-              className="w-full mt-6 py-3 bg-brand-forest-800 text-white rounded-xl font-bold text-xs shadow-md"
-            >
-              Apply Filters ({filteredProducts.length} items)
-            </button>
+            <div className="pt-6 border-t border-brand-cream-300 mt-6 space-y-2">
+              <button
+                onClick={() => setIsMobileFilterOpen(false)}
+                className="w-full py-3 bg-brand-forest-950 text-white text-xs font-bold uppercase tracking-wider rounded-xl"
+              >
+                Apply Filters ({filteredProducts.length})
+              </button>
+              {activeFilterCount > 0 && (
+                <button
+                  onClick={resetFilters}
+                  className="w-full py-2 bg-brand-cream-100 text-brand-charcoal-700 text-xs font-semibold rounded-xl"
+                >
+                  Reset All
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}

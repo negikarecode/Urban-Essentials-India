@@ -117,10 +117,9 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Editorial Information Box */}
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3 bg-white">
         <div className="space-y-1">
-          {/* Category & Segment Line */}
-          <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-brand-charcoal-400 font-semibold">
-            <span>{product.category_name || 'Carry Essential'}</span>
-            <span>{product.target_audience === 'all' ? 'All' : product.target_audience}</span>
+          {/* Category Line */}
+          <div className="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal-400 font-semibold">
+            <span>{product.category_name || 'Essential'}</span>
           </div>
 
           {/* Product Headline */}
