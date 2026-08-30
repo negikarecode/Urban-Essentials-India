@@ -15,15 +15,20 @@ import {
   Calendar,
   ChevronRight,
   Sparkles,
+  Lock,
+  ArrowRight,
+  Clock,
+  CheckCircle2,
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { formatCurrency } from '@/lib/utils';
 import { Address } from '@/types';
 import { toast } from 'sonner';
+import { Button } from '@/components/ui/Button';
 
 export default function AccountPage() {
-  const { user, signOut, demoLoginAsCustomer, demoLoginAsAdmin, isAdmin } = useAuth();
+  const { user, signOut, demoLoginAsCustomer, demoLoginAsAdmin, isAdmin, updateProfile } = useAuth();
   const { wishlistCount } = useWishlist();
 
   const [activeTab, setActiveTab] = useState<'orders' | 'addresses' | 'profile'>('orders');
@@ -33,7 +38,7 @@ export default function AccountPage() {
     {
       id: 'addr-1',
       full_name: user?.full_name || 'Aryan Sharma',
-      email: user?.email || 'aryan@gmail.com',
+      email: user?.email || 'aryan@example.com',
       phone: '9876543210',
       address_line1: 'Flat 402, Green Meadows Apartment',
       address_line2: 'Sector 14, Main Road',
@@ -53,6 +58,10 @@ export default function AccountPage() {
   const [newCity, setNewCity] = useState('');
   const [newState, setNewState] = useState('Karnataka');
   const [newPostalCode, setNewPostalCode] = useState('');
+
+  // Profile Edit State
+  const [profileName, setProfileName] = useState(user?.full_name || '');
+  const [profilePhone, setProfilePhone] = useState(user?.phone || '');
 
   // Sample Past Orders
   const sampleOrders = [
@@ -110,7 +119,7 @@ export default function AccountPage() {
       address_type: 'home',
     };
     setAddresses([...addresses, newAddr]);
-    toast.success('New address added');
+    toast.success('New delivery address added');
     setIsAddAddressOpen(false);
     setNewFullName('');
     setNewPhone('');
@@ -125,18 +134,77 @@ export default function AccountPage() {
     toast.info('Address removed');
   };
 
+  const handleSaveProfile = async () => {
+    await updateProfile(profileName, profilePhone);
+  };
+
+  // If user is not logged in, render authenticated customer access prompt
+  if (!user) {
+    return (
+      <div className="max-w-xl mx-auto px-4 py-20 text-center space-y-6">
+        <div className="w-18 h-18 rounded-3xl bg-brand-cream-200 flex items-center justify-center text-brand-forest-800 mx-auto border border-brand-cream-300 shadow-sm">
+          <Lock className="w-9 h-9" />
+        </div>
+        <div className="space-y-2">
+          <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950">
+            Sign In to Your Account
+          </h1>
+          <p className="text-xs sm:text-sm text-brand-charcoal-600 leading-relaxed max-w-md mx-auto">
+            Please log in to view your order history, track deliveries, manage saved addresses, and view your personal wishlist.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+          <Link href="/login">
+            <Button variant="primary" size="lg" className="w-full sm:w-auto" rightIcon={<ArrowRight className="w-4 h-4" />}>
+              Sign In with Email
+            </Button>
+          </Link>
+          <Link href="/register">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              Create New Account
+            </Button>
+          </Link>
+        </div>
+
+        {/* Demo Fast Login Pills */}
+        <div className="pt-6 border-t border-brand-cream-300 max-w-sm mx-auto space-y-2">
+          <p className="text-[11px] font-bold text-brand-charcoal-500 uppercase tracking-wider">
+            Quick Demo Shortcuts
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={demoLoginAsCustomer}
+              className="px-3 py-2 bg-white rounded-xl text-xs font-bold text-brand-forest-800 border border-brand-cream-300 hover:bg-brand-cream-100 transition-colors flex items-center justify-center gap-1 shadow-xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-brand-amber-500" />
+              <span>Demo Customer</span>
+            </button>
+            <button
+              onClick={demoLoginAsAdmin}
+              className="px-3 py-2 bg-brand-forest-800 rounded-xl text-xs font-bold text-white hover:bg-brand-forest-900 transition-colors flex items-center justify-center gap-1 shadow-xs"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-brand-amber-400" />
+              <span>Demo Admin</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Account Header */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-cream-300 shadow-xs mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-brand-forest-800 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-md">
-            {user?.full_name ? user.full_name.charAt(0).toUpperCase() : 'U'}
+            {user.full_name ? user.full_name.charAt(0).toUpperCase() : 'U'}
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h1 className="font-serif font-extrabold text-2xl text-brand-forest-950">
-                {user ? user.full_name || user.email : 'Guest Customer'}
+                {user.full_name || user.email}
               </h1>
               {isAdmin && (
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-brand-forest-800 text-white">
@@ -145,48 +213,28 @@ export default function AccountPage() {
               )}
             </div>
             <p className="text-xs text-brand-charcoal-500 mt-0.5">
-              {user?.email || 'Sign in to access your order history and saved cards.'}
+              {user.email}
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          {user ? (
-            <>
-              {isAdmin && (
-                <Link
-                  href="/admin"
-                  className="px-4 py-2.5 bg-brand-forest-50 hover:bg-brand-forest-100 text-brand-forest-900 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
-                >
-                  <ShieldCheck className="w-4 h-4 text-brand-forest-700" />
-                  <span>Admin Dashboard</span>
-                </Link>
-              )}
-              <button
-                onClick={signOut}
-                className="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>Sign Out</span>
-              </button>
-            </>
-          ) : (
-            <div className="flex gap-2">
-              <button
-                onClick={demoLoginAsCustomer}
-                className="px-4 py-2.5 bg-brand-forest-800 hover:bg-brand-forest-900 text-white rounded-xl text-xs font-bold flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Sign In Demo Customer</span>
-              </button>
-              <button
-                onClick={demoLoginAsAdmin}
-                className="px-4 py-2.5 bg-brand-cream-200 hover:bg-brand-cream-300 text-brand-forest-950 rounded-xl text-xs font-bold"
-              >
-                Demo Admin
-              </button>
-            </div>
+          {isAdmin && (
+            <Link
+              href="/admin"
+              className="px-4 py-2.5 bg-brand-forest-50 hover:bg-brand-forest-100 text-brand-forest-900 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
+            >
+              <ShieldCheck className="w-4 h-4 text-brand-forest-700" />
+              <span>Admin Dashboard</span>
+            </Link>
           )}
+          <button
+            onClick={signOut}
+            className="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sign Out</span>
+          </button>
         </div>
       </div>
 
@@ -499,25 +547,37 @@ export default function AccountPage() {
                   </label>
                   <input
                     type="text"
-                    defaultValue={user?.full_name || 'Aryan Sharma'}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs"
+                    value={profileName}
+                    onChange={(e) => setProfileName(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
-                    Email
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={profilePhone}
+                    onChange={(e) => setProfilePhone(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Email Address (Account Identifier)
                   </label>
                   <input
                     type="email"
                     disabled
-                    defaultValue={user?.email || 'aryan@gmail.com'}
+                    value={user.email}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-300 bg-brand-cream-100 text-xs text-brand-charcoal-600"
                   />
                 </div>
               </div>
               <button
-                onClick={() => toast.success('Profile updated successfully')}
-                className="px-6 py-2.5 bg-brand-forest-800 text-white rounded-xl text-xs font-bold hover:bg-brand-forest-900"
+                onClick={handleSaveProfile}
+                className="px-6 py-2.5 bg-brand-forest-800 text-white rounded-xl text-xs font-bold hover:bg-brand-forest-900 transition-colors"
               >
                 Save Changes
               </button>
