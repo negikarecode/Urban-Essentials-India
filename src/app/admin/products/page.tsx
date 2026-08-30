@@ -11,16 +11,20 @@ import {
   X,
   Package,
   Sparkles,
+  Layers,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { PRODUCTS, CATEGORIES } from '@/lib/data/products';
-import { Product, TargetAudience } from '@/types';
+import { Product, ProductImage, TargetAudience } from '@/types';
 import { formatCurrency, slugify } from '@/lib/utils';
+import { ProductImageManager } from '@/components/admin/ProductImageManager';
 import { toast } from 'sonner';
 
 export default function AdminProductsPage() {
   const [productList, setProductList] = useState<Product[]>(PRODUCTS);
   const [search, setSearch] = useState('');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
   // New Product Form State
   const [newName, setNewName] = useState('');
@@ -31,9 +35,15 @@ export default function AdminProductsPage() {
   const [newAudience, setNewAudience] = useState<TargetAudience>('all');
   const [newStock, setNewStock] = useState(50);
   const [newDescription, setNewDescription] = useState('');
-  const [newImageUrl, setNewImageUrl] = useState(
-    'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80'
-  );
+  const [newImages, setNewImages] = useState<ProductImage[]>([
+    {
+      id: 'img-default-1',
+      image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+      alt_text: 'Product Preview',
+      sort_order: 1,
+      is_primary: true,
+    },
+  ]);
 
   const filtered = productList.filter(
     (p) =>
@@ -65,10 +75,10 @@ export default function AdminProductsPage() {
       target_audience: newAudience,
       brand: 'KURA',
       tags: [matchedCat.slug, newAudience],
-      images: [
+      images: newImages.length > 0 ? newImages : [
         {
           id: `img-${Date.now()}`,
-          image_url: newImageUrl,
+          image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
           alt_text: newName,
           sort_order: 1,
           is_primary: true,
@@ -92,6 +102,17 @@ export default function AdminProductsPage() {
     setNewName('');
     setNewSku('');
     setNewDescription('');
+  };
+
+  const handleUpdateProduct = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingProduct) return;
+
+    setProductList((prev) =>
+      prev.map((p) => (p.id === editingProduct.id ? { ...editingProduct, updated_at: new Date().toISOString() } : p))
+    );
+    toast.success(`Updated "${editingProduct.name}"`);
+    setEditingProduct(null);
   };
 
   const handleToggleActive = (id: string) => {
@@ -118,35 +139,45 @@ export default function AdminProductsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950">
-            Product Catalog Management
+            Product Management
           </h1>
-          <p className="text-xs text-brand-charcoal-500 mt-1">
-            Manage inventory, update prices, upload product photography, and add new SKUs.
+          <p className="text-xs sm:text-sm text-brand-charcoal-500 mt-0.5">
+            Manage catalog items, pricing, inventory thresholds, and media galleries.
           </p>
         </div>
-
         <button
-          onClick={() => setIsAddModalOpen(true)}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-brand-forest-800 hover:bg-brand-forest-900 text-white rounded-xl text-xs font-bold shadow-sm transition-colors self-start sm:self-auto"
+          onClick={() => {
+            setNewImages([
+              {
+                id: `img-${Date.now()}`,
+                image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+                alt_text: 'Preview',
+                sort_order: 1,
+                is_primary: true,
+              },
+            ]);
+            setIsAddModalOpen(true);
+          }}
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-forest-800 hover:bg-brand-forest-900 text-white rounded-xl text-xs font-bold shadow-md transition-all self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Product</span>
         </button>
       </div>
 
-      {/* Filter & Search Toolbar */}
-      <div className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-brand-cream-300 shadow-xs">
-        <div className="relative flex-1 max-w-sm">
+      {/* Filter & Search */}
+      <div className="bg-white p-4 rounded-3xl border border-brand-cream-300 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3 w-full sm:w-80">
+          <Search className="w-4 h-4 text-brand-charcoal-400 shrink-0" />
           <input
             type="text"
-            placeholder="Search by SKU, product name, or category..."
+            placeholder="Search by title, SKU, or category..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-brand-cream-400 bg-brand-cream-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
+            className="w-full text-xs text-brand-charcoal-800 placeholder-brand-charcoal-400 bg-transparent focus:outline-none"
           />
-          <Search className="w-4 h-4 text-brand-charcoal-400 absolute left-3 top-2.5" />
         </div>
-        <span className="text-xs text-brand-charcoal-500">
+        <span className="text-xs text-brand-charcoal-500 self-end sm:self-auto">
           Showing <strong>{filtered.length}</strong> items
         </span>
       </div>
@@ -186,7 +217,7 @@ export default function AdminProductsPage() {
                           {product.name}
                         </div>
                         <div className="text-[11px] text-brand-charcoal-400">
-                          {product.variants ? `${product.variants.length} Variants` : 'Single Item'}
+                          {product.images.length} Image{product.images.length !== 1 ? 's' : ''} • {product.variants ? `${product.variants.length} Variants` : 'Single Item'}
                         </div>
                       </div>
                     </div>
@@ -235,6 +266,13 @@ export default function AdminProductsPage() {
 
                   <td className="py-3 px-4 text-right">
                     <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => setEditingProduct(product)}
+                        className="p-1.5 text-brand-charcoal-600 hover:text-brand-forest-900 rounded-lg hover:bg-brand-cream-200"
+                        title="Edit product & gallery"
+                      >
+                        <Edit2 className="w-4 h-4" />
+                      </button>
                       <button
                         onClick={() => handleDelete(product.id, product.name)}
                         className="p-1.5 text-brand-charcoal-400 hover:text-rose-600 rounded-lg hover:bg-rose-50"
@@ -385,16 +423,12 @@ export default function AdminProductsPage() {
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
-                  Product Image URL (or Supabase CDN link)
-                </label>
-                <input
-                  type="url"
-                  required
-                  value={newImageUrl}
-                  onChange={(e) => setNewImageUrl(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
+              {/* Supabase Image Storage Upload & Gallery */}
+              <div className="p-4 bg-brand-cream-50 rounded-2xl border border-brand-cream-300">
+                <ProductImageManager
+                  productId="new-product"
+                  images={newImages}
+                  onChange={(imgs) => setNewImages(imgs)}
                 />
               </div>
 
@@ -424,6 +458,199 @@ export default function AdminProductsPage() {
                   className="px-6 py-2.5 rounded-xl bg-brand-forest-800 hover:bg-brand-forest-900 text-white text-xs font-bold shadow-md transition-colors"
                 >
                   Create Product
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Product Modal */}
+      {editingProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
+            onClick={() => setEditingProduct(null)}
+          />
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto animate-slide-up">
+            <div className="flex items-center justify-between pb-4 border-b border-brand-cream-300">
+              <div>
+                <h3 className="font-serif font-bold text-xl text-brand-forest-950">
+                  Edit Product: {editingProduct.name}
+                </h3>
+                <span className="text-[11px] font-mono text-brand-charcoal-500">
+                  SKU: {editingProduct.sku}
+                </span>
+              </div>
+              <button
+                onClick={() => setEditingProduct(null)}
+                className="p-1.5 rounded-full hover:bg-brand-cream-200 text-brand-charcoal-500"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleUpdateProduct} className="space-y-4 mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Product Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={editingProduct.name}
+                    onChange={(e) =>
+                      setEditingProduct({ ...editingProduct, name: e.target.value })
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    SKU Code *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={editingProduct.sku}
+                    onChange={(e) =>
+                      setEditingProduct({ ...editingProduct, sku: e.target.value.toUpperCase() })
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs font-mono uppercase"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Category *
+                  </label>
+                  <select
+                    value={editingProduct.category_slug}
+                    onChange={(e) => {
+                      const cat = CATEGORIES.find((c) => c.slug === e.target.value);
+                      setEditingProduct({
+                        ...editingProduct,
+                        category_slug: e.target.value,
+                        category_name: cat?.name || editingProduct.category_name,
+                      });
+                    }}
+                    className="w-full px-3 py-2.5 rounded-xl border border-brand-cream-400 text-xs bg-white"
+                  >
+                    {CATEGORIES.map((c) => (
+                      <option key={c.id} value={c.slug}>
+                        {c.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Target Segment *
+                  </label>
+                  <select
+                    value={editingProduct.target_audience}
+                    onChange={(e) =>
+                      setEditingProduct({
+                        ...editingProduct,
+                        target_audience: e.target.value as TargetAudience,
+                      })
+                    }
+                    className="w-full px-3 py-2.5 rounded-xl border border-brand-cream-400 text-xs bg-white"
+                  >
+                    <option value="all">All Audiences</option>
+                    <option value="school">School (Kids)</option>
+                    <option value="college">College (Students)</option>
+                    <option value="office">Office (Professionals)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Stock Quantity *
+                  </label>
+                  <input
+                    type="number"
+                    required
+                    min="0"
+                    value={editingProduct.stock_quantity}
+                    onChange={(e) =>
+                      setEditingProduct({
+                        ...editingProduct,
+                        stock_quantity: Number(e.target.value),
+                      })
+                    }
+                    className="w-full px-3 py-2.5 rounded-xl border border-brand-cream-400 text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Selling Price (₹) *
+                  </label>
+                  <input
+                    type="number"
+                    required
+                    min="1"
+                    value={editingProduct.price}
+                    onChange={(e) =>
+                      setEditingProduct({
+                        ...editingProduct,
+                        price: Number(e.target.value),
+                      })
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+                    Compare-At Price (₹)
+                  </label>
+                  <input
+                    type="number"
+                    value={editingProduct.compare_at_price || ''}
+                    onChange={(e) =>
+                      setEditingProduct({
+                        ...editingProduct,
+                        compare_at_price: Number(e.target.value),
+                      })
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 text-xs"
+                  />
+                </div>
+              </div>
+
+              {/* Product Gallery & Storage Manager */}
+              <div className="p-4 bg-brand-cream-50 rounded-2xl border border-brand-cream-300">
+                <ProductImageManager
+                  productId={editingProduct.id}
+                  images={editingProduct.images}
+                  onChange={(imgs) =>
+                    setEditingProduct({ ...editingProduct, images: imgs })
+                  }
+                />
+              </div>
+
+              <div className="pt-4 flex justify-end gap-3 border-t border-brand-cream-300">
+                <button
+                  type="button"
+                  onClick={() => setEditingProduct(null)}
+                  className="px-5 py-2.5 rounded-xl border border-brand-cream-300 text-xs font-bold text-brand-charcoal-700"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-xl bg-brand-forest-800 hover:bg-brand-forest-900 text-white text-xs font-bold shadow-md transition-colors"
+                >
+                  Save Changes
                 </button>
               </div>
             </form>
