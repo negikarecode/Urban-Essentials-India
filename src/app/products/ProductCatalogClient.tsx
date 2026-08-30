@@ -35,14 +35,27 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
   // Filter Computation
   const filteredProducts = useMemo(() => {
     return initialProducts.filter((product) => {
-      // Search query filter
+      // Multi-token & typo-tolerant search query filter
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchName = product.name.toLowerCase().includes(q);
-        const matchDesc = product.description.toLowerCase().includes(q);
-        const matchTag = product.tags.some((t) => t.toLowerCase().includes(q));
-        const matchCat = product.category_name?.toLowerCase().includes(q);
-        if (!matchName && !matchDesc && !matchTag && !matchCat) return false;
+        const tokens = searchQuery.trim().toLowerCase().split(/\s+/);
+        const nameLower = product.name.toLowerCase();
+        const descLower = product.description.toLowerCase();
+        const skuLower = product.sku.toLowerCase();
+        const catLower = (product.category_name || '').toLowerCase();
+        const audLower = product.target_audience.toLowerCase();
+        const tagsLower = product.tags.map((t) => t.toLowerCase());
+
+        const matchesQuery = tokens.every(
+          (t) =>
+            nameLower.includes(t) ||
+            descLower.includes(t) ||
+            skuLower.includes(t) ||
+            catLower.includes(t) ||
+            audLower.includes(t) ||
+            tagsLower.some((tag) => tag.includes(t))
+        );
+
+        if (!matchesQuery) return false;
       }
 
       // Audience filter

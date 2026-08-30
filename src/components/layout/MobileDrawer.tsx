@@ -1,8 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { X, ChevronRight, User, Heart, ShoppingBag, BookOpen, ShieldCheck, Sparkles } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import {
+  X,
+  ChevronRight,
+  User,
+  Heart,
+  ShoppingBag,
+  BookOpen,
+  ShieldCheck,
+  Sparkles,
+  Search,
+} from 'lucide-react';
 import { CATEGORIES } from '@/lib/data/products';
 import { useAuth } from '@/context/AuthContext';
 
@@ -12,9 +23,20 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
-  const { user, signOut, demoLoginAsCustomer, demoLoginAsAdmin } = useAuth();
+  const router = useRouter();
+  const { user, signOut, demoLoginAsCustomer } = useAuth();
+  const [mobileSearch, setMobileSearch] = useState('');
 
   if (!isOpen) return null;
+
+  const handleMobileSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (mobileSearch.trim()) {
+      router.push(`/products?q=${encodeURIComponent(mobileSearch.trim())}`);
+      setMobileSearch('');
+      onClose();
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden flex">
@@ -43,6 +65,20 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Mobile Search Bar */}
+        <div className="p-4 bg-white border-b border-brand-cream-300">
+          <form onSubmit={handleMobileSearch} className="relative flex items-center">
+            <input
+              type="text"
+              placeholder="Search bottles, bento, bags..."
+              value={mobileSearch}
+              onChange={(e) => setMobileSearch(e.target.value)}
+              className="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-brand-cream-400 bg-brand-cream-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
+            />
+            <Search className="w-4 h-4 text-brand-charcoal-400 absolute left-3 pointer-events-none" />
+          </form>
         </div>
 
         {/* Audience Segment Tabs */}
