@@ -119,45 +119,63 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+            <Link
+              href="/"
+              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+            >
+              Home
+            </Link>
             <Link
               href="/products"
-              className="px-3 py-2 text-sm font-medium text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
             >
-              All Products
+              Shop
             </Link>
 
-            {/* Target Audience Quick Pills */}
-            <div className="flex items-center bg-brand-cream-100/80 p-1 rounded-xl border border-brand-cream-300 mx-1">
-              <Link
-                href="/audience/school"
-                className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-white rounded-lg transition-all"
-              >
-                🎒 School
-              </Link>
-              <Link
-                href="/audience/college"
-                className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-white rounded-lg transition-all"
-              >
-                💻 College
-              </Link>
-              <Link
-                href="/audience/office"
-                className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-white rounded-lg transition-all"
-              >
-                💼 Office
-              </Link>
-            </div>
+            {/* Target Audience Quick Links */}
+            <Link
+              href="/audience/school"
+              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+            >
+              🎒 School
+            </Link>
+            <Link
+              href="/audience/college"
+              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+            >
+              💻 College
+            </Link>
+            <Link
+              href="/audience/office"
+              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+            >
+              💼 Office
+            </Link>
+
+            <Link
+              href="/products?sort=bestseller"
+              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+            >
+              Best Sellers
+            </Link>
+
+            <Link
+              href="/products?sort=newest"
+              className="px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+            >
+              New Arrivals
+            </Link>
 
             {/* Categories Dropdown */}
             <div className="relative" ref={categoryRef}>
               <button
                 onClick={() => setIsCategoryMenuOpen((prev) => !prev)}
-                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
+                className="flex items-center gap-1 px-2.5 py-2 text-xs xl:text-sm font-semibold text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
               >
                 <span>Categories</span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${
+                  className={`w-3.5 h-3.5 transition-transform ${
                     isCategoryMenuOpen ? 'rotate-180' : ''
                   }`}
                 />
@@ -181,13 +199,6 @@ export function Header() {
                 </div>
               )}
             </div>
-
-            <Link
-              href="/about"
-              className="px-3 py-2 text-sm font-medium text-brand-charcoal-800 hover:text-brand-forest-800 hover:bg-brand-cream-100 rounded-lg transition-colors"
-            >
-              Our Story
-            </Link>
           </nav>
 
           {/* Search Bar & Actions */}

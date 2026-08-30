@@ -2,70 +2,67 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Flame, Sparkles } from 'lucide-react';
+import { ArrowRight, Trophy } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { getProducts } from '@/lib/data/products';
+import { getBestsellers } from '@/lib/data/products';
 import { ProductCard } from '@/components/product/ProductCard';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Product } from '@/types';
 
-export function TrendingProducts() {
+export function BestSellers() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTrending() {
+    async function fetchBestsellers() {
       try {
         const supabase = createClient();
         const { data, error } = await supabase
           .from('products')
           .select('*')
           .eq('is_active', true)
-          .order('rating', { ascending: false })
+          .eq('is_bestseller', true)
           .limit(4);
 
         if (!error && data && data.length > 0) {
           setProducts(data as Product[]);
         } else {
-          // Fallback to local verified dataset
-          const localItems = getProducts().filter((p) => p.is_bestseller || p.rating >= 4.85).slice(0, 4);
-          setProducts(localItems);
+          setProducts(getBestsellers().slice(0, 4));
         }
       } catch {
-        const localItems = getProducts().filter((p) => p.is_bestseller || p.rating >= 4.85).slice(0, 4);
-        setProducts(localItems);
+        setProducts(getBestsellers().slice(0, 4));
       } finally {
         setIsLoading(false);
       }
     }
 
-    fetchTrending();
+    fetchBestsellers();
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-brand-cream-300">
+    <section className="py-16 sm:py-20 bg-brand-cream-50 border-b border-brand-cream-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">
-              <Flame className="w-4 h-4 fill-amber-500 text-amber-500" />
-              <span>Customer Favorites</span>
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-forest-800 uppercase tracking-wider mb-2">
+              <Trophy className="w-4 h-4 text-brand-forest-700" />
+              <span>Most Popular</span>
             </div>
             <h2 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl text-brand-forest-950">
-              Trending Products
+              Best Sellers
             </h2>
             <p className="text-xs sm:text-sm text-brand-charcoal-600 mt-1">
-              Top-rated daily carry picks receiving rave reviews across India.
+              Proven everyday essentials trusted by tens of thousands of users.
             </p>
           </div>
 
           <Link
-            href="/products?sort=rating"
+            href="/products?sort=bestseller"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-forest-800 hover:text-brand-forest-950 group"
           >
-            <span>View All Trending</span>
+            <span>View All Bestsellers</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

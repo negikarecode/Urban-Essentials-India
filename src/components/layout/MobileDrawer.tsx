@@ -82,14 +82,38 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </p>
           <div className="space-y-1">
             <Link
+              href="/"
+              onClick={onClose}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
+            >
+              <span>Home</span>
+              <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
+            </Link>
+            <Link
               href="/products"
               onClick={onClose}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-brand-charcoal-800 hover:bg-brand-cream-200 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
             >
               <span className="flex items-center gap-2.5">
                 <ShoppingBag className="w-4 h-4 text-brand-forest-700" />
-                All Products
+                All Products (Shop)
               </span>
+              <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
+            </Link>
+            <Link
+              href="/products?sort=bestseller"
+              onClick={onClose}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
+            >
+              <span>🔥 Best Sellers</span>
+              <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
+            </Link>
+            <Link
+              href="/products?sort=newest"
+              onClick={onClose}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
+            >
+              <span>✨ New Arrivals</span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
             {CATEGORIES.map((cat) => (
