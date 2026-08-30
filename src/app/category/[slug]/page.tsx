@@ -57,7 +57,7 @@ export default function CategoryPage({ params }: Props) {
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-linear-to-r from-brand-forest-950 via-brand-forest-900/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-forest-950 via-brand-forest-900/90 to-transparent" />
 
         <div className="relative z-10 max-w-2xl space-y-3">
           <span className="text-xs font-extrabold uppercase tracking-widest text-brand-amber-400">

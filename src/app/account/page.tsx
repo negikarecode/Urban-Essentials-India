@@ -67,7 +67,7 @@ export default function AccountPage() {
   const sampleOrders = [
     {
       id: 'ord-101',
-      order_number: 'KUR-2026-9042',
+      order_number: 'URB-2026-9042',
       date: '2026-08-25',
       total_amount: 1499,
       status: 'delivered',
@@ -83,7 +83,7 @@ export default function AccountPage() {
     },
     {
       id: 'ord-102',
-      order_number: 'KUR-2026-8819',
+      order_number: 'URB-2026-8819',
       date: '2026-08-14',
       total_amount: 3299,
       status: 'shipped',

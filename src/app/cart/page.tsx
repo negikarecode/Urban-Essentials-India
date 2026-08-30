@@ -83,7 +83,7 @@ export default function CartPage() {
           Your Shopping Cart is Empty
         </h1>
         <p className="text-xs sm:text-sm text-brand-charcoal-600 max-w-md mx-auto leading-relaxed">
-          Looks like you haven&apos;t added any essentials yet. Discover our curated collections for school, college, and office.
+          Looks like you haven&apos;t added any essentials yet. Discover our precision-crafted bottles, backpacks, and lunchboxes.
         </p>
         <div className="pt-2">
           <Link

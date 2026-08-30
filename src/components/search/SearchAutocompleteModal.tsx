@@ -23,13 +23,12 @@ interface SearchModalProps {
 }
 
 const POPULAR_SEARCHES = [
+  'Water Bottle',
+  'Backpack',
   'Lunch Box',
-  'Office Bottle',
-  'School Bag',
-  'College Notebook',
-  'Laptop Backpack',
-  'Desk Accessories',
-  'Soup Food Jar',
+  'Insulated Flask',
+  'Laptop Bag',
+  'Food Jar',
 ];
 
 export function SearchAutocompleteModal({ isOpen, onClose }: SearchModalProps) {

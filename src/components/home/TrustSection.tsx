@@ -28,17 +28,19 @@ export function TrustSection() {
   return (
     <section className="bg-brand-forest-950 text-white border-y border-brand-forest-900 py-8 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-brand-forest-800/80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {TRUST_PILLARS.map((pillar, idx) => (
             <div
               key={idx}
-              className={`flex items-start gap-4 ${idx !== 0 ? 'pt-6 sm:pt-0 sm:pl-6 lg:pl-8' : ''}`}
+              className={`flex items-start gap-4 ${
+                idx > 0 ? 'sm:border-l sm:border-brand-forest-800/80 sm:pl-6 lg:pl-8' : ''
+              } ${idx === 2 ? 'sm:border-l-0 lg:border-l' : ''}`}
             >
               <div className="w-11 h-11 rounded-xl bg-brand-forest-900 border border-brand-forest-700/80 flex items-center justify-center shrink-0 shadow-inner">
                 {pillar.icon}
               </div>
-              <div className="space-y-1 text-left">
-                <h3 className="font-serif font-bold text-sm sm:text-base text-white uppercase tracking-tight">
+              <div className="space-y-1 text-left flex-1 min-w-0">
+                <h3 className="font-serif font-bold text-sm text-white uppercase tracking-tight">
                   {pillar.title}
                 </h3>
                 <p className="text-xs text-brand-cream-200/80 leading-relaxed font-normal">

@@ -22,7 +22,7 @@ export default function WishlistPage() {
           Your Wishlist is Empty
         </h1>
         <p className="text-xs text-brand-charcoal-500 max-w-sm mx-auto mb-6">
-          Save your favorite lunch boxes, water bottles, and desk accessories to review anytime.
+          Save your favorite bottles, backpacks, and lunchboxes to review anytime.
         </p>
         <Link
           href="/products"
@@ -52,10 +52,10 @@ export default function WishlistPage() {
         {wishlistProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-3xl border border-brand-cream-300 overflow-hidden shadow-xs flex flex-col justify-between"
+            className="bg-white rounded-2xl border border-brand-cream-300 overflow-hidden shadow-xs flex flex-col justify-between"
           >
             <div>
-              <div className="relative aspect-square w-full bg-brand-cream-100">
+              <div className="relative aspect-[4/5] w-full bg-brand-cream-100">
                 <Image
                   src={product.images[0]?.image_url || '/placeholder.png'}
                   alt={product.name}
