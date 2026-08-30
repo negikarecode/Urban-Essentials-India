@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
+import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
@@ -9,16 +9,17 @@ import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/layout/CartDrawer';
 import { Toaster } from 'sonner';
 
-const sansFont = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const serifFont = Playfair_Display({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-serif',
+  variable: '--font-display',
   display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -71,10 +72,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sansFont.variable} ${serifFont.variable} scroll-smooth`}
+      className={`${inter.variable} ${manrope.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 antialiased selection:bg-brand-forest-800 selection:text-white" suppressHydrationWarning>
+      <body
+        className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 antialiased selection:bg-brand-forest-800 selection:text-white"
+        suppressHydrationWarning
+      >
         <AuthProvider>
           <WishlistProvider>
             <CartProvider>
