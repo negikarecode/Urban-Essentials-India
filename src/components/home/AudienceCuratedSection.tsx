@@ -10,21 +10,21 @@ import { ArrowRight } from 'lucide-react';
 const SEGMENTS: { id: TargetAudience; label: string; tag: string; description: string }[] = [
   {
     id: 'school',
-    label: 'School Kids',
+    label: 'School Essentials',
     tag: 'Ages 6 - 14',
-    description: 'Orthopedic posture-safe school bags, food-grade hot soup jars, non-toxic leakproof bento boxes, and standing pen cases.',
+    description: 'Lightweight ergonomic backpacks, stainless food jars, and non-toxic lunchboxes.',
   },
   {
     id: 'college',
-    label: 'College & Campus',
-    tag: 'Everyday Transit',
-    description: 'Water-resistant laptop backpacks, 24-hour ice-cold vacuum flasks, fountain-pen friendly dot journals, and travel accessories.',
+    label: 'Campus & Transit',
+    tag: 'Everyday Carry',
+    description: 'Water-resistant laptop bags, 24-hour ice-cold vacuum flasks, and archival notebooks.',
   },
   {
     id: 'office',
-    label: 'Office & Work',
-    tag: 'Executive & EDC',
-    description: 'Vegan leather desk mats, solid brass EDC pens, military-grade laptop protection sleeves, and sleek meal organizers.',
+    label: 'Executive & Office',
+    tag: 'Professional Gear',
+    description: 'Vegan leather desk pads, solid brass writing tools, and shockproof laptop sleeves.',
   },
 ];
 
@@ -35,45 +35,36 @@ export function AudienceCuratedSection() {
   const currentSegmentData = SEGMENTS.find((s) => s.id === activeSegment) || SEGMENTS[0];
 
   return (
-    <section className="py-16 bg-brand-cream-100/60 border-y border-brand-cream-300">
+    <section className="py-16 sm:py-24 bg-white border-y border-brand-cream-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <span className="text-xs font-bold text-brand-forest-700 uppercase tracking-widest">
-            Tailored Essentials
-          </span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-brand-forest-950 mt-1">
-            Built for Your Daily Routine
-          </h2>
-          <p className="text-sm text-brand-charcoal-600 mt-2">
-            Switch between shopping segments to explore curated gear designed specifically for school kids, university students, and working professionals.
-          </p>
-        </div>
+        
+        {/* Editorial Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-6">
+          <div className="space-y-2">
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-forest-800 block">
+              Curated by Routine
+            </span>
+            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 uppercase tracking-tight">
+              Engineered For Every Day
+            </h2>
+          </div>
 
-        {/* Segment Tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex p-1.5 rounded-2xl bg-white border border-brand-cream-300 shadow-sm gap-2">
+          {/* Minimal High-Fashion Tabs */}
+          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar border-b border-brand-cream-300 pb-1">
             {SEGMENTS.map((seg) => (
               <button
                 key={seg.id}
                 onClick={() => setActiveSegment(seg.id)}
-                className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`pb-2.5 px-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border-b-2 -mb-[2px] whitespace-nowrap ${
                   activeSegment === seg.id
-                    ? 'bg-brand-forest-800 text-white shadow-md'
-                    : 'text-brand-charcoal-700 hover:text-brand-forest-800 hover:bg-brand-cream-100'
+                    ? 'border-brand-forest-950 text-brand-forest-950 font-extrabold'
+                    : 'border-transparent text-brand-charcoal-400 hover:text-brand-charcoal-800'
                 }`}
               >
-                <span>{seg.label}</span>
+                {seg.label}
               </button>
             ))}
           </div>
-        </div>
-
-        {/* Current Segment Description */}
-        <div className="text-center max-w-xl mx-auto mb-8">
-          <p className="text-xs sm:text-sm text-brand-charcoal-600 font-medium">
-            {currentSegmentData.description}
-          </p>
         </div>
 
         {/* Segment Products Grid */}
@@ -84,12 +75,12 @@ export function AudienceCuratedSection() {
         </div>
 
         {/* View Segment Landing Page CTA */}
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             href={`/audience/${activeSegment}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-brand-cream-400 text-brand-forest-900 text-xs font-bold shadow-xs hover:bg-brand-forest-50 hover:border-brand-forest-400 transition-all group"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-forest-950 hover:bg-black text-white text-xs font-bold uppercase tracking-[0.18em] transition-all group"
           >
-            <span>Explore all {currentSegmentData.label} Products</span>
+            <span>View All {currentSegmentData.label}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

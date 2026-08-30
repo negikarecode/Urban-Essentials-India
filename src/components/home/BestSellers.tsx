@@ -72,9 +72,9 @@ export function BestSellers() {
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="space-y-3">
-                <Skeleton className="aspect-square w-full rounded-2xl" />
-                <Skeleton className="h-4 w-3/4 rounded-md" />
-                <Skeleton className="h-4 w-1/2 rounded-md" />
+                <Skeleton className="aspect-[4/5] w-full" />
+                <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="h-4 w-1/2" />
               </div>
             ))}
           </div>
