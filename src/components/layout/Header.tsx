@@ -115,21 +115,21 @@ export function Header() {
             {/* Target Audience Quick Links */}
             <Link
               href="/audience/school"
-              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
             >
-              🎒 School
+              School
             </Link>
             <Link
               href="/audience/college"
-              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
             >
-              💻 College
+              College
             </Link>
             <Link
               href="/audience/office"
-              className="px-2 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
+              className="px-2.5 py-1 text-xs font-semibold text-brand-forest-900 hover:bg-brand-cream-200 rounded-lg transition-all"
             >
-              💼 Office
+              Office
             </Link>
 
             <Link
@@ -182,7 +182,7 @@ export function Header() {
               <Search className="w-3.5 h-3.5 text-brand-charcoal-400 group-hover:text-brand-forest-800 transition-colors" />
               <span className="w-36 md:w-48 text-left truncate">Search essentials...</span>
               <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono font-bold text-brand-charcoal-400 bg-white border border-brand-cream-300 rounded shadow-xs">
-                ⌘K
+                Ctrl+K
               </kbd>
             </button>
 

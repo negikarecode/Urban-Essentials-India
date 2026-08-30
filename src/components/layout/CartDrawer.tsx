@@ -108,7 +108,7 @@ export function CartDrawer() {
                 </span>
               ) : (
                 <span className="text-emerald-700 flex items-center gap-1">
-                  🎉 You unlocked <strong>FREE Express Shipping</strong>!
+                  You unlocked <strong>FREE Express Shipping</strong>!
                 </span>
               )}
             </div>

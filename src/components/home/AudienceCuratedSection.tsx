@@ -7,25 +7,22 @@ import { getProductsByAudience } from '@/lib/data/products';
 import { ProductCard } from '@/components/product/ProductCard';
 import { ArrowRight } from 'lucide-react';
 
-const SEGMENTS: { id: TargetAudience; label: string; icon: string; tag: string; description: string }[] = [
+const SEGMENTS: { id: TargetAudience; label: string; tag: string; description: string }[] = [
   {
     id: 'school',
     label: 'School Kids',
-    icon: '🎒',
     tag: 'Ages 6 - 14',
     description: 'Orthopedic posture-safe school bags, food-grade hot soup jars, non-toxic leakproof bento boxes, and standing pen cases.',
   },
   {
     id: 'college',
     label: 'College & Campus',
-    icon: '💻',
     tag: 'Everyday Transit',
     description: 'Water-resistant laptop backpacks, 24-hour ice-cold vacuum flasks, fountain-pen friendly dot journals, and travel accessories.',
   },
   {
     id: 'office',
     label: 'Office & Work',
-    icon: '💼',
     tag: 'Executive & EDC',
     description: 'Vegan leather desk mats, solid brass EDC pens, military-grade laptop protection sleeves, and sleek meal organizers.',
   },
@@ -66,7 +63,6 @@ export function AudienceCuratedSection() {
                     : 'text-brand-charcoal-700 hover:text-brand-forest-800 hover:bg-brand-cream-100'
                 }`}
               >
-                <span>{seg.icon}</span>
                 <span>{seg.label}</span>
               </button>
             ))}

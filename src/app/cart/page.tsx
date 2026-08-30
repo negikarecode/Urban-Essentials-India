@@ -136,7 +136,7 @@ export default function CartPage() {
                   </span>
                 ) : (
                   <span className="text-emerald-700">
-                    🎉 You unlocked <strong>FREE Express Shipping across India</strong>!
+                    You unlocked <strong>FREE Express Shipping across India</strong>!
                   </span>
                 )}
               </div>

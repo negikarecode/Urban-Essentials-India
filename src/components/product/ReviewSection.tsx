@@ -189,7 +189,7 @@ export function ReviewSection({
               className="inline-flex items-center justify-center gap-1.5 text-xs text-rose-600 hover:text-rose-700 font-semibold"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Clear Filter ({selectedStarFilter}★)</span>
+              <span>Clear Filter ({selectedStarFilter} {selectedStarFilter === 1 ? 'Star' : 'Stars'})</span>
             </button>
           )}
         </div>

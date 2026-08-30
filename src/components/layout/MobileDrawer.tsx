@@ -92,21 +92,21 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               onClick={onClose}
               className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
             >
-              🎒 School
+              School
             </Link>
             <Link
               href="/audience/college"
               onClick={onClose}
               className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
             >
-              💻 College
+              College
             </Link>
             <Link
               href="/audience/office"
               onClick={onClose}
               className="px-3 py-2 bg-white rounded-lg text-center text-xs font-semibold text-brand-forest-800 shadow-sm border border-brand-cream-300 hover:bg-brand-forest-50"
             >
-              💼 Office
+              Office
             </Link>
           </div>
         </div>
@@ -141,7 +141,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               onClick={onClose}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
             >
-              <span>🔥 Best Sellers</span>
+              <span>Best Sellers</span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
             <Link
@@ -149,7 +149,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               onClick={onClose}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
             >
-              <span>✨ New Arrivals</span>
+              <span>New Arrivals</span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
             {CATEGORIES.map((cat) => (

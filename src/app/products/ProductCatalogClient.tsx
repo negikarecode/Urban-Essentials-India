@@ -160,9 +160,9 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
         <div className="grid grid-cols-2 gap-2">
           {[
             { id: 'all', label: 'All Segments' },
-            { id: 'school', label: '🎒 School' },
-            { id: 'college', label: '💻 College' },
-            { id: 'office', label: '💼 Office' },
+            { id: 'school', label: 'School' },
+            { id: 'college', label: 'College' },
+            { id: 'office', label: 'Office' },
           ].map((aud) => (
             <button
               key={aud.id}

@@ -26,7 +26,7 @@ const AUDIENCE_META: Record<
     headline: 'Orthopedic, Non-Toxic & Built for School Kids',
     description:
       'Spine-protecting lightweight school bags, leak-proof stainless steel bento lunch boxes, and standing pen cases engineered for kindergarten to high school.',
-    pill: '🎒 School Kids (Ages 6-14)',
+    pill: 'School Kids (Ages 6-14)',
     benefits: [
       '100% Food-Grade SUS304 Stainless Steel (No plastic chemical leaching)',
       'Orthopedic Spine-Support Ergonomic Bag Design',
@@ -40,7 +40,7 @@ const AUDIENCE_META: Record<
     headline: 'Engineered for Campus Life & Everyday Commutes',
     description:
       'Weather-resistant 16" laptop backpacks, 24-hour icy hydration flasks, 100GSM dot-grid journals, and streamlined tech organizers.',
-    pill: '💻 College & Campus Life',
+    pill: 'College & Campus Life',
     benefits: [
       'Dedicated Shockproof 16" Laptop & Tablet Sleeves',
       'Double-Wall Vacuum Insulation Keeps Cold 24 Hours',
@@ -54,7 +54,7 @@ const AUDIENCE_META: Record<
     headline: 'Sophisticated Workspace & Everyday Carry for Professionals',
     description:
       'Dual-sided vegan leather desk pads, solid machined brass pens, minimalist bento meal prep boxes, and ballistic nylon laptop sleeves.',
-    pill: '💼 Office & Working Professionals',
+    pill: 'Office & Working Professionals',
     benefits: [
       'Waterproof & Scratch-Resistant Desk Surface Protection',
       'Solid C3604 Aircraft-Grade Brass Writing Instruments',

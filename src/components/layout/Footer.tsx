@@ -132,32 +132,32 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-brand-cream-300/80">
               <li>
                 <Link href="/audience/school" className="hover:text-white transition-colors">
-                  🎒 School Kids (Ages 6-14)
+                  School Kids (Ages 6-14)
                 </Link>
               </li>
               <li>
                 <Link href="/audience/college" className="hover:text-white transition-colors">
-                  💻 College & Campus
+                  College & Campus
                 </Link>
               </li>
               <li>
                 <Link href="/audience/office" className="hover:text-white transition-colors">
-                  💼 Office & Professionals
+                  Office & Professionals
                 </Link>
               </li>
               <li>
                 <Link href="/products?filter=bestseller" className="hover:text-white transition-colors">
-                  🔥 Best Sellers
+                  Best Sellers
                 </Link>
               </li>
               <li>
                 <Link href="/products?filter=new" className="hover:text-white transition-colors">
-                  ✨ New Arrivals
+                  New Arrivals
                 </Link>
               </li>
               <li>
                 <Link href="/category/gift-sets" className="hover:text-white transition-colors">
-                  🎁 Gift Sets & Bundles
+                  Gift Sets & Bundles
                 </Link>
               </li>
             </ul>
@@ -191,7 +191,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/admin" className="hover:text-brand-amber-300 text-brand-cream-300 transition-colors font-medium">
-                  Admin Dashboard 🔐
+                  Admin Dashboard
                 </Link>
               </li>
             </ul>

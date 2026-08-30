@@ -6,6 +6,7 @@ import Image from 'next/image';
 import confetti from 'canvas-confetti';
 import {
   CheckCircle,
+  Check,
   Package,
   Truck,
   ArrowRight,
@@ -84,7 +85,7 @@ export function OrderSuccessClient({ order }: OrderSuccessClientProps) {
         <div className="grid grid-cols-4 gap-2 text-center relative">
           <div className="space-y-1.5">
             <div className="w-8 h-8 rounded-full bg-brand-forest-800 text-white flex items-center justify-center mx-auto text-xs font-bold ring-4 ring-brand-forest-100">
-              ✓
+              <Check className="w-4 h-4" />
             </div>
             <div className="text-xs font-bold text-brand-forest-950">Confirmed</div>
             <div className="text-[10px] text-brand-charcoal-500">Paid</div>
@@ -197,7 +198,7 @@ export function OrderSuccessClient({ order }: OrderSuccessClientProps) {
               {order.shipping_address.city}, {order.shipping_address.state} - {order.shipping_address.postal_code}
             </p>
             <p className="text-xs text-brand-charcoal-600 pt-1">
-              📱 Phone: <strong>+91 {order.shipping_address.phone}</strong>
+              Phone: <strong>+91 {order.shipping_address.phone}</strong>
             </p>
           </div>
 

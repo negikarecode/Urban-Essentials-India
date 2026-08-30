@@ -103,12 +103,12 @@ export function ProductDetailClient({
             </span>
             {product.is_bestseller && (
               <span className="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-200">
-                🔥 Bestseller
+                Bestseller
               </span>
             )}
             {product.is_new_arrival && (
               <span className="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-sage-100 text-brand-sage-800 border border-brand-sage-200">
-                ✨ New Release
+                New Release
               </span>
             )}
             <span className="text-xs text-brand-charcoal-400 font-mono ml-auto">
@@ -205,7 +205,7 @@ export function ProductDetailClient({
               </span>
             ) : currentStock > 0 ? (
               <span className="text-amber-700 flex items-center gap-1.5">
-                ⚠️ Low Stock: Only {currentStock} left in warehouse!
+                Low Stock: Only {currentStock} left in warehouse!
               </span>
             ) : (
               <span className="text-rose-600 font-bold">Out of Stock</span>
