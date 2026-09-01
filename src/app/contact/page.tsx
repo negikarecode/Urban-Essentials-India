@@ -50,10 +50,10 @@ export default function ContactPage() {
                 <h4 className="font-bold text-sm text-brand-charcoal-900 dark:text-zinc-100">Email Support</h4>
                 <p className="text-xs text-brand-charcoal-500 dark:text-zinc-400 mt-0.5">Response within 24 hours</p>
                 <a
-                  href="mailto:urbanessentsialindia@gmail.com"
+                  href="mailto:support@urbanessentials.in"
                   className="text-xs font-bold text-brand-forest-800 dark:text-emerald-400 hover:underline mt-1 block"
                 >
-                  urbanessentsialindia@gmail.com
+                  support@urbanessentials.in
                 </a>
               </div>
             </div>

@@ -36,12 +36,7 @@ function LoginForm() {
     setIsSubmitting(false);
 
     if (result.success) {
-      const cleanEmail = email.trim().toLowerCase();
-      if ((cleanEmail === 'urbanessentsialindia@gmail.com' || cleanEmail === 'urbanessentialsindia@gmail.com' || cleanEmail === 'urbanessentials@gmail.com') && redirectTo === '/account') {
-        router.push('/admin');
-      } else {
-        router.push(redirectTo);
-      }
+      router.push(redirectTo);
     } else if (result.error) {
       setFormError(result.error);
     }

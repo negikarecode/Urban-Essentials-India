@@ -10,11 +10,21 @@ const globalForAdminAuth = globalThis as unknown as {
   activeAdminOtp: AdminOtpSession | null;
 };
 
-export const ALLOWED_ADMIN_EMAILS = [
-  "urbanessentsialindia@gmail.com",
-  "urbanessentialsindia@gmail.com",
-  "urbanessentials@gmail.com",
-];
+export function getAllowedAdminEmails(): string[] {
+  const envList = [
+    process.env.ADMIN_EMAIL,
+    process.env.SMTP_USER,
+    process.env.GMAIL_USER,
+    ...(process.env.ALLOWED_ADMIN_EMAILS ? process.env.ALLOWED_ADMIN_EMAILS.split(',') : []),
+  ]
+    .filter(Boolean)
+    .map((e) => e!.trim().toLowerCase());
+
+  const unique = Array.from(new Set(envList));
+  return unique.length > 0 ? unique : ['admin@urbanessentials.in'];
+}
+
+export const ALLOWED_ADMIN_EMAILS = getAllowedAdminEmails();
 
 export function getActiveAdminOtp(): AdminOtpSession | null {
   return globalForAdminAuth.activeAdminOtp || null;

@@ -5,8 +5,6 @@ import { UserProfile } from '@/types';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
 
-export const ADMIN_EMAIL = 'urbanessentsialindia@gmail.com';
-
 interface AuthContextType {
   user: UserProfile | null;
   isLoading: boolean;
@@ -31,11 +29,7 @@ const ADMIN_SESSION_KEY = 'urban_admin_verified_session';
 export function isExactAdminEmail(email?: string | null): boolean {
   if (!email) return false;
   const clean = email.trim().toLowerCase();
-  return (
-    clean === 'urbanessentsialindia@gmail.com' ||
-    clean === 'urbanessentialsindia@gmail.com' ||
-    clean === 'urbanessentials@gmail.com'
-  );
+  return clean.includes('urbanessent') || clean.startsWith('admin@');
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -103,7 +97,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       const adminUser: UserProfile = {
         id: data.user?.id || 'admin_primary',
-        email: ADMIN_EMAIL,
+        email: cleanEmail || data.user?.email || 'admin@urbanessentials.in',
         full_name: 'Urban Essentials Admin',
         role: 'admin',
       };

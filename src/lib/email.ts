@@ -64,7 +64,7 @@ export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
   const defaultFrom =
     process.env.EMAIL_FROM ||
     process.env.SMTP_FROM ||
-    `"Urban Essentials Security" <${process.env.SMTP_USER || process.env.GMAIL_USER || 'urbanessentsialindia@gmail.com'}>`;
+    `"Urban Essentials Security" <${process.env.SMTP_USER || process.env.GMAIL_USER || 'security@urbanessentials.in'}>`;
 
   const fromAddress = options.from || defaultFrom;
   const toAddresses = Array.isArray(options.to) ? options.to : [options.to];

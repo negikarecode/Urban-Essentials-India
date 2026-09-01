@@ -105,8 +105,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:urbanessentsialindia@gmail.com" className="hover:text-white transition-colors block">
-                  urbanessentsialindia@gmail.com
+                <a href="mailto:support@urbanessentials.in" className="hover:text-white transition-colors block">
+                  support@urbanessentials.in
                 </a>
               </li>
               <li>

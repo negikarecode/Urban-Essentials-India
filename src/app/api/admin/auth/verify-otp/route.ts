@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 
     const adminUser = {
       id: "admin_primary",
-      email: cleanEmail || "urbanessentsialindia@gmail.com",
+      email: cleanEmail || "admin@urbanessentials.in",
       full_name: "Urban Essentials Admin",
       role: "admin",
       authenticated_at: new Date().toISOString(),

@@ -33,8 +33,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const PRIMARY_EMAIL = "urbanessentsialindia@gmail.com";
-    const targetEmail = cleanEmail || PRIMARY_EMAIL;
+    const targetEmail = cleanEmail || ALLOWED_ADMIN_EMAILS[0] || "admin@urbanessentials.in";
 
     // Generate 6-digit secure numeric OTP stored in admin auth store
     const generatedOtp = generateAdminOtp(targetEmail);
