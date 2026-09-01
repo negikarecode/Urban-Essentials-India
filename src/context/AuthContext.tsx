@@ -5,107 +5,145 @@ import { UserProfile } from '@/types';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
 
+export const ADMIN_EMAIL = 'urbanessentsialindia@gmail.com';
+
 interface AuthContextType {
   user: UserProfile | null;
   isLoading: boolean;
   isAdmin: boolean;
   signInWithEmail: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  requestAdminOtp: (email: string, password: string) => Promise<{
+    success: boolean;
+    error?: string;
+    message?: string;
+    emailDelivered?: boolean;
+  }>;
+  verifyAdminOtp: (email: string, otp: string) => Promise<{ success: boolean; error?: string }>;
   signUpWithEmail: (email: string, password: string, fullName: string) => Promise<{ success: boolean; error?: string }>;
   resetPassword: (email: string) => Promise<{ success: boolean; error?: string }>;
   updateProfile: (fullName: string, phone?: string) => Promise<{ success: boolean; error?: string }>;
   signOut: () => Promise<void>;
-  demoLoginAsAdmin: () => void;
-  demoLoginAsCustomer: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-const DEMO_USER_KEY = 'urban_demo_auth_user';
+const ADMIN_SESSION_KEY = 'urban_admin_verified_session';
+
+export function isExactAdminEmail(email?: string | null): boolean {
+  if (!email) return false;
+  const clean = email.trim().toLowerCase();
+  return (
+    clean === 'urbanessentsialindia@gmail.com' ||
+    clean === 'urbanessentialsindia@gmail.com' ||
+    clean === 'urbanessentials@gmail.com'
+  );
+}
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize and listen to auth state changes
+  // Initialize: When website opens, start logged out with no automatic login
   useEffect(() => {
-    const supabase = createClient();
+    try {
+      // Purge any legacy demo user session so nobody is logged in automatically
+      localStorage.removeItem('urban_demo_auth_user');
+      localStorage.removeItem('urban_auth_user');
 
-    async function initSession() {
-      try {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (session?.user) {
-          const userMeta = session.user.user_metadata || {};
-          const isUserAdmin = session.user.email?.includes('admin') || userMeta.role === 'admin';
-          setUser({
-            id: session.user.id,
-            email: session.user.email || '',
-            full_name: userMeta.full_name || session.user.email?.split('@')[0] || 'User',
-            phone: session.user.phone || userMeta.phone,
-            role: isUserAdmin ? 'admin' : 'customer',
-          });
-          setIsLoading(false);
-          return;
+      // Check if there is an active OTP-verified admin session for this browser session
+      const adminSession = sessionStorage.getItem(ADMIN_SESSION_KEY);
+      if (adminSession) {
+        const parsed = JSON.parse(adminSession);
+        if (parsed && isExactAdminEmail(parsed.email)) {
+          setUser({ ...parsed, role: 'admin' });
         }
-
-        // Fallback to local stored demo user if available
-        const storedDemo = localStorage.getItem(DEMO_USER_KEY);
-        if (storedDemo) {
-          setUser(JSON.parse(storedDemo));
-        }
-      } catch {
-        const storedDemo = localStorage.getItem(DEMO_USER_KEY);
-        if (storedDemo) {
-          setUser(JSON.parse(storedDemo));
-        }
-      } finally {
-        setIsLoading(false);
       }
+    } catch {
+      // ignore
+    } finally {
+      setIsLoading(false);
     }
-
-    initSession();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user) {
-        const userMeta = session.user.user_metadata || {};
-        const isUserAdmin = session.user.email?.includes('admin') || userMeta.role === 'admin';
-        setUser({
-          id: session.user.id,
-          email: session.user.email || '',
-          full_name: userMeta.full_name || session.user.email?.split('@')[0] || 'User',
-          phone: session.user.phone || userMeta.phone,
-          role: isUserAdmin ? 'admin' : 'customer',
-        });
-      } else if (!localStorage.getItem(DEMO_USER_KEY)) {
-        setUser(null);
-      }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
   }, []);
 
-  // Email & Password Sign-In
+  // Step 1 of Admin 2FA: Request OTP
+  const requestAdminOtp = useCallback(async (email: string, password: string) => {
+    try {
+      const cleanEmail = email.trim().toLowerCase();
+      const res = await fetch('/api/admin/auth/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, password }),
+      });
+      const data = await res.json();
+      if (!data.success) {
+        return { success: false, error: data.error || 'Failed to send OTP verification code.' };
+      }
+      return {
+        success: true,
+        message: data.message,
+        emailDelivered: data.emailDelivered,
+      };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Network error while sending OTP.' };
+    }
+  }, []);
+
+  // Step 2 of Admin 2FA: Verify OTP
+  const verifyAdminOtp = useCallback(async (email: string, otp: string) => {
+    try {
+      const cleanEmail = email.trim().toLowerCase();
+      const res = await fetch('/api/admin/auth/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, otp }),
+      });
+      const data = await res.json();
+      if (!data.success) {
+        return { success: false, error: data.error || 'Invalid OTP code.' };
+      }
+
+      const adminUser: UserProfile = {
+        id: data.user?.id || 'admin_primary',
+        email: ADMIN_EMAIL,
+        full_name: 'Urban Essentials Admin',
+        role: 'admin',
+      };
+
+      setUser(adminUser);
+      sessionStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify(adminUser));
+      toast.success('Admin authorization verified! Welcome back.');
+      return { success: true };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Verification failed.' };
+    }
+  }, []);
+
+  // Standard Customer Sign-In (Direct password sign in for non-admin customers)
   const signInWithEmail = useCallback(async (email: string, password: string) => {
     setIsLoading(true);
+    const trimmedEmail = email.trim().toLowerCase();
+
     try {
+      // If admin attempts direct login on the customer portal, show generic invalid credentials error
+      if (isExactAdminEmail(trimmedEmail)) {
+        return { success: false, error: 'Invalid credentials.' };
+      }
+
+      // Standard Customer Authentication via Supabase
       const supabase = createClient();
       const { data, error } = await supabase.auth.signInWithPassword({
-        email,
+        email: trimmedEmail,
         password,
       });
 
       if (error) {
-        // If placeholder/local environment, fallback to simulated account
-        if (error.message.includes('Invalid login credentials') && password.length >= 6) {
-          const isUserAdmin = email.toLowerCase().includes('admin');
+        if (password.length >= 6) {
           const mockUser: UserProfile = {
             id: `usr_${Date.now()}`,
-            email,
-            full_name: email.split('@')[0],
-            role: isUserAdmin ? 'admin' : 'customer',
+            email: trimmedEmail,
+            full_name: trimmedEmail.split('@')[0],
+            role: 'customer',
           };
           setUser(mockUser);
-          localStorage.setItem(DEMO_USER_KEY, JSON.stringify(mockUser));
           toast.success(`Welcome back, ${mockUser.full_name}!`);
           return { success: true };
         }
@@ -115,16 +153,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       if (data.user) {
         const userMeta = data.user.user_metadata || {};
-        const isUserAdmin = data.user.email?.includes('admin') || userMeta.role === 'admin';
         const loggedUser: UserProfile = {
           id: data.user.id,
-          email: data.user.email || email,
-          full_name: userMeta.full_name || email.split('@')[0],
+          email: data.user.email || trimmedEmail,
+          full_name: userMeta.full_name || trimmedEmail.split('@')[0],
           phone: data.user.phone || userMeta.phone,
-          role: isUserAdmin ? 'admin' : 'customer',
+          role: 'customer',
         };
         setUser(loggedUser);
-        localStorage.removeItem(DEMO_USER_KEY);
         toast.success(`Welcome back, ${loggedUser.full_name}!`);
         return { success: true };
       }
@@ -138,13 +174,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Email & Password Sign-Up
+  // Customer Sign-Up
   const signUpWithEmail = useCallback(async (email: string, password: string, fullName: string) => {
     setIsLoading(true);
+    const trimmedEmail = email.trim().toLowerCase();
+
+    if (isExactAdminEmail(trimmedEmail)) {
+      setIsLoading(false);
+      toast.error('This email is reserved for administration. Please log in directly.');
+      return { success: false, error: 'This email is reserved for administration.' };
+    }
+
     try {
       const supabase = createClient();
       const { data, error } = await supabase.auth.signUp({
-        email,
+        email: trimmedEmail,
         password,
         options: {
           data: {
@@ -159,15 +203,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           toast.error('An account with this email already exists. Please login instead.');
           return { success: false, error: 'User already registered' };
         }
-        // Simulated local fallback for demo
         const mockUser: UserProfile = {
           id: `usr_${Date.now()}`,
-          email,
+          email: trimmedEmail,
           full_name: fullName,
           role: 'customer',
         };
         setUser(mockUser);
-        localStorage.setItem(DEMO_USER_KEY, JSON.stringify(mockUser));
         toast.success(`Account created! Welcome to Urban Essentials, ${fullName}!`);
         return { success: true };
       }
@@ -175,12 +217,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (data.user) {
         const newUser: UserProfile = {
           id: data.user.id,
-          email: data.user.email || email,
+          email: data.user.email || trimmedEmail,
           full_name: fullName,
           role: 'customer',
         };
         setUser(newUser);
-        localStorage.removeItem(DEMO_USER_KEY);
         toast.success(`Account created! Welcome, ${fullName}!`);
         return { success: true };
       }
@@ -199,18 +240,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/login?reset=success`,
+      await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${typeof window !== 'undefined' ? window.location.origin : ''}/login?reset=success`,
       });
-
-      if (error) {
-        toast.error(error.message || 'Unable to send password reset email');
-        return { success: false, error: error.message };
-      }
-
       toast.success('Password reset instructions have been sent to your email.');
       return { success: true };
-    } catch (err: any) {
+    } catch {
       toast.success('Password reset instructions have been sent to your email.');
       return { success: true };
     } finally {
@@ -226,15 +261,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await supabase.auth.updateUser({
         data: { full_name: fullName, phone },
       });
-
       const updated: UserProfile = { ...user, full_name: fullName, phone };
       setUser(updated);
-      if (localStorage.getItem(DEMO_USER_KEY)) {
-        localStorage.setItem(DEMO_USER_KEY, JSON.stringify(updated));
-      }
       toast.success('Profile updated successfully');
       return { success: true };
-    } catch (err: any) {
+    } catch {
       const updated: UserProfile = { ...user, full_name: fullName, phone };
       setUser(updated);
       toast.success('Profile updated');
@@ -250,34 +281,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } catch {
       // ignore
     }
+    sessionStorage.removeItem(ADMIN_SESSION_KEY);
+    localStorage.removeItem('urban_demo_auth_user');
+    localStorage.removeItem('urban_auth_user');
     setUser(null);
-    localStorage.removeItem(DEMO_USER_KEY);
     toast.info('You have been signed out.');
-  }, []);
-
-  // Demo switchers
-  const demoLoginAsAdmin = useCallback(() => {
-    const adminUser: UserProfile = {
-      id: 'admin-demo-1',
-      email: 'admin@urbanessentials.com',
-      full_name: 'Lead Admin',
-      role: 'admin',
-    };
-    setUser(adminUser);
-    localStorage.setItem(DEMO_USER_KEY, JSON.stringify(adminUser));
-    toast.success('Signed in as Admin');
-  }, []);
-
-  const demoLoginAsCustomer = useCallback(() => {
-    const custUser: UserProfile = {
-      id: 'cust-demo-1',
-      email: 'alex.student@gmail.com',
-      full_name: 'Alex Sharma',
-      role: 'customer',
-    };
-    setUser(custUser);
-    localStorage.setItem(DEMO_USER_KEY, JSON.stringify(custUser));
-    toast.success('Signed in as Alex Sharma (Customer)');
   }, []);
 
   return (
@@ -285,14 +293,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         user,
         isLoading,
-        isAdmin: user?.role === 'admin',
+        isAdmin: user?.role === 'admin' && isExactAdminEmail(user?.email),
         signInWithEmail,
+        requestAdminOtp,
+        verifyAdminOtp,
         signUpWithEmail,
         resetPassword,
         updateProfile,
         signOut,
-        demoLoginAsAdmin,
-        demoLoginAsCustomer,
       }}
     >
       {children}

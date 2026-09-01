@@ -8,7 +8,7 @@ export function Card({
   return (
     <div
       className={cn(
-        'bg-white rounded-3xl border border-brand-cream-300 shadow-xs transition-shadow',
+        'bg-white dark:bg-zinc-900 rounded-3xl border border-brand-cream-300 dark:border-zinc-800 shadow-xs transition-shadow',
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ export function CardHeader({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn('p-6 pb-3 border-b border-brand-cream-200', className)}
+      className={cn('p-6 pb-3 border-b border-brand-cream-200 dark:border-zinc-800', className)}
       {...props}
     />
   );
@@ -35,7 +35,7 @@ export function CardTitle({
   return (
     <h3
       className={cn(
-        'font-serif font-bold text-lg sm:text-xl text-brand-forest-950 tracking-tight',
+        'font-serif font-bold text-lg sm:text-xl text-brand-forest-950 dark:text-white tracking-tight',
         className
       )}
       {...props}
@@ -49,7 +49,7 @@ export function CardDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn('text-xs sm:text-sm text-brand-charcoal-500 mt-1', className)}
+      className={cn('text-xs sm:text-sm text-brand-charcoal-500 dark:text-zinc-400 mt-1', className)}
       {...props}
     />
   );
@@ -69,7 +69,7 @@ export function CardFooter({
   return (
     <div
       className={cn(
-        'p-6 pt-3 border-t border-brand-cream-200 flex items-center justify-between',
+        'p-6 pt-3 border-t border-brand-cream-200 dark:border-zinc-800 flex items-center justify-between',
         className
       )}
       {...props}

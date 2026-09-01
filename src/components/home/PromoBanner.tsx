@@ -7,7 +7,7 @@ import { ArrowRight, Gift, Percent } from 'lucide-react';
 
 export function PromoBanner() {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-white dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden bg-brand-forest-900 text-white shadow-2xl">
           {/* Background image & gradient overlay */}

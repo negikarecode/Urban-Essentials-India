@@ -5,6 +5,7 @@ import { ShopByCategory } from '@/components/home/ShopByCategory';
 import { PromotionalSection } from '@/components/home/PromotionalSection';
 import { TrendingProducts } from '@/components/home/TrendingProducts';
 import { BestSellers } from '@/components/home/BestSellers';
+import { CategoryProductSections } from '@/components/home/CategoryProductSections';
 import { Newsletter } from '@/components/home/Newsletter';
 
 export const metadata = {
@@ -25,16 +26,19 @@ export default function HomePage() {
       {/* 3. Core 3 Categories (Bottles, Bags, Lunchboxes) */}
       <ShopByCategory />
 
-      {/* 4. Best Sellers */}
+      {/* 4. Global Best Sellers (Automatically ranked) */}
       <BestSellers />
 
-      {/* 5. Promotional Capsule Offer */}
+      {/* 5. Automated Category-Specific Showcase Sections (Automatically picks best product cards for Backpacks, Lunch Boxes, Water Bottles, etc.) */}
+      <CategoryProductSections />
+
+      {/* 6. Promotional Capsule Offer */}
       <PromotionalSection />
 
-      {/* 6. Trending Customer Favorites */}
+      {/* 7. Trending Customer Favorites */}
       <TrendingProducts />
 
-      {/* 7. Newsletter Section */}
+      {/* 8. Newsletter Section */}
       <Newsletter />
     </div>
   );

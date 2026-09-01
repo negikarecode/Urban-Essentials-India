@@ -5,47 +5,47 @@ import { ArrowRight } from 'lucide-react';
 
 const CATEGORY_CARDS = [
   {
-    name: 'Bottles & Flasks',
-    slug: 'water-bottles',
-    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80',
-    subtitle: '24-Hour Vacuum Cold Hydration',
-    itemCount: '6 Models',
-  },
-  {
-    name: 'Bags & Backpacks',
+    name: 'Backpacks',
     slug: 'backpacks',
     image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
     subtitle: 'Ergonomic, Weatherproof & Laptop Ready',
-    itemCount: '7 Models',
+    itemCount: 'Collection',
   },
   {
-    name: 'Lunchboxes & Food Jars',
+    name: 'Lunch Boxes',
     slug: 'lunch-boxes',
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
     subtitle: '100% Food-Grade SUS304 Steel',
-    itemCount: '5 Models',
+    itemCount: 'Collection',
+  },
+  {
+    name: 'Water Bottles',
+    slug: 'water-bottles',
+    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80',
+    subtitle: '24-Hour Vacuum Cold Hydration',
+    itemCount: 'Collection',
   },
 ];
 
 export function ShopByCategory() {
   return (
-    <section className="py-16 sm:py-24 bg-brand-cream-50 border-b border-brand-cream-300">
+    <section className="py-16 sm:py-24 bg-brand-cream-50 dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
           <div className="space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-forest-800 block">
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-forest-800 dark:text-emerald-400 block">
               Core Collections
             </span>
-            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 uppercase tracking-tight">
+            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 dark:text-white uppercase tracking-tight">
               Shop by Category
             </h2>
           </div>
 
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 hover:text-brand-forest-700 underline group"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 dark:text-zinc-100 hover:text-brand-forest-700 dark:hover:text-emerald-400 underline group"
           >
             <span>Shop All Products</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -58,14 +58,15 @@ export function ShopByCategory() {
             <Link
               key={idx}
               href={`/category/${cat.slug}`}
-              className="group relative flex flex-col bg-white border border-brand-cream-300 hover:border-brand-forest-900 transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col bg-white dark:bg-zinc-900 border border-brand-cream-300 dark:border-zinc-800 hover:border-brand-forest-900 dark:hover:border-emerald-500 transition-all duration-300 overflow-hidden"
             >
               {/* Editorial 4:5 Photo Frame */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-cream-100">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-cream-100 dark:bg-zinc-800">
                 <Image
                   src={cat.image}
                   alt={cat.name}
                   fill
+                  unoptimized={true}
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -83,11 +84,11 @@ export function ShopByCategory() {
               </div>
 
               {/* Minimal Caption */}
-              <div className="p-5 flex items-center justify-between bg-white border-t border-brand-cream-200">
-                <p className="text-xs text-brand-charcoal-600 font-medium">
+              <div className="p-5 flex items-center justify-between bg-white dark:bg-zinc-900 border-t border-brand-cream-200 dark:border-zinc-800">
+                <p className="text-xs text-brand-charcoal-600 dark:text-zinc-400 font-medium">
                   {cat.subtitle}
                 </p>
-                <ArrowRight className="w-4 h-4 text-brand-forest-950 group-hover:translate-x-1.5 transition-transform shrink-0 ml-2" />
+                <ArrowRight className="w-4 h-4 text-brand-forest-950 dark:text-white group-hover:translate-x-1.5 transition-transform shrink-0 ml-2" />
               </div>
             </Link>
           ))}

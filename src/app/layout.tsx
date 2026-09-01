@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/context/ThemeContext';
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import { AuthProvider } from '@/context/AuthContext';
@@ -70,30 +71,51 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} scroll-smooth`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('urban_theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (theme === 'dark' || (!theme && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 antialiased selection:bg-brand-forest-800 selection:text-white"
+        className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased selection:bg-brand-forest-800 selection:text-white"
         suppressHydrationWarning
       >
-        <AuthProvider>
-          <WishlistProvider>
-            <CartProvider>
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-              <CartDrawer />
-              <Toaster
-                position="top-right"
-                toastOptions={{
-                  style: {
-                    background: '#153E2B',
-                    color: '#FAF8F5',
-                    border: '1px solid #28553F',
-                  },
-                }}
-              />
-            </CartProvider>
-          </WishlistProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+                <CartDrawer />
+                <Toaster
+                  position="top-right"
+                  toastOptions={{
+                    style: {
+                      background: '#153E2B',
+                      color: '#FAF8F5',
+                      border: '1px solid #28553F',
+                    },
+                  }}
+                />
+              </CartProvider>
+            </WishlistProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

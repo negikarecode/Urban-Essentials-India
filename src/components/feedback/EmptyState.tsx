@@ -22,15 +22,15 @@ export function EmptyState({
 }: EmptyStateProps) {
   return (
     <div className="py-16 px-4 text-center max-w-md mx-auto space-y-4">
-      <div className="w-16 h-16 rounded-3xl bg-brand-cream-200 text-brand-charcoal-400 flex items-center justify-center mx-auto border border-brand-cream-300">
+      <div className="w-16 h-16 rounded-3xl bg-brand-cream-200 dark:bg-zinc-800 text-brand-charcoal-400 dark:text-zinc-500 flex items-center justify-center mx-auto border border-brand-cream-300 dark:border-zinc-700">
         {icon || <PackageOpen className="w-8 h-8" />}
       </div>
 
       <div className="space-y-1">
-        <h3 className="font-serif font-bold text-lg text-brand-charcoal-900">
+        <h3 className="font-serif font-bold text-lg text-brand-charcoal-900 dark:text-zinc-100">
           {title}
         </h3>
-        <p className="text-xs sm:text-sm text-brand-charcoal-500 max-w-xs mx-auto">
+        <p className="text-xs sm:text-sm text-brand-charcoal-500 dark:text-zinc-400 max-w-xs mx-auto">
           {description}
         </p>
       </div>

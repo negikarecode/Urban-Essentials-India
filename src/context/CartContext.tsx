@@ -2,7 +2,11 @@
 
 import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react';
 import { CartItem, Coupon, Product, ProductVariant } from '@/types';
-import { validateCoupon, getProductById } from '@/lib/data/products';
+import { validateLiveCoupon } from '@/lib/couponStore';
+import { getProductById } from '@/lib/data/products';
+
+
+
 import { useAuth } from '@/context/AuthContext';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
@@ -78,69 +82,57 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     let isSubscribed = true;
 
     async function loadCart() {
-      setIsLoading(true);
+      // 1. Instantly read Guest Local Cart & Saved Items with 0ms delay
+      let localCart: CartItem[] = [];
+      let localSaved: CartItem[] = [];
       try {
-        // 1. Read Guest Local Cart & Saved Items
-        let localCart: CartItem[] = [];
-        let localSaved: CartItem[] = [];
+        const stored = localStorage.getItem(GUEST_CART_KEY);
+        if (stored) localCart = JSON.parse(stored);
+        const savedStored = localStorage.getItem(SAVED_ITEMS_KEY);
+        if (savedStored) localSaved = JSON.parse(savedStored);
+      } catch {
+        // ignore parsing error
+      }
+
+      if (isSubscribed) {
+        setSavedItems(localSaved);
+        setItems(localCart);
+        setIsLoaded(true);
+      }
+
+      // 2. Non-blocking background sync with Supabase if authenticated
+      if (user) {
         try {
-          const stored = localStorage.getItem(GUEST_CART_KEY);
-          if (stored) localCart = JSON.parse(stored);
-          const savedStored = localStorage.getItem(SAVED_ITEMS_KEY);
-          if (savedStored) localSaved = JSON.parse(savedStored);
-        } catch {
-          // ignore parsing error
-        }
+          const supabase = createClient();
+          const { data: cartData } = await supabase
+            .from('carts')
+            .select('id, cart_items(*)')
+            .eq('user_id', user.id)
+            .maybeSingle();
 
-        if (isSubscribed) {
-          setSavedItems(localSaved);
-        }
+          if (cartData && cartData.cart_items && isSubscribed) {
+            const remoteCart: CartItem[] = cartData.cart_items.map((ci: any) => {
+              const prod = getProductById(ci.product_id);
+              return {
+                id: ci.variant_id ? `${ci.product_id}-${ci.variant_id}` : ci.product_id,
+                productId: ci.product_id,
+                variantId: ci.variant_id,
+                name: prod?.name || 'Product',
+                slug: prod?.slug || '',
+                price: prod?.price || 0,
+                image: prod?.images[0]?.image_url || '/placeholder.png',
+                quantity: ci.quantity,
+                maxStock: prod?.stock_quantity || 10,
+              };
+            });
 
-        // 2. If user is authenticated, query Supabase
-        if (user) {
-          try {
-            const supabase = createClient();
-            const { data: cartData } = await supabase
-              .from('carts')
-              .select('id, cart_items(*)')
-              .eq('user_id', user.id)
-              .maybeSingle();
-
-            if (cartData && cartData.cart_items) {
-              const remoteCart: CartItem[] = cartData.cart_items.map((ci: any) => {
-                const prod = getProductById(ci.product_id);
-                return {
-                  id: ci.variant_id ? `${ci.product_id}-${ci.variant_id}` : ci.product_id,
-                  productId: ci.product_id,
-                  variantId: ci.variant_id,
-                  name: prod?.name || 'Product',
-                  slug: prod?.slug || '',
-                  price: prod?.price || 0,
-                  image: prod?.images[0]?.image_url || '/placeholder.png',
-                  quantity: ci.quantity,
-                  maxStock: prod?.stock_quantity || 10,
-                };
-              });
-
-              // Merge guest items with user cart
-              const merged = mergeCarts(localCart, remoteCart);
-              if (isSubscribed) setItems(merged);
-
-              // Clear guest cart once merged
-              localStorage.removeItem(GUEST_CART_KEY);
-            } else {
-              if (isSubscribed) setItems(localCart);
-            }
-          } catch {
-            if (isSubscribed) setItems(localCart);
+            // Merge guest items with user cart
+            const merged = mergeCarts(localCart, remoteCart);
+            setItems(merged);
+            localStorage.removeItem(GUEST_CART_KEY);
           }
-        } else {
-          if (isSubscribed) setItems(localCart);
-        }
-      } finally {
-        if (isSubscribed) {
-          setIsLoaded(true);
-          setIsLoading(false);
+        } catch {
+          // Local cart already active
         }
       }
     }
@@ -176,7 +168,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         const existingIndex = prevItems.findIndex((item) => item.id === cartItemId);
         const price = variant?.price ?? product.price;
         const comparePrice = variant?.compare_at_price ?? product.compare_at_price;
-        const image = product.images[0]?.image_url || '/placeholder.png';
+        const image = variant?.image_url || product.images[0]?.image_url || '/placeholder.png';
         const maxStock = variant ? variant.stock : product.stock_quantity;
 
         if (maxStock <= 0) {
@@ -308,7 +300,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const discountAmount = useMemo(() => {
     if (!appliedCoupon) return 0;
-    const res = validateCoupon(appliedCoupon.code, subtotal);
+    const res = validateLiveCoupon(appliedCoupon.code, subtotal);
     return res.valid ? res.discountAmount : 0;
   }, [appliedCoupon, subtotal]);
 
@@ -318,7 +310,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const applyCouponCode = useCallback(
     (code: string) => {
-      const res = validateCoupon(code, subtotal);
+      const res = validateLiveCoupon(code, subtotal);
       if (res.valid && res.coupon) {
         setAppliedCoupon(res.coupon);
         toast.success(`Coupon "${code.toUpperCase()}" applied! Saved ₹${res.discountAmount}`);
@@ -330,6 +322,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     },
     [subtotal]
   );
+
 
   const removeCoupon = useCallback(() => {
     setAppliedCoupon(null);

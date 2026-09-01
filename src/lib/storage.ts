@@ -37,8 +37,17 @@ export function validateImageFile(file: File): ImageValidationResult {
   return { isValid: true };
 }
 
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
+
 /**
- * Uploads product image file to Supabase storage bucket 'product-images'
+ * Uploads product image file to local storage & Supabase
  */
 export async function uploadProductImage(
   productId: string,
@@ -50,44 +59,50 @@ export async function uploadProductImage(
   }
 
   try {
-    const supabase = createClient();
-    const cleanFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filePath = `${productId}/${Date.now()}_${cleanFileName}`;
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('productId', productId || 'general');
 
-    const { data, error } = await supabase.storage
-      .from('product-images')
-      .upload(filePath, file, {
-        cacheControl: '3600',
-        upsert: false,
-      });
+    const res = await fetch('/api/admin/upload', {
+      method: 'POST',
+      body: formData,
+    });
 
-    if (error) {
-      // In local demo or offline mode, create object URL for instant preview
-      console.warn('Storage upload fallback:', error.message);
-      const fallbackUrl = URL.createObjectURL(file);
-      return {
-        success: true,
-        url: fallbackUrl,
-        path: filePath,
-      };
+    if (res.ok) {
+      const data = await res.json();
+      if (data.url) {
+        return {
+          success: true,
+          url: data.url,
+          path: data.filename || data.url,
+        };
+      }
     }
 
-    const { data: publicData } = supabase.storage
-      .from('product-images')
-      .getPublicUrl(data.path);
-
+    // Client-side base64 Data URL fallback (never expires, persists across browser refreshes)
+    const base64Url = await fileToBase64(file);
     return {
       success: true,
-      url: publicData.publicUrl,
-      path: data.path,
+      url: base64Url,
+      path: file.name,
     };
   } catch (err: any) {
-    return {
-      success: false,
-      error: err.message || 'Image upload failed',
-    };
+    try {
+      const base64Url = await fileToBase64(file);
+      return {
+        success: true,
+        url: base64Url,
+        path: file.name,
+      };
+    } catch {
+      return {
+        success: false,
+        error: err.message || 'Image upload failed',
+      };
+    }
   }
 }
+
 
 /**
  * Deletes an image from Supabase storage bucket

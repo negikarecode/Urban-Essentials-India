@@ -1,4 +1,5 @@
 import { PRODUCTS } from '@/lib/data/products';
+import { getStoredProducts } from '@/lib/productStore';
 import { Product } from '@/types';
 
 export interface SearchResultItem {
@@ -7,6 +8,7 @@ export interface SearchResultItem {
   slug: string;
   price: number;
   compare_at_price?: number;
+  discount?: number;
   image: string;
   category_name?: string;
   category_slug?: string;
@@ -14,25 +16,29 @@ export interface SearchResultItem {
   sku: string;
   score: number;
   matchReasons: string[];
+  rating?: number;
+  variants_count?: number;
+  stock_quantity?: number;
 }
 
 // Common typo corrections dictionary for everyday carry ecommerce
 const TYPO_MAP: Record<string, string> = {
   botle: 'bottle',
   botel: 'bottle',
+  bottels: 'bottle',
+  waterbottles: 'water bottle',
+  waterbottle: 'water bottle',
   flsk: 'flask',
   bentoo: 'bento',
   bentoox: 'bento',
   lnch: 'lunch',
   luch: 'lunch',
+  lunchbox: 'lunch box',
+  lunchboxes: 'lunch box',
   backpak: 'backpack',
   bagpack: 'backpack',
-  notebok: 'notebook',
-  notbook: 'notebook',
-  statonery: 'stationery',
-  statonary: 'stationery',
-  pencel: 'pencil',
-  pn: 'pen',
+  bagpacks: 'backpack',
+  bags: 'backpack',
   ofice: 'office',
   colege: 'college',
   scool: 'school',
@@ -58,9 +64,10 @@ export function searchProducts(rawQuery: string, limit: number = 8): SearchResul
   const normalized = normalizeQuery(rawQuery);
   const queryTokens = normalized.split(/\s+/).filter((t) => t.length > 0);
 
+  const products = typeof window !== 'undefined' ? getStoredProducts() : PRODUCTS;
   const scoredResults: SearchResultItem[] = [];
 
-  for (const product of PRODUCTS) {
+  for (const product of products) {
     if (!product.is_active) continue;
 
     let score = 0;
@@ -134,18 +141,27 @@ export function searchProducts(rawQuery: string, limit: number = 8): SearchResul
     }
 
     if (score > 0) {
+      const discount =
+        product.compare_at_price && product.compare_at_price > product.price
+          ? Math.round(((product.compare_at_price - product.price) / product.compare_at_price) * 100)
+          : product.discount;
+
       scoredResults.push({
         id: product.id,
         name: product.name,
         slug: product.slug,
         price: product.price,
         compare_at_price: product.compare_at_price,
+        discount,
         image: product.images[0]?.image_url || '/placeholder.png',
         category_name: product.category_name,
         category_slug: product.category_slug,
         target_audience: product.target_audience,
         sku: product.sku,
         score,
+        rating: product.rating,
+        variants_count: product.variants?.length || 0,
+        stock_quantity: product.stock_quantity,
         matchReasons: Array.from(new Set(matchReasons)),
       });
     }

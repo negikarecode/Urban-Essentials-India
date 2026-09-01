@@ -28,12 +28,12 @@ export function LoadingSpinner({
     >
       <Loader2
         className={cn(
-          'animate-spin text-brand-forest-800',
+          'animate-spin text-brand-forest-800 dark:text-emerald-400',
           sizeClasses[size]
         )}
       />
       {text && (
-        <p className="text-xs font-semibold text-brand-charcoal-600">
+        <p className="text-xs font-semibold text-brand-charcoal-600 dark:text-zinc-400">
           {text}
         </p>
       )}

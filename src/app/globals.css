@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-brand-cream-50 text-brand-charcoal-900 antialiased selection:bg-brand-forest-800 selection:text-white font-sans;
+    @apply bg-brand-cream-50 text-brand-charcoal-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased selection:bg-brand-forest-800 selection:text-white font-sans transition-colors duration-150;
   }
 }
 
@@ -24,13 +24,25 @@
   background: #FAF8F5;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #C5D6CA;
   border-radius: 9999px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #7A9A84;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -40,3 +52,4 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

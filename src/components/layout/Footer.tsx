@@ -66,18 +66,18 @@ export function Footer() {
             </h5>
             <ul className="space-y-2 text-xs sm:text-sm text-brand-cream-300/80">
               <li>
-                <Link href="/category/water-bottles" className="hover:text-white transition-colors">
-                  Bottles & Flasks
-                </Link>
-              </li>
-              <li>
                 <Link href="/category/backpacks" className="hover:text-white transition-colors">
-                  Bags & Backpacks
+                  Backpacks
                 </Link>
               </li>
               <li>
                 <Link href="/category/lunch-boxes" className="hover:text-white transition-colors">
-                  Lunchboxes & Meal Jars
+                  Lunch Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/water-bottles" className="hover:text-white transition-colors">
+                  Water Bottles
                 </Link>
               </li>
               <li>
@@ -105,18 +105,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/wishlist" className="hover:text-white transition-colors">
-                  Saved Wishlist
-                </Link>
+                <a href="mailto:urbanessentsialindia@gmail.com" className="hover:text-white transition-colors block">
+                  urbanessentsialindia@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:8310082568" className="hover:text-white transition-colors block text-brand-amber-400">
+                  +91 83100 82568
+                </a>
               </li>
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   Materials & Standards
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin" className="hover:text-brand-amber-300 text-brand-cream-300 transition-colors font-medium">
-                  Admin Dashboard
                 </Link>
               </li>
             </ul>

@@ -32,23 +32,23 @@ const AUDIENCES = [
 
 export function ShopByNeed() {
   return (
-    <section id="shop-by-need" className="py-16 sm:py-24 bg-white border-b border-brand-cream-300">
+    <section id="shop-by-need" className="py-16 sm:py-24 bg-white dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
           <div className="space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-forest-800 block">
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-forest-800 dark:text-emerald-400 block">
               Curated by Purpose
             </span>
-            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 uppercase tracking-tight">
+            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 dark:text-white uppercase tracking-tight">
               Shop by Segment
             </h2>
           </div>
 
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 hover:text-brand-forest-700 underline group"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 dark:text-white hover:text-brand-forest-700 dark:hover:text-emerald-400 underline group"
           >
             <span>View Full Catalog</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -61,10 +61,10 @@ export function ShopByNeed() {
             <Link
               key={item.key}
               href={item.link}
-              className="group flex flex-col bg-white border border-brand-cream-300 hover:border-brand-forest-900 transition-all duration-300"
+              className="group flex flex-col bg-white dark:bg-zinc-900 border border-brand-cream-300 dark:border-zinc-800 hover:border-brand-forest-900 dark:hover:border-emerald-500 transition-all duration-300"
             >
               {/* Editorial 3:4 Image Frame */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-brand-cream-100">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-brand-cream-100 dark:bg-zinc-800">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -86,12 +86,12 @@ export function ShopByNeed() {
               </div>
 
               {/* Editorial Caption Box */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4 bg-white">
-                <p className="text-xs text-brand-charcoal-600 leading-relaxed font-normal">
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4 bg-white dark:bg-zinc-900">
+                <p className="text-xs text-brand-charcoal-600 dark:text-zinc-400 leading-relaxed font-normal">
                   {item.description}
                 </p>
 
-                <div className="pt-3 border-t border-brand-cream-200 flex items-center justify-between text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 group-hover:text-brand-forest-800">
+                <div className="pt-3 border-t border-brand-cream-200 dark:border-zinc-800 flex items-center justify-between text-xs font-bold uppercase tracking-[0.15em] text-brand-forest-950 dark:text-white group-hover:text-brand-forest-800 dark:group-hover:text-emerald-400">
                   <span>Explore Collection</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>

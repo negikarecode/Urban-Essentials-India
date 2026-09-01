@@ -55,21 +55,21 @@ function RegisterForm() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 sm:p-10 rounded-3xl border border-brand-cream-300 shadow-xl">
+      <div className="max-w-md w-full space-y-8 bg-white dark:bg-zinc-900 p-8 sm:p-10 rounded-3xl border border-brand-cream-300 dark:border-zinc-800 shadow-xl">
         {/* Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-brand-forest-800 text-white font-serif font-bold text-xl shadow-md">
               U
             </div>
-            <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-950">
+            <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-950 dark:text-white">
               Urban Essentials
             </span>
           </Link>
-          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950 pt-2">
+          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950 dark:text-white pt-2">
             Create Your Account
           </h1>
-          <p className="text-xs sm:text-sm text-brand-charcoal-500">
+          <p className="text-xs sm:text-sm text-brand-charcoal-500 dark:text-zinc-400">
             Join Urban Essentials to track orders, save multiple addresses, and enjoy faster checkout.
           </p>
         </div>
@@ -77,27 +77,27 @@ function RegisterForm() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           {formError && (
-            <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-xl animate-fade-in">
+            <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 text-rose-700 dark:text-rose-300 text-xs font-semibold rounded-xl animate-fade-in">
               {formError}
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+            <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase mb-1">
               Full Name *
             </label>
             <Input
               type="text"
               required
-              placeholder="e.g. Aryan Sharma"
+              placeholder="Your full name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              leftIcon={<User className="w-4 h-4 text-brand-charcoal-400" />}
+              leftIcon={<User className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500" />}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+            <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase mb-1">
               Email Address *
             </label>
             <Input
@@ -106,12 +106,12 @@ function RegisterForm() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              leftIcon={<Mail className="w-4 h-4 text-brand-charcoal-400" />}
+              leftIcon={<Mail className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500" />}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+            <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase mb-1">
               Password (Min 6 Characters) *
             </label>
             <div className="relative">
@@ -121,12 +121,12 @@ function RegisterForm() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                leftIcon={<Lock className="w-4 h-4 text-brand-charcoal-400" />}
+                leftIcon={<Lock className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500" />}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-charcoal-400 hover:text-brand-charcoal-700 p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-charcoal-400 dark:text-zinc-500 hover:text-brand-charcoal-700 dark:hover:text-zinc-300 p-1"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -134,7 +134,7 @@ function RegisterForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+            <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase mb-1">
               Confirm Password *
             </label>
             <Input
@@ -143,7 +143,7 @@ function RegisterForm() {
               placeholder="••••••••"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              leftIcon={<Lock className="w-4 h-4 text-brand-charcoal-400" />}
+              leftIcon={<Lock className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500" />}
             />
           </div>
 
@@ -160,12 +160,12 @@ function RegisterForm() {
         </form>
 
         {/* Footer Link */}
-        <div className="text-center pt-2 border-t border-brand-cream-300">
-          <p className="text-xs text-brand-charcoal-600">
+        <div className="text-center pt-2 border-t border-brand-cream-300 dark:border-zinc-800">
+          <p className="text-xs text-brand-charcoal-600 dark:text-zinc-400">
             Already have an account?{' '}
             <Link
               href={`/login?redirectTo=${encodeURIComponent(redirectTo)}`}
-              className="font-bold text-brand-forest-800 hover:underline"
+              className="font-bold text-brand-forest-800 dark:text-emerald-400 hover:underline"
             >
               Sign In
             </Link>
@@ -173,8 +173,8 @@ function RegisterForm() {
         </div>
 
         {/* Trust badge */}
-        <div className="flex items-center justify-center gap-1.5 text-[11px] text-brand-charcoal-400">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="flex items-center justify-center gap-1.5 text-[11px] text-brand-charcoal-400 dark:text-zinc-500">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>By signing up you agree to our Terms & Privacy Policy</span>
         </div>
       </div>

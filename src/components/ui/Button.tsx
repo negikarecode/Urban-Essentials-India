@@ -29,13 +29,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const variantStyles = {
       primary:
-        'bg-brand-forest-800 text-white hover:bg-brand-forest-900 shadow-sm focus-visible:ring-brand-forest-700 active:bg-brand-forest-950',
+        'bg-brand-forest-800 hover:bg-brand-forest-900 text-white shadow-sm focus-visible:ring-brand-forest-700 active:bg-brand-forest-950',
       secondary:
-        'bg-brand-cream-200 text-brand-forest-950 hover:bg-brand-cream-300 border border-brand-cream-300 focus-visible:ring-brand-cream-400',
+        'bg-brand-cream-200 dark:bg-zinc-800 text-brand-forest-950 dark:text-zinc-100 hover:bg-brand-cream-300 dark:hover:bg-zinc-700 border border-brand-cream-300 dark:border-zinc-700 focus-visible:ring-brand-cream-400',
       outline:
-        'bg-white text-brand-forest-900 border border-brand-cream-400 hover:bg-brand-cream-100 hover:border-brand-forest-700 focus-visible:ring-brand-forest-700',
+        'bg-white dark:bg-zinc-900 text-brand-forest-900 dark:text-zinc-100 border border-brand-cream-400 dark:border-zinc-700 hover:bg-brand-cream-100 dark:hover:bg-zinc-800 hover:border-brand-forest-700 dark:hover:border-emerald-500 focus-visible:ring-brand-forest-700',
       ghost:
-        'text-brand-charcoal-700 hover:bg-brand-cream-200 hover:text-brand-forest-900 focus-visible:ring-brand-forest-700',
+        'text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 hover:text-brand-forest-900 dark:hover:text-white focus-visible:ring-brand-forest-700',
       destructive:
         'bg-rose-600 text-white hover:bg-rose-700 shadow-sm focus-visible:ring-rose-500',
       accent:

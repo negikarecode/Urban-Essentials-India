@@ -13,7 +13,7 @@ export function Separator({
   return (
     <div
       className={cn(
-        'shrink-0 bg-brand-cream-300',
+        'shrink-0 bg-brand-cream-300 dark:bg-zinc-800',
         orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
         className
       )}

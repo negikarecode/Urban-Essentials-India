@@ -17,15 +17,15 @@ export function ErrorState({
 }: ErrorStateProps) {
   return (
     <div className="py-16 px-4 text-center max-w-md mx-auto space-y-4">
-      <div className="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto border border-rose-200 shadow-xs">
+      <div className="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center mx-auto border border-rose-200 dark:border-rose-800 shadow-xs">
         <AlertCircle className="w-7 h-7" />
       </div>
 
       <div className="space-y-1">
-        <h3 className="font-serif font-bold text-lg text-brand-charcoal-900">
+        <h3 className="font-serif font-bold text-lg text-brand-charcoal-900 dark:text-white">
           {title}
         </h3>
-        <p className="text-xs sm:text-sm text-brand-charcoal-500 leading-relaxed">
+        <p className="text-xs sm:text-sm text-brand-charcoal-500 dark:text-zinc-400 leading-relaxed">
           {message}
         </p>
       </div>

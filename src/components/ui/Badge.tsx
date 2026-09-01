@@ -22,14 +22,14 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    default: 'bg-brand-cream-200 text-brand-charcoal-800 border-brand-cream-300',
+    default: 'bg-brand-cream-200 dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-200 border-brand-cream-300 dark:border-zinc-700',
     forest: 'bg-brand-forest-800 text-white border-transparent shadow-xs',
-    sage: 'bg-brand-sage-100 text-brand-sage-900 border-brand-sage-200',
+    sage: 'bg-brand-sage-100 dark:bg-zinc-800 text-brand-sage-900 dark:text-emerald-300 border-brand-sage-200 dark:border-zinc-700',
     amber: 'bg-brand-amber-500 text-brand-forest-950 border-brand-amber-600 font-extrabold shadow-xs',
-    success: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-    warning: 'bg-amber-50 text-amber-900 border-amber-200',
-    destructive: 'bg-rose-50 text-rose-800 border-rose-200',
-    outline: 'bg-transparent text-brand-charcoal-700 border-brand-cream-400',
+    success: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
+    warning: 'bg-amber-50 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 border-amber-200 dark:border-amber-800',
+    destructive: 'bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-200 dark:border-rose-800',
+    outline: 'bg-transparent text-brand-charcoal-700 dark:text-zinc-300 border-brand-cream-400 dark:border-zinc-700',
   };
 
   const sizeStyles = {

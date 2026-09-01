@@ -36,11 +36,15 @@ export interface ProductVariant {
   compare_at_price?: number;
   attributes: {
     color?: string;
+    color_code?: string;
     size?: string;
     capacity?: string;
     material?: string;
     [key: string]: string | undefined;
   };
+  color_code?: string;
+  image_url?: string;
+  images?: ProductImage[];
   stock: number;
   is_active: boolean;
 }
@@ -51,6 +55,7 @@ export interface ProductImage {
   alt_text?: string;
   sort_order: number;
   is_primary: boolean;
+  color?: string;
 }
 
 export interface Review {

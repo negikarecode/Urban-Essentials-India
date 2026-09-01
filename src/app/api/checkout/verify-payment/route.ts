@@ -2,9 +2,23 @@ import { NextResponse } from 'next/server';
 import { verifyRazorpaySignature } from '@/lib/razorpay';
 import { saveOrder } from '@/lib/data/orders';
 import { Order } from '@/types';
+import { checkRateLimit, rateLimitResponse } from '@/lib/rateLimit';
 
 export async function POST(req: Request) {
   try {
+    const rateLimit = checkRateLimit(req, {
+      limit: 15,
+      windowMs: 60 * 1000, // 1 minute
+      prefix: 'checkout-verify-payment',
+    });
+
+    if (!rateLimit.allowed) {
+      return rateLimitResponse(
+        rateLimit,
+        `Too many payment verification attempts. Please wait ${rateLimit.retryAfterSeconds} seconds.`
+      );
+    }
+
     const body = await req.json();
     const {
       razorpayOrderId,

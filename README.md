@@ -106,5 +106,5 @@ Access the admin portal at [http://localhost:3000/admin](http://localhost:3000/a
 ## 🧪 Testing Credentials & Demo Profiles
 The application includes pre-configured demo sign-in shortcuts in the header and account menus:
 - **Demo Customer:** `alex.student@gmail.com`
-- **Demo Admin:** `admin@urbanessentials.com` (Grants full access to `/admin`)
+- **Store Administrator:** `urbanessentials@gmail.com` (Password: `urbanessentials@2026` — grants full access to `/admin`)
 - **Active Promotional Coupons:** `WELCOME10` (10% off), `URBAN20` (20% off above ₹1500), `FLAT250` (Flat ₹250 off above ₹2000)

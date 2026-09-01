@@ -15,8 +15,8 @@ export function ProductGrid({
 }: ProductGridProps) {
   if (products.length === 0) {
     return (
-      <div className="py-16 text-center bg-brand-cream-100/50 rounded-2xl border border-brand-cream-300">
-        <p className="text-brand-charcoal-600 font-medium">{emptyMessage}</p>
+      <div className="py-16 text-center bg-brand-cream-100/50 dark:bg-zinc-900 rounded-2xl border border-brand-cream-300 dark:border-zinc-800">
+        <p className="text-brand-charcoal-600 dark:text-zinc-400 font-medium">{emptyMessage}</p>
       </div>
     );
   }

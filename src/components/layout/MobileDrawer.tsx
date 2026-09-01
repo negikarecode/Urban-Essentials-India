@@ -16,6 +16,8 @@ import {
 } from 'lucide-react';
 import { CATEGORIES } from '@/lib/data/products';
 import { useAuth } from '@/context/AuthContext';
+import { SearchBarDropdown } from '@/components/search/SearchBarDropdown';
+import { ThemeToggle } from './ThemeToggle';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -24,116 +26,103 @@ interface MobileDrawerProps {
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const router = useRouter();
-  const { user, signOut, demoLoginAsCustomer } = useAuth();
-  const [mobileSearch, setMobileSearch] = useState('');
+  const { user, signOut, isAdmin } = useAuth();
 
   if (!isOpen) return null;
-
-  const handleMobileSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (mobileSearch.trim()) {
-      router.push(`/products?q=${encodeURIComponent(mobileSearch.trim())}`);
-      setMobileSearch('');
-      onClose();
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden flex">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
       />
 
-      {/* Drawer content */}
-      <div className="relative w-full max-w-xs bg-brand-cream-50 h-full flex flex-col z-10 shadow-2xl overflow-y-auto">
+      {/* Drawer Panel */}
+      <div className="relative w-full max-w-xs bg-white dark:bg-zinc-900 border-r border-brand-cream-300 dark:border-zinc-800 h-full shadow-2xl flex flex-col z-10 animate-slide-right overflow-y-auto">
         {/* Header */}
-        <div className="p-4 border-b border-brand-cream-300 flex items-center justify-between bg-white">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
-              U
-            </div>
-            <span className="font-serif font-bold text-xl tracking-tight text-brand-forest-900">
-              Urban Essentials
+        <div className="p-4 border-b border-brand-cream-300 dark:border-zinc-800 flex items-center justify-between bg-brand-cream-50 dark:bg-zinc-950">
+          <Link href="/" onClick={onClose} className="flex items-center gap-2">
+            <span className="font-serif text-lg font-black tracking-tight text-brand-forest-950 dark:text-white">
+              URBAN
             </span>
-          </div>
+            <span className="text-[10px] tracking-[0.2em] font-semibold text-brand-forest-600 dark:text-brand-sage-400 uppercase">
+              Essentials
+            </span>
+          </Link>
           <button
             onClick={onClose}
-            aria-label="Close menu"
-            className="p-2 rounded-full hover:bg-brand-cream-200 text-brand-charcoal-700"
+            className="p-2 rounded-full hover:bg-brand-cream-200 dark:hover:bg-zinc-800 text-brand-charcoal-700 dark:text-zinc-300"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Mobile Search Bar */}
-        <div className="p-4 bg-white border-b border-brand-cream-300">
-          <form onSubmit={handleMobileSearch} className="relative flex items-center">
-            <input
-              type="text"
-              placeholder="Search bottles, bento, bags..."
-              value={mobileSearch}
-              onChange={(e) => setMobileSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-brand-cream-400 bg-brand-cream-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-forest-800"
-            />
-            <Search className="w-4 h-4 text-brand-charcoal-400 absolute left-3 pointer-events-none" />
-          </form>
+        {/* Mobile Search Bar with Dropdown */}
+        <div className="p-3 bg-white dark:bg-zinc-900 border-b border-brand-cream-300 dark:border-zinc-800">
+          <SearchBarDropdown
+            placeholder="Search bottles, bento, bags..."
+            onNavigate={onClose}
+          />
         </div>
-
-
 
         {/* Categories List */}
         <div className="p-4 flex-1">
-          <p className="text-xs font-semibold text-brand-charcoal-500 uppercase tracking-wider mb-3">
+          <p className="text-xs font-semibold text-brand-charcoal-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
             Explore Categories
           </p>
           <div className="space-y-1">
             <Link
-              href="/category/water-bottles"
-              onClick={onClose}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
-            >
-              <span>Bottles</span>
-              <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
-            </Link>
-            <Link
               href="/category/backpacks"
               onClick={onClose}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 dark:text-zinc-100 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
             >
-              <span>Bags</span>
+              <span>Backpacks</span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
             <Link
               href="/category/lunch-boxes"
               onClick={onClose}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 hover:bg-brand-cream-200 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 dark:text-zinc-100 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
             >
-              <span>Lunchboxes</span>
+              <span>Lunch Boxes</span>
+              <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
+            </Link>
+            <Link
+              href="/category/water-bottles"
+              onClick={onClose}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-charcoal-900 dark:text-zinc-100 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
+            >
+              <span>Water Bottles</span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
             <Link
               href="/products"
               onClick={onClose}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-forest-900 bg-brand-cream-100 hover:bg-brand-cream-200 transition-colors"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-forest-900 dark:text-emerald-300 bg-brand-cream-100 dark:bg-zinc-800 hover:bg-brand-cream-200 dark:hover:bg-zinc-700 transition-colors"
             >
               <span className="flex items-center gap-2.5">
-                <ShoppingBag className="w-4 h-4 text-brand-forest-700" />
+                <ShoppingBag className="w-4 h-4 text-brand-forest-700 dark:text-emerald-400" />
                 Shop All
               </span>
               <ChevronRight className="w-4 h-4 text-brand-charcoal-400" />
             </Link>
           </div>
 
-          <hr className="my-4 border-brand-cream-300" />
+          <hr className="my-4 border-brand-cream-300 dark:border-zinc-800" />
 
-          {/* Customer links */}
+          {/* Customer links & Theme Switcher */}
           <div className="space-y-1">
+            {/* Theme Toggle Button in Mobile Drawer */}
+            <div className="px-3 py-1 flex items-center justify-between rounded-lg hover:bg-brand-cream-200 dark:hover:bg-zinc-800 text-brand-charcoal-700 dark:text-zinc-300">
+              <span className="text-sm font-medium">Appearance</span>
+              <ThemeToggle />
+            </div>
+
             <Link
               href="/wishlist"
               onClick={onClose}
-              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 hover:bg-brand-cream-200"
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800"
             >
               <Heart className="w-4 h-4 text-rose-500" />
               Wishlist
@@ -141,59 +130,58 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <Link
               href="/account"
               onClick={onClose}
-              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 hover:bg-brand-cream-200"
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800"
             >
-              <User className="w-4 h-4 text-brand-forest-700" />
+              <User className="w-4 h-4 text-brand-forest-700 dark:text-emerald-400" />
               My Account & Orders
             </Link>
             <Link
               href="/about"
               onClick={onClose}
-              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 hover:bg-brand-cream-200"
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800"
             >
-              <BookOpen className="w-4 h-4 text-brand-forest-700" />
+              <BookOpen className="w-4 h-4 text-brand-forest-700 dark:text-emerald-400" />
               About Brand & Materials
             </Link>
-            <Link
-              href="/admin"
-              onClick={onClose}
-              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-forest-800 bg-brand-forest-50 hover:bg-brand-forest-100"
-            >
-              <ShieldCheck className="w-4 h-4 text-brand-forest-700" />
-              Admin Portal
-            </Link>
+            {isAdmin && (
+              <Link
+                href="/admin"
+                onClick={onClose}
+                className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-brand-forest-800 dark:text-emerald-300 bg-brand-forest-50 dark:bg-brand-forest-950/80 hover:bg-brand-forest-100 dark:hover:bg-brand-forest-900"
+              >
+                <ShieldCheck className="w-4 h-4 text-brand-forest-700 dark:text-emerald-400" />
+                Admin Portal
+              </Link>
+            )}
           </div>
         </div>
 
         {/* Footer actions */}
-        <div className="p-4 border-t border-brand-cream-300 bg-white space-y-2">
+        <div className="p-4 border-t border-brand-cream-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2">
           {user ? (
             <div className="space-y-2">
-              <div className="text-xs text-brand-charcoal-600 truncate">
-                Signed in as <strong className="text-brand-forest-900">{user.email}</strong>
+              <div className="text-xs text-brand-charcoal-600 dark:text-zinc-400 truncate">
+                Signed in as <strong className="text-brand-forest-900 dark:text-zinc-100">{user.email}</strong>
               </div>
               <button
                 onClick={() => {
                   signOut();
                   onClose();
                 }}
-                className="w-full text-xs font-semibold py-2 text-rose-600 bg-rose-50 rounded-lg hover:bg-rose-100"
+                className="w-full text-xs font-semibold py-2 text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-900/60"
               >
                 Sign Out
               </button>
             </div>
           ) : (
             <div className="space-y-2">
-              <button
-                onClick={() => {
-                  demoLoginAsCustomer();
-                  onClose();
-                }}
-                className="w-full text-xs font-medium py-2 px-3 bg-brand-forest-800 text-white rounded-lg hover:bg-brand-forest-900 flex items-center justify-center gap-1.5"
+              <Link
+                href="/login"
+                onClick={onClose}
+                className="w-full text-xs font-bold py-2.5 px-3 bg-brand-forest-800 text-white rounded-xl hover:bg-brand-forest-900 flex items-center justify-center gap-1.5 shadow-sm"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                Sign In (Demo Customer)
-              </button>
+                <span>Sign In to Account</span>
+              </Link>
             </div>
           )}
         </div>

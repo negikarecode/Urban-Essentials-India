@@ -26,7 +26,7 @@ const TRUST_PILLARS = [
 
 export function TrustSection() {
   return (
-    <section className="bg-brand-forest-950 text-white border-y border-brand-forest-900 py-8 sm:py-10">
+    <section className="bg-brand-forest-950 dark:bg-zinc-950 text-white border-y border-brand-forest-900 dark:border-zinc-800 py-8 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {TRUST_PILLARS.map((pillar, idx) => (

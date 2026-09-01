@@ -133,14 +133,14 @@ export function ProductImageManager({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-bold text-brand-charcoal-700 uppercase tracking-wider">
+        <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase tracking-wider">
           Product Gallery ({images.length})
         </label>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setShowUrlInput(!showUrlInput)}
-            className="text-[11px] font-semibold text-brand-forest-800 hover:text-brand-forest-950 flex items-center gap-1"
+            className="text-[11px] font-semibold text-brand-forest-800 dark:text-emerald-400 hover:text-brand-forest-950 dark:hover:text-emerald-300 flex items-center gap-1"
           >
             <LinkIcon className="w-3 h-3" />
             <span>Add by URL</span>
@@ -149,13 +149,13 @@ export function ProductImageManager({
       </div>
 
       {showUrlInput && (
-        <form onSubmit={handleAddByUrl} className="flex gap-2 p-3 bg-brand-cream-100 rounded-2xl border border-brand-cream-300">
+        <form onSubmit={handleAddByUrl} className="flex gap-2 p-3 bg-brand-cream-100 dark:bg-zinc-800 rounded-2xl border border-brand-cream-300 dark:border-zinc-700">
           <input
             type="url"
             placeholder="https://images.unsplash.com/..."
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
-            className="flex-1 px-3 py-1.5 text-xs rounded-xl border border-brand-cream-400 bg-white"
+            className="flex-1 px-3 py-1.5 text-xs rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-brand-charcoal-900 dark:text-zinc-100"
           />
           <button
             type="submit"
@@ -171,8 +171,8 @@ export function ProductImageManager({
         onClick={() => fileInputRef.current?.click()}
         className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all ${
           isUploading
-            ? 'border-brand-forest-600 bg-brand-forest-50'
-            : 'border-brand-cream-400 hover:border-brand-forest-700 hover:bg-brand-cream-50'
+            ? 'border-brand-forest-600 bg-brand-forest-50 dark:bg-zinc-800'
+            : 'border-brand-cream-400 dark:border-zinc-700 hover:border-brand-forest-700 dark:hover:border-emerald-500 hover:bg-brand-cream-50 dark:hover:bg-zinc-800/50'
         }`}
       >
         <input
@@ -185,18 +185,18 @@ export function ProductImageManager({
         />
 
         <div className="flex flex-col items-center justify-center space-y-2">
-          <div className="w-10 h-10 rounded-full bg-brand-cream-200 flex items-center justify-center text-brand-forest-800">
+          <div className="w-10 h-10 rounded-full bg-brand-cream-200 dark:bg-zinc-800 flex items-center justify-center text-brand-forest-800 dark:text-emerald-400">
             {isUploading ? (
-              <div className="w-5 h-5 border-2 border-brand-forest-800 border-t-transparent rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-brand-forest-800 dark:border-emerald-400 border-t-transparent rounded-full animate-spin" />
             ) : (
               <UploadCloud className="w-5 h-5" />
             )}
           </div>
           <div>
-            <p className="text-xs font-bold text-brand-charcoal-900">
+            <p className="text-xs font-bold text-brand-charcoal-900 dark:text-zinc-100">
               {isUploading ? 'Uploading images to Supabase...' : 'Click or Drag & Drop images to upload'}
             </p>
-            <p className="text-[10px] text-brand-charcoal-500 mt-0.5">
+            <p className="text-[10px] text-brand-charcoal-500 dark:text-zinc-400 mt-0.5">
               Supports JPG, PNG, WebP, AVIF up to 5MB
             </p>
           </div>
@@ -209,18 +209,19 @@ export function ProductImageManager({
           {images.map((img, index) => (
             <div
               key={img.id || index}
-              className={`relative rounded-2xl overflow-hidden border bg-white p-1.5 space-y-2 group shadow-xs ${
+              className={`relative rounded-2xl overflow-hidden border bg-white dark:bg-zinc-800/90 p-1.5 space-y-2 group shadow-xs ${
                 img.is_primary
-                  ? 'border-brand-forest-700 ring-2 ring-brand-forest-700/20'
-                  : 'border-brand-cream-300'
+                  ? 'border-brand-forest-700 dark:border-emerald-500 ring-2 ring-brand-forest-700/20 dark:ring-emerald-500/20'
+                  : 'border-brand-cream-300 dark:border-zinc-700'
               }`}
             >
               {/* Thumbnail Container */}
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-brand-cream-100 border border-brand-cream-200">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-brand-cream-100 dark:bg-zinc-900 border border-brand-cream-200 dark:border-zinc-700">
                 <Image
                   src={img.image_url}
                   alt={img.alt_text || `Product image ${index + 1}`}
                   fill
+                  unoptimized={img.image_url.startsWith('data:') || img.image_url.startsWith('blob:')}
                   sizes="150px"
                   className="object-cover"
                 />
@@ -241,7 +242,7 @@ export function ProductImageManager({
                     type="button"
                     disabled={index === 0}
                     onClick={() => handleMove(index, 'left')}
-                    className="p-1 rounded text-brand-charcoal-500 hover:bg-brand-cream-200 disabled:opacity-20"
+                    className="p-1 rounded text-brand-charcoal-500 dark:text-zinc-400 hover:bg-brand-cream-200 dark:hover:bg-zinc-700 disabled:opacity-20"
                     title="Move Left"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
@@ -250,7 +251,7 @@ export function ProductImageManager({
                     type="button"
                     disabled={index === images.length - 1}
                     onClick={() => handleMove(index, 'right')}
-                    className="p-1 rounded text-brand-charcoal-500 hover:bg-brand-cream-200 disabled:opacity-20"
+                    className="p-1 rounded text-brand-charcoal-500 dark:text-zinc-400 hover:bg-brand-cream-200 dark:hover:bg-zinc-700 disabled:opacity-20"
                     title="Move Right"
                   >
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -263,16 +264,16 @@ export function ProductImageManager({
                     <button
                       type="button"
                       onClick={() => handleSetPrimary(index)}
-                      className="p-1 text-[10px] font-semibold text-brand-charcoal-600 hover:text-brand-forest-800 rounded hover:bg-brand-cream-200"
+                      className="p-1 text-[10px] font-semibold text-brand-charcoal-600 dark:text-zinc-300 hover:text-brand-forest-800 dark:hover:text-emerald-400 rounded hover:bg-brand-cream-200 dark:hover:bg-zinc-700"
                       title="Set as Primary"
                     >
-                      <Star className="w-3.5 h-3.5 text-brand-charcoal-400 hover:text-brand-amber-500" />
+                      <Star className="w-3.5 h-3.5 text-brand-charcoal-400 dark:text-zinc-500 hover:text-brand-amber-500" />
                     </button>
                   )}
                   <button
                     type="button"
                     onClick={() => handleDeleteImage(index)}
-                    className="p-1 text-brand-charcoal-400 hover:text-rose-600 rounded hover:bg-rose-50"
+                    className="p-1 text-brand-charcoal-400 dark:text-zinc-500 hover:text-rose-600 dark:hover:text-rose-400 rounded hover:bg-rose-50 dark:hover:bg-rose-950/40"
                     title="Delete Image"
                   >
                     <Trash2 className="w-3.5 h-3.5" />

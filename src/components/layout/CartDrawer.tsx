@@ -69,12 +69,12 @@ export function CartDrawer() {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <div className="w-screen max-w-md bg-white dark:bg-zinc-900 shadow-2xl flex flex-col border-l dark:border-zinc-800">
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-brand-cream-300 flex items-center justify-between bg-brand-cream-50">
+          <div className="p-4 sm:p-5 border-b border-brand-cream-300 dark:border-zinc-800 flex items-center justify-between bg-brand-cream-50 dark:bg-zinc-950">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-brand-forest-800" />
-              <h2 className="font-serif font-bold text-lg text-brand-forest-900">
+              <ShoppingBag className="w-5 h-5 text-brand-forest-800 dark:text-emerald-400" />
+              <h2 className="font-serif font-bold text-lg text-brand-forest-900 dark:text-zinc-100">
                 Your Cart ({itemCount})
               </h2>
             </div>
@@ -82,7 +82,7 @@ export function CartDrawer() {
               {items.length > 0 && (
                 <button
                   onClick={clearCart}
-                  className="text-xs text-rose-600 hover:text-rose-700 font-semibold px-2 py-1 hover:bg-rose-50 rounded-lg transition-colors"
+                  className="text-xs text-rose-600 dark:text-rose-400 hover:text-rose-700 font-semibold px-2 py-1 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg transition-colors"
                   title="Remove all items"
                 >
                   Clear
@@ -91,7 +91,7 @@ export function CartDrawer() {
               <button
                 onClick={closeCart}
                 aria-label="Close cart"
-                className="p-1.5 rounded-full hover:bg-brand-cream-200 text-brand-charcoal-700 transition-colors"
+                className="p-1.5 rounded-full hover:bg-brand-cream-200 dark:hover:bg-zinc-800 text-brand-charcoal-700 dark:text-zinc-300 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -99,22 +99,22 @@ export function CartDrawer() {
           </div>
 
           {/* Free Shipping Progress Bar */}
-          <div className="bg-brand-cream-100 p-3 sm:px-5 border-b border-brand-cream-300">
-            <div className="flex items-center gap-2 text-xs font-semibold text-brand-forest-900 mb-1.5">
-              <Truck className="w-4 h-4 text-brand-forest-700 shrink-0" />
+          <div className="bg-brand-cream-100 dark:bg-zinc-800/80 p-3 sm:px-5 border-b border-brand-cream-300 dark:border-zinc-700">
+            <div className="flex items-center gap-2 text-xs font-semibold text-brand-forest-900 dark:text-zinc-200 mb-1.5">
+              <Truck className="w-4 h-4 text-brand-forest-700 dark:text-emerald-400 shrink-0" />
               {amountNeededForFreeShipping > 0 ? (
                 <span>
-                  Add <strong className="text-brand-forest-800">{formatCurrency(amountNeededForFreeShipping)}</strong> more to unlock <strong>FREE Express Shipping</strong>!
+                  Add <strong className="text-brand-forest-800 dark:text-emerald-400">{formatCurrency(amountNeededForFreeShipping)}</strong> more to unlock <strong>FREE Express Shipping</strong>!
                 </span>
               ) : (
-                <span className="text-emerald-700 flex items-center gap-1">
+                <span className="text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
                   You unlocked <strong>FREE Express Shipping</strong>!
                 </span>
               )}
             </div>
-            <div className="w-full bg-brand-cream-300 rounded-full h-2 overflow-hidden">
+            <div className="w-full bg-brand-cream-300 dark:bg-zinc-700 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-brand-forest-700 h-full rounded-full transition-all duration-500"
+                className="bg-brand-forest-700 dark:bg-emerald-500 h-full rounded-full transition-all duration-500"
                 style={{ width: `${freeShippingProgress}%` }}
               />
             </div>
@@ -124,13 +124,13 @@ export function CartDrawer() {
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-12 space-y-3">
-                <div className="w-16 h-16 rounded-3xl bg-brand-cream-200 flex items-center justify-center text-brand-charcoal-400 border border-brand-cream-300">
+                <div className="w-16 h-16 rounded-3xl bg-brand-cream-200 dark:bg-zinc-800 flex items-center justify-center text-brand-charcoal-400 dark:text-zinc-500 border border-brand-cream-300 dark:border-zinc-700">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif font-bold text-lg text-brand-charcoal-900">
+                <h3 className="font-serif font-bold text-lg text-brand-charcoal-900 dark:text-zinc-100">
                   Your cart is empty
                 </h3>
-                <p className="text-xs text-brand-charcoal-500 max-w-xs leading-relaxed">
+                <p className="text-xs text-brand-charcoal-500 dark:text-zinc-400 max-w-xs leading-relaxed">
                   Explore our bento boxes, vacuum flasks, backpacks, and everyday desk gear.
                 </p>
                 <button
@@ -144,10 +144,10 @@ export function CartDrawer() {
               items.map((item) => (
                 <div
                   key={item.id}
-                  className="flex gap-3.5 pb-4 border-b border-brand-cream-200 last:border-0"
+                  className="flex gap-3.5 pb-4 border-b border-brand-cream-200 dark:border-zinc-800 last:border-0"
                 >
                   {/* Thumbnail */}
-                  <div className="relative w-20 h-20 bg-brand-cream-100 rounded-xl overflow-hidden shrink-0 border border-brand-cream-300">
+                  <div className="relative w-20 h-20 bg-brand-cream-100 dark:bg-zinc-800 rounded-xl overflow-hidden shrink-0 border border-brand-cream-300 dark:border-zinc-700">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -161,24 +161,24 @@ export function CartDrawer() {
                   <div className="flex-1 flex flex-col justify-between min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-brand-charcoal-900 line-clamp-1">
+                        <h4 className="text-xs sm:text-sm font-bold text-brand-charcoal-900 dark:text-zinc-100 line-clamp-1">
                           <Link
                             href={`/products/${item.slug}`}
                             onClick={closeCart}
-                            className="hover:text-brand-forest-700 transition-colors"
+                            className="hover:text-brand-forest-700 dark:hover:text-emerald-400 transition-colors"
                           >
                             {item.name}
                           </Link>
                         </h4>
                         {item.variantName && (
-                          <p className="text-[11px] text-brand-charcoal-500 mt-0.5">
+                          <p className="text-[11px] text-brand-charcoal-500 dark:text-zinc-400 mt-0.5">
                             {item.variantName}
                           </p>
                         )}
                       </div>
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-brand-charcoal-400 hover:text-rose-600 p-1 transition-colors"
+                        className="text-brand-charcoal-400 dark:text-zinc-500 hover:text-rose-600 dark:hover:text-rose-400 p-1 transition-colors"
                         title="Remove item"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -187,21 +187,21 @@ export function CartDrawer() {
 
                     <div className="flex items-center justify-between mt-2">
                       {/* Quantity Stepper */}
-                      <div className="flex items-center border border-brand-cream-400 rounded-lg bg-white">
+                      <div className="flex items-center border border-brand-cream-400 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="p-1 text-brand-charcoal-600 hover:bg-brand-cream-200 transition-colors"
+                          className="p-1 text-brand-charcoal-600 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
                           aria-label="Decrease quantity"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
-                        <span className="w-7 text-center text-xs font-bold text-brand-charcoal-800">
+                        <span className="w-7 text-center text-xs font-bold text-brand-charcoal-800 dark:text-zinc-200">
                           {item.quantity}
                         </span>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           disabled={item.quantity >= item.maxStock}
-                          className="p-1 text-brand-charcoal-600 hover:bg-brand-cream-200 transition-colors disabled:opacity-30"
+                          className="p-1 text-brand-charcoal-600 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors disabled:opacity-30"
                           aria-label="Increase quantity"
                         >
                           <Plus className="w-3 h-3" />
@@ -211,7 +211,7 @@ export function CartDrawer() {
                       {/* Save for later button */}
                       <button
                         onClick={() => saveForLater(item.id)}
-                        className="text-[10px] font-semibold text-brand-charcoal-500 hover:text-brand-forest-800 flex items-center gap-1"
+                        className="text-[10px] font-semibold text-brand-charcoal-500 dark:text-zinc-400 hover:text-brand-forest-800 dark:hover:text-emerald-400 flex items-center gap-1"
                       >
                         <Bookmark className="w-3 h-3" />
                         <span>Save for later</span>
@@ -219,14 +219,9 @@ export function CartDrawer() {
 
                       {/* Price */}
                       <div className="text-right">
-                        <span className="text-xs sm:text-sm font-bold text-brand-forest-950">
+                        <span className="text-xs sm:text-sm font-bold text-brand-forest-950 dark:text-white">
                           {formatCurrency(item.price * item.quantity)}
                         </span>
-                        {item.compare_at_price && item.compare_at_price > item.price && (
-                          <div className="text-[10px] text-brand-charcoal-400 line-through">
-                            {formatCurrency(item.compare_at_price * item.quantity)}
-                          </div>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -236,16 +231,16 @@ export function CartDrawer() {
 
             {/* Saved for Later Section */}
             {savedItems.length > 0 && (
-              <div className="pt-4 border-t border-brand-cream-300">
+              <div className="pt-4 border-t border-brand-cream-300 dark:border-zinc-800">
                 <button
                   onClick={() => setShowSavedItems(!showSavedItems)}
-                  className="w-full flex items-center justify-between text-xs font-bold text-brand-forest-900 py-1"
+                  className="w-full flex items-center justify-between text-xs font-bold text-brand-forest-900 dark:text-zinc-200 py-1"
                 >
                   <span className="flex items-center gap-1.5">
-                    <BookmarkCheck className="w-3.5 h-3.5 text-brand-forest-700" />
+                    <BookmarkCheck className="w-3.5 h-3.5 text-brand-forest-700 dark:text-emerald-400" />
                     <span>Saved for Later ({savedItems.length})</span>
                   </span>
-                  <span className="text-[10px] text-brand-charcoal-500">
+                  <span className="text-[10px] text-brand-charcoal-500 dark:text-zinc-400">
                     {showSavedItems ? 'Hide' : 'Show'}
                   </span>
                 </button>
@@ -255,10 +250,10 @@ export function CartDrawer() {
                     {savedItems.map((si) => (
                       <div
                         key={si.id}
-                        className="flex items-center justify-between gap-3 p-2.5 bg-brand-cream-100/60 rounded-xl border border-brand-cream-300 text-xs"
+                        className="flex items-center justify-between gap-3 p-2.5 bg-brand-cream-100/60 dark:bg-zinc-800/60 rounded-xl border border-brand-cream-300 dark:border-zinc-700 text-xs"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="relative w-12 h-12 bg-white rounded-lg overflow-hidden shrink-0">
+                          <div className="relative w-12 h-12 bg-white dark:bg-zinc-900 rounded-lg overflow-hidden shrink-0">
                             <Image
                               src={si.image}
                               alt={si.name}
@@ -268,10 +263,10 @@ export function CartDrawer() {
                             />
                           </div>
                           <div className="truncate">
-                            <p className="font-bold text-brand-charcoal-900 truncate">
+                            <p className="font-bold text-brand-charcoal-900 dark:text-zinc-100 truncate">
                               {si.name}
                             </p>
-                            <p className="text-[11px] font-semibold text-brand-forest-800">
+                            <p className="text-[11px] font-semibold text-brand-forest-800 dark:text-emerald-400">
                               {formatCurrency(si.price)}
                             </p>
                           </div>
@@ -280,13 +275,13 @@ export function CartDrawer() {
                         <div className="flex items-center gap-2 shrink-0">
                           <button
                             onClick={() => moveToCart(si.id)}
-                            className="px-2.5 py-1 bg-brand-forest-800 text-white rounded-lg text-[11px] font-bold hover:bg-brand-forest-900"
+                            className="px-2.5 py-1 bg-brand-forest-800 hover:bg-brand-forest-900 text-white rounded-lg text-[11px] font-bold"
                           >
                             Move to Cart
                           </button>
                           <button
                             onClick={() => removeSavedItem(si.id)}
-                            className="p-1 text-brand-charcoal-400 hover:text-rose-600"
+                            className="p-1 text-brand-charcoal-400 dark:text-zinc-400 hover:text-rose-600 dark:hover:text-rose-400"
                             title="Remove"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -302,17 +297,17 @@ export function CartDrawer() {
 
           {/* Footer & Checkout Area */}
           {items.length > 0 && (
-            <div className="p-4 sm:p-5 border-t border-brand-cream-300 bg-brand-cream-50/50 space-y-3.5">
+            <div className="p-4 sm:p-5 border-t border-brand-cream-300 dark:border-zinc-800 bg-brand-cream-50/50 dark:bg-zinc-950 space-y-3.5">
               {/* Coupon Form */}
               {appliedCoupon ? (
-                <div className="flex items-center justify-between bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-xs">
-                  <div className="flex items-center gap-1.5 text-emerald-800 font-bold">
-                    <Tag className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="flex items-center justify-between bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl px-3 py-2 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-800 dark:text-emerald-300 font-bold">
+                    <Tag className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     <span>Coupon <strong>{appliedCoupon.code}</strong> applied (-{formatCurrency(discountAmount)})</span>
                   </div>
                   <button
                     onClick={removeCoupon}
-                    className="text-emerald-700 hover:text-emerald-900 text-xs font-bold"
+                    className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 text-xs font-bold"
                   >
                     Remove
                   </button>
@@ -324,11 +319,11 @@ export function CartDrawer() {
                     placeholder="Discount code (e.g. URBAN20)"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
-                    className="flex-1 px-3 py-2 text-xs rounded-xl border border-brand-cream-300 focus:outline-none focus:ring-1 focus:ring-brand-forest-700 uppercase font-mono"
+                    className="flex-1 px-3 py-2 text-xs rounded-xl border border-brand-cream-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-brand-charcoal-900 dark:text-zinc-100 focus:outline-none focus:ring-1 focus:ring-brand-forest-700 uppercase font-mono"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-brand-forest-800 text-white rounded-xl text-xs font-bold hover:bg-brand-forest-900 transition-colors"
+                    className="px-4 py-2 bg-brand-forest-800 hover:bg-brand-forest-900 text-white rounded-xl text-xs font-bold transition-colors"
                   >
                     Apply
                   </button>
@@ -336,13 +331,13 @@ export function CartDrawer() {
               )}
 
               {/* Price Breakdown */}
-              <div className="space-y-1.5 text-xs text-brand-charcoal-600 pt-1">
+              <div className="space-y-1.5 text-xs text-brand-charcoal-600 dark:text-zinc-400 pt-1">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-brand-charcoal-900">{formatCurrency(subtotal)}</span>
+                  <span className="font-semibold text-brand-charcoal-900 dark:text-zinc-100">{formatCurrency(subtotal)}</span>
                 </div>
                 {discountAmount > 0 && (
-                  <div className="flex justify-between text-emerald-700 font-bold">
+                  <div className="flex justify-between text-emerald-700 dark:text-emerald-400 font-bold">
                     <span>Discount ({appliedCoupon?.code})</span>
                     <span>-{formatCurrency(discountAmount)}</span>
                   </div>
@@ -351,13 +346,13 @@ export function CartDrawer() {
                   <span>Estimated Shipping</span>
                   <span>
                     {shippingFee === 0 ? (
-                      <span className="text-emerald-700 font-bold uppercase">Free</span>
+                      <span className="text-emerald-700 dark:text-emerald-400 font-bold uppercase">Free</span>
                     ) : (
                       formatCurrency(shippingFee)
                     )}
                   </span>
                 </div>
-                <div className="flex justify-between text-sm font-extrabold text-brand-forest-950 pt-2 border-t border-brand-cream-300">
+                <div className="flex justify-between text-sm font-extrabold text-brand-forest-950 dark:text-white pt-2 border-t border-brand-cream-300 dark:border-zinc-800">
                   <span>Total Amount</span>
                   <span>{formatCurrency(totalAmount)}</span>
                 </div>
@@ -376,15 +371,15 @@ export function CartDrawer() {
                 <Link
                   href="/cart"
                   onClick={closeCart}
-                  className="block text-center text-[11px] font-bold text-brand-forest-800 hover:text-brand-forest-950 underline"
+                  className="block text-center text-[11px] font-bold text-brand-forest-800 dark:text-emerald-400 hover:text-brand-forest-950 dark:hover:text-emerald-300 underline"
                 >
                   View Full Cart Page
                 </Link>
               </div>
 
               {/* Trust micro-text */}
-              <div className="flex items-center justify-center gap-2 text-[10px] text-brand-charcoal-500 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="flex items-center justify-center gap-2 text-[10px] text-brand-charcoal-500 dark:text-zinc-500 pt-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>100% Secure Razorpay Checkout with 256-bit Encryption</span>
               </div>
             </div>

@@ -32,13 +32,13 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="py-16 bg-brand-cream-100/50 border-t border-brand-cream-300">
+    <section className="py-16 bg-brand-cream-100/50 dark:bg-zinc-950 border-t border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold text-brand-forest-700 uppercase tracking-widest">
+          <span className="text-xs font-bold text-brand-forest-700 dark:text-emerald-400 uppercase tracking-widest">
             Loved By Thousands
           </span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-brand-forest-950 mt-1">
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-brand-forest-950 dark:text-white mt-1">
             Real Stories From Daily Users
           </h2>
         </div>
@@ -47,7 +47,7 @@ export function Testimonials() {
           {TESTIMONIALS.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-cream-300 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-brand-cream-300 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -56,26 +56,26 @@ export function Testimonials() {
                       <Star key={s} className="w-4 h-4 fill-amber-500" />
                     ))}
                   </div>
-                  <Quote className="w-6 h-6 text-brand-forest-200" />
+                  <Quote className="w-6 h-6 text-brand-forest-200 dark:text-zinc-700" />
                 </div>
 
-                <p className="text-sm text-brand-charcoal-700 leading-relaxed italic mb-6">
+                <p className="text-sm text-brand-charcoal-700 dark:text-zinc-300 leading-relaxed italic mb-6">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-brand-cream-200">
+              <div className="pt-4 border-t border-brand-cream-200 dark:border-zinc-800">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-bold text-sm text-brand-charcoal-900 flex items-center gap-1.5">
+                    <h4 className="font-bold text-sm text-brand-charcoal-900 dark:text-zinc-100 flex items-center gap-1.5">
                       <span>{t.name}</span>
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     </h4>
-                    <p className="text-xs text-brand-charcoal-500">
+                    <p className="text-xs text-brand-charcoal-500 dark:text-zinc-400">
                       {t.role} • {t.location}
                     </p>
                   </div>
-                  <span className="text-[10px] font-semibold text-brand-forest-800 bg-brand-forest-50 px-2.5 py-1 rounded-full">
+                  <span className="text-[10px] font-semibold text-brand-forest-800 dark:text-emerald-300 bg-brand-forest-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full">
                     {t.tag}
                   </span>
                 </div>

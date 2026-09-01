@@ -36,33 +36,33 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 sm:p-10 rounded-3xl border border-brand-cream-300 shadow-xl">
+      <div className="max-w-md w-full space-y-8 bg-white dark:bg-zinc-900 p-8 sm:p-10 rounded-3xl border border-brand-cream-300 dark:border-zinc-800 shadow-xl">
         {/* Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-brand-forest-800 text-white font-serif font-bold text-xl shadow-md">
               U
             </div>
-            <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-950">
+            <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-950 dark:text-white">
               Urban Essentials
             </span>
           </Link>
-          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950 pt-2">
+          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-brand-forest-950 dark:text-white pt-2">
             Reset Your Password
           </h1>
-          <p className="text-xs sm:text-sm text-brand-charcoal-500">
+          <p className="text-xs sm:text-sm text-brand-charcoal-500 dark:text-zinc-400">
             Enter your registered email address and we&apos;ll send you instructions to reset your password.
           </p>
         </div>
 
         {isSent ? (
-          <div className="p-6 bg-brand-forest-50 border border-brand-forest-200 rounded-2xl text-center space-y-3 animate-fade-in">
-            <CheckCircle2 className="w-10 h-10 text-brand-forest-800 mx-auto" />
-            <h3 className="font-serif font-bold text-base text-brand-forest-950">
+          <div className="p-6 bg-brand-forest-50 dark:bg-zinc-900 border border-brand-forest-200 dark:border-zinc-800 rounded-2xl text-center space-y-3 animate-fade-in">
+            <CheckCircle2 className="w-10 h-10 text-brand-forest-800 dark:text-emerald-400 mx-auto" />
+            <h3 className="font-serif font-bold text-base text-brand-forest-950 dark:text-white">
               Check Your Inbox
             </h3>
-            <p className="text-xs text-brand-charcoal-700 leading-relaxed">
-              We&apos;ve sent a password reset link to <strong className="text-brand-forest-950">{email}</strong>. Please check your spam or junk folder if it doesn&apos;t arrive within 2 minutes.
+            <p className="text-xs text-brand-charcoal-700 dark:text-zinc-300 leading-relaxed">
+              We&apos;ve sent a password reset link to <strong className="text-brand-forest-950 dark:text-white">{email}</strong>. Please check your spam or junk folder if it doesn&apos;t arrive within 2 minutes.
             </p>
             <div className="pt-2">
               <Link href="/login">
@@ -75,13 +75,13 @@ export default function ForgotPasswordPage() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {formError && (
-              <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-xl animate-fade-in">
+              <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 text-rose-700 dark:text-rose-300 text-xs font-semibold rounded-xl animate-fade-in">
                 {formError}
               </div>
             )}
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal-700 uppercase mb-1">
+              <label className="block text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 uppercase mb-1">
                 Email Address
               </label>
               <Input
@@ -90,7 +90,7 @@ export default function ForgotPasswordPage() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                leftIcon={<Mail className="w-4 h-4 text-brand-charcoal-400" />}
+                leftIcon={<Mail className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500" />}
               />
             </div>
 
@@ -108,10 +108,10 @@ export default function ForgotPasswordPage() {
         )}
 
         {/* Footer Link */}
-        <div className="text-center pt-2 border-t border-brand-cream-300">
+        <div className="text-center pt-2 border-t border-brand-cream-300 dark:border-zinc-800">
           <Link
             href="/login"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-forest-800 hover:text-brand-forest-950"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-forest-800 dark:text-emerald-400 hover:text-brand-forest-950 dark:hover:text-white"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Sign In</span>
@@ -119,8 +119,8 @@ export default function ForgotPasswordPage() {
         </div>
 
         {/* Trust badge */}
-        <div className="flex items-center justify-center gap-1.5 text-[11px] text-brand-charcoal-400">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="flex items-center justify-center gap-1.5 text-[11px] text-brand-charcoal-400 dark:text-zinc-500">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Encrypted Password Recovery Protocol</span>
         </div>
       </div>

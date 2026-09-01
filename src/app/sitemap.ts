@@ -20,13 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const audienceUrls = ['school', 'college', 'office'].map((target) => ({
-    url: `${baseUrl}/audience/${target}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
   return [
     {
       url: baseUrl,
@@ -52,7 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
-    ...audienceUrls,
     ...categoryUrls,
     ...productUrls,
   ];

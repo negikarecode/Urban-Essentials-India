@@ -26,31 +26,31 @@ export function Newsletter() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-brand-cream-300">
+    <section className="py-16 sm:py-20 bg-white dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest-100 text-brand-forest-900 text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5 text-brand-forest-700" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest-100 dark:bg-brand-forest-950/80 text-brand-forest-900 dark:text-emerald-300 border dark:border-brand-forest-800 text-xs font-bold uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5 text-brand-forest-700 dark:text-emerald-400" />
           <span>Join the Urban Essentials Inner Circle</span>
         </div>
 
         <div className="space-y-2">
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950">
+          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-brand-forest-950 dark:text-white">
             Enjoy 10% Off Your First Order
           </h2>
-          <p className="text-xs sm:text-sm text-brand-charcoal-600 max-w-lg mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-brand-charcoal-600 dark:text-zinc-400 max-w-lg mx-auto leading-relaxed">
             Subscribe for early access to limited edition color drops, back-to-campus sales, and daily organization guides.
           </p>
         </div>
 
         {isSubmitted ? (
-          <div className="p-6 bg-brand-forest-50 border border-brand-forest-200 rounded-3xl max-w-md mx-auto space-y-2 animate-scale-in">
-            <CheckCircle2 className="w-8 h-8 text-brand-forest-800 mx-auto" />
-            <h4 className="font-serif font-bold text-base text-brand-forest-950">
+          <div className="p-6 bg-brand-forest-50 dark:bg-zinc-900 border border-brand-forest-200 dark:border-zinc-800 rounded-3xl max-w-md mx-auto space-y-2 animate-scale-in">
+            <CheckCircle2 className="w-8 h-8 text-brand-forest-800 dark:text-emerald-400 mx-auto" />
+            <h4 className="font-serif font-bold text-base text-brand-forest-950 dark:text-white">
               You&apos;re on the list!
             </h4>
-            <p className="text-xs text-brand-charcoal-700">
-              Use code <strong className="font-mono text-brand-forest-900">WELCOME10</strong> at checkout for 10% off.
+            <p className="text-xs text-brand-charcoal-700 dark:text-zinc-300">
+              Use code <strong className="font-mono text-brand-forest-900 dark:text-emerald-300">WELCOME10</strong> at checkout for 10% off.
             </p>
           </div>
         ) : (
@@ -59,14 +59,14 @@ export function Newsletter() {
             className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto"
           >
             <div className="relative w-full">
-              <Mail className="w-4 h-4 text-brand-charcoal-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-brand-charcoal-400 dark:text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 placeholder="Enter your email address..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm rounded-xl border border-brand-cream-400 bg-brand-cream-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-forest-700 placeholder:text-brand-charcoal-400 text-brand-charcoal-900"
+                className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-brand-cream-50 dark:bg-zinc-900 focus:bg-white dark:focus:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-brand-forest-700 dark:focus:ring-emerald-500 placeholder:text-brand-charcoal-400 dark:placeholder:text-zinc-500 text-brand-charcoal-900 dark:text-zinc-100"
               />
             </div>
             <Button
@@ -82,7 +82,7 @@ export function Newsletter() {
           </form>
         )}
 
-        <p className="text-[11px] text-brand-charcoal-400">
+        <p className="text-[11px] text-brand-charcoal-400 dark:text-zinc-500">
           No spam, ever. Unsubscribe anytime with a single click.
         </p>
 

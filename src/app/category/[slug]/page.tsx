@@ -30,6 +30,8 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
+import { CategoryClient } from './CategoryClient';
+
 export default function CategoryPage({ params }: Props) {
   const category = getCategoryBySlug(params.slug);
   if (!category) notFound();
@@ -39,12 +41,12 @@ export default function CategoryPage({ params }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-semibold text-brand-charcoal-500 mb-6">
-        <Link href="/" className="hover:text-brand-forest-800">Home</Link>
+      <nav className="flex items-center gap-2 text-xs font-semibold text-brand-charcoal-500 dark:text-zinc-400 mb-6">
+        <Link href="/" className="hover:text-brand-forest-800 dark:hover:text-emerald-400">Home</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <Link href="/products" className="hover:text-brand-forest-800">Categories</Link>
+        <Link href="/products" className="hover:text-brand-forest-800 dark:hover:text-emerald-400">Categories</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <span className="text-brand-forest-900">{category.name}</span>
+        <span className="text-brand-forest-900 dark:text-zinc-100">{category.name}</span>
       </nav>
 
       {/* Category Hero Banner */}
@@ -72,25 +74,9 @@ export default function CategoryPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Products Grid */}
-      <div className="space-y-6">
-        <div className="flex items-center justify-between pb-4 border-b border-brand-cream-300">
-          <h2 className="font-serif font-bold text-xl text-brand-forest-950">
-            Products ({products.length})
-          </h2>
-          <Link
-            href="/products"
-            className="text-xs font-bold text-brand-forest-800 hover:text-brand-forest-950"
-          >
-            Explore all categories &rarr;
-          </Link>
-        </div>
-
-        <ProductGrid
-          products={products}
-          emptyMessage={`No active products currently listed in ${category.name}.`}
-        />
-      </div>
+      {/* Live Category Products Grid */}
+      <CategoryClient category={category} initialProducts={products} />
     </div>
   );
 }
+

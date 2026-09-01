@@ -13,18 +13,18 @@ export function PromotionalSection() {
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             <div className="space-y-3">
               <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-amber-400 block">
-                Seasonal Capsule • Save Up to 30%
+                Curated Routine Capsule
               </span>
               <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-[1.1]">
                 Back to Routine.<br />
                 <span className="font-normal italic text-brand-cream-200 lowercase font-serif">
-                  the 4-piece signature bundle.
+                  the signature 3-piece bundle.
                 </span>
               </h2>
             </div>
 
             <p className="text-sm sm:text-base text-brand-cream-200 leading-relaxed max-w-xl font-normal">
-              Enjoy complete routine preparedness with our signature bundle: SUS304 insulated meal box, double-wall vacuum flask, and everyday carry gear.
+              Enjoy complete daily routine preparedness with our signature bundle: SUS304 insulated meal box, double-wall vacuum flask, and everyday carry backpack.
             </p>
 
             {/* Luxury Coupon Code Bar */}
@@ -40,16 +40,16 @@ export function PromotionalSection() {
             {/* High-End CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Link
-                href="/products/the-ultimate-back-to-campus-starter-bundle"
+                href="/products"
                 className="px-8 py-4 bg-white hover:bg-brand-cream-100 text-brand-forest-950 text-xs font-bold uppercase tracking-[0.18em] transition-all text-center"
               >
-                Shop Bundle (₹3,299)
+                Shop Essentials
               </Link>
               <Link
                 href="/products"
                 className="px-8 py-4 bg-transparent hover:bg-white/10 text-white border border-white/40 text-xs font-bold uppercase tracking-[0.18em] transition-all text-center"
               >
-                View All Essentials
+                View All Categories
               </Link>
             </div>
           </div>
@@ -61,6 +61,7 @@ export function PromotionalSection() {
                 src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80"
                 alt="Back to Routine Starter Capsule"
                 fill
+                unoptimized={true}
                 className="object-cover hover:scale-103 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 500px"
               />
