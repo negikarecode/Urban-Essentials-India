@@ -110,7 +110,7 @@ export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: process.env.RESEND_FROM || 'Urban Essentials Security <security@urbanessentials.com>',
+          from: process.env.RESEND_FROM || 'Urban Essentials Security <security@urbanessentialsindia.com>',
           to: toAddresses,
           subject: options.subject,
           html: options.html,

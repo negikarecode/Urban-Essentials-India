@@ -67,32 +67,32 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-brand-cream-300 dark:border-zinc-800 transition-colors">
+    <header className="sticky top-0 z-40 w-full max-w-full overflow-x-clip bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-brand-cream-300 dark:border-zinc-800 transition-colors">
       {/* Announcement Bar */}
       <AnnouncementBar />
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 sm:h-20 gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
           {/* Mobile menu trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 rounded-lg text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors shrink-0"
             aria-label="Open navigation menu"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md group-hover:bg-brand-forest-900 transition-colors">
+          <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group shrink min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-forest-800 flex items-center justify-center text-white font-serif font-bold text-base sm:text-xl shadow-md group-hover:bg-brand-forest-900 transition-colors shrink-0">
               U
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-extrabold text-2xl tracking-tight text-brand-forest-900 dark:text-white leading-none">
+            <div className="flex flex-col min-w-0">
+              <span className="font-serif font-extrabold text-lg sm:text-2xl tracking-tight text-brand-forest-900 dark:text-white leading-none truncate">
                 URBAN
               </span>
-              <span className="text-[10px] tracking-[0.2em] font-semibold text-brand-forest-600 dark:text-brand-sage-400 uppercase mt-0.5">
+              <span className="text-[8px] sm:text-[10px] tracking-[0.2em] font-semibold text-brand-forest-600 dark:text-brand-sage-400 uppercase mt-0.5 truncate">
                 Essentials
               </span>
             </div>
@@ -135,11 +135,11 @@ export function Header() {
           </div>
 
           {/* Action Buttons: Mobile Search Toggle, Theme Toggle, Wishlist, Cart, Account */}
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Mobile Search Button */}
             <button
               onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
-              className="sm:hidden p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
+              className="sm:hidden p-1.5 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
               aria-label="Search catalog"
             >
               {isMobileSearchOpen ? (
@@ -149,13 +149,15 @@ export function Header() {
               )}
             </button>
 
-            {/* Dark Theme Mode Toggle */}
-            <ThemeToggle />
+            {/* Dark Theme Mode Toggle - visible on sm+ screens, available in drawer for mobile */}
+            <div className="hidden sm:inline-flex">
+              <ThemeToggle />
+            </div>
 
-            {/* Wishlist Button */}
+            {/* Wishlist Button - visible on sm+ screens, available in drawer for mobile */}
             <Link
               href="/wishlist"
-              className="relative p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
+              className="hidden sm:inline-flex relative p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
               aria-label="View wishlist"
             >
               <Heart className="w-5 h-5" />
@@ -169,12 +171,12 @@ export function Header() {
             {/* Cart Trigger */}
             <button
               onClick={openCart}
-              className="relative p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
+              className="relative p-1.5 sm:p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
               aria-label="Open shopping cart"
             >
               <ShoppingBag className="w-5 h-5" />
               {mounted && itemCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-brand-forest-800 text-white rounded-full text-[10px] font-bold flex items-center justify-center animate-scale-in">
+                <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-4 h-4 bg-brand-forest-800 text-white rounded-full text-[10px] font-bold flex items-center justify-center animate-scale-in">
                   {itemCount}
                 </span>
               )}
@@ -184,18 +186,18 @@ export function Header() {
             <div className="relative" ref={accountRef}>
               <button
                 onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)}
-                className="flex items-center gap-1.5 p-1.5 pl-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 border border-brand-cream-300 dark:border-zinc-700 transition-colors"
+                className="flex items-center gap-1 p-1 sm:p-1.5 sm:pl-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 border border-brand-cream-300 dark:border-zinc-700 transition-colors"
                 aria-label="Account options"
               >
-                <div className="w-6 h-6 rounded-full bg-brand-forest-800 text-white text-xs font-serif font-bold flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-brand-forest-800 text-white text-xs font-serif font-bold flex items-center justify-center shrink-0">
                   {mounted && user ? user.full_name?.charAt(0).toUpperCase() || 'U' : <User className="w-3.5 h-3.5" />}
                 </div>
-                <ChevronDown className="w-3 h-3 text-brand-charcoal-400 dark:text-zinc-400" />
+                <ChevronDown className="w-3 h-3 text-brand-charcoal-400 dark:text-zinc-400 hidden sm:block" />
               </button>
 
               {/* Account Dropdown */}
               {isAccountMenuOpen && (
-                <div className="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-brand-cream-300 dark:border-zinc-800 p-3 z-50 animate-slide-down">
+                <div className="absolute right-0 top-full mt-2 w-64 max-w-[calc(100vw-1.5rem)] bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-brand-cream-300 dark:border-zinc-800 p-3 z-50 animate-slide-down">
                   {mounted && user ? (
                     <div className="space-y-2">
                       <div className="pb-2 border-b border-brand-cream-200 dark:border-zinc-800">

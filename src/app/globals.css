@@ -9,6 +9,14 @@
     --font-serif: var(--font-display);
   }
 
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+
   body {
     @apply bg-brand-cream-50 text-brand-charcoal-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased selection:bg-brand-forest-800 selection:text-white font-sans transition-colors duration-150;
   }

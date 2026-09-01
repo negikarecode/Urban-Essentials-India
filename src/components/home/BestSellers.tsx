@@ -25,7 +25,7 @@ export function BestSellers() {
   }
 
   return (
-    <section className="py-16 sm:py-20 bg-brand-cream-50 dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
+    <section className="w-full max-w-full overflow-hidden py-16 sm:py-20 bg-brand-cream-50 dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

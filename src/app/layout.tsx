@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Urban Essentials | Premium Bottles, Bags & Lunchboxes',
     description:
       'Engineered everyday essentials: 100% Food-Grade 304 Steel, BPA Free, 1-Year Guarantee.',
-    url: 'https://urbanessentials.com',
+    url: 'https://urbanessentialsindia.com',
     siteName: 'Urban Essentials',
     images: [
       {
@@ -91,7 +91,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="flex flex-col min-h-screen font-sans bg-brand-cream-50 text-brand-charcoal-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased selection:bg-brand-forest-800 selection:text-white"
+        className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden font-sans bg-brand-cream-50 text-brand-charcoal-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased selection:bg-brand-forest-800 selection:text-white"
         suppressHydrationWarning
       >
         <ThemeProvider>
@@ -99,7 +99,7 @@ export default function RootLayout({
             <WishlistProvider>
               <CartProvider>
                 <Header />
-                <main className="flex-1">{children}</main>
+                <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
                 <Footer />
                 <CartDrawer />
                 <Toaster

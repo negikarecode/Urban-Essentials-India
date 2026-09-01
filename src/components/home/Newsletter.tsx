@@ -26,7 +26,7 @@ export function Newsletter() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-white dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
+    <section className="w-full max-w-full overflow-hidden py-16 sm:py-20 bg-white dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest-100 dark:bg-brand-forest-950/80 text-brand-forest-900 dark:text-emerald-300 border dark:border-brand-forest-800 text-xs font-bold uppercase tracking-wider">

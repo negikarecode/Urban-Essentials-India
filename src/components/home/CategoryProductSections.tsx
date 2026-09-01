@@ -74,7 +74,7 @@ export function CategoryProductSections() {
         return (
           <section
             key={category.id || category.slug}
-            className={`py-16 sm:py-20 border-b border-brand-cream-300 dark:border-zinc-800 ${
+            className={`w-full max-w-full overflow-hidden py-16 sm:py-20 border-b border-brand-cream-300 dark:border-zinc-800 ${
               isEven ? 'bg-white dark:bg-zinc-950' : 'bg-brand-cream-50 dark:bg-zinc-900/50'
             }`}
           >

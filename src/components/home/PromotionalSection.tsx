@@ -5,7 +5,7 @@ import { ArrowRight, Check } from 'lucide-react';
 
 export function PromotionalSection() {
   return (
-    <section className="py-16 sm:py-24 bg-brand-forest-950 text-white relative overflow-hidden border-y border-brand-forest-900">
+    <section className="w-full max-w-full py-16 sm:py-24 bg-brand-forest-950 text-white relative overflow-hidden border-y border-brand-forest-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
@@ -28,7 +28,7 @@ export function PromotionalSection() {
             </p>
 
             {/* Luxury Coupon Code Bar */}
-            <div className="p-4 bg-black/40 border border-white/15 inline-flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="p-3 sm:p-4 bg-black/40 border border-white/15 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 max-w-full">
               <div className="text-xs text-brand-cream-100 uppercase tracking-wider font-semibold">
                 Use Promotional Code: <span className="font-mono font-bold text-white bg-brand-forest-800 px-2 py-0.5 ml-1">URBAN20</span>
               </div>

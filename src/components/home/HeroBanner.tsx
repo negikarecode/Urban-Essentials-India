@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function HeroBanner() {
   return (
-    <section className="relative overflow-hidden bg-brand-cream-50 dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
+    <section className="relative w-full max-w-full overflow-hidden bg-brand-cream-50 dark:bg-zinc-950 border-b border-brand-cream-300 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
