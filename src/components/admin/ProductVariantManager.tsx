@@ -510,10 +510,10 @@ export function ProductVariantManager({
                     {urlInputVariantId === variant.id && (
                       <div className="flex gap-1.5 mt-2">
                         <input
-                          type="url"
+                          type="text"
                           value={customUrl}
                           onChange={(e) => setCustomUrl(e.target.value)}
-                          placeholder="https://images.unsplash.com/..."
+                          placeholder="https://... or /products/..."
                           className="flex-1 px-2.5 py-1 text-xs rounded-lg border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-brand-charcoal-900 dark:text-zinc-100"
                         />
                         <button

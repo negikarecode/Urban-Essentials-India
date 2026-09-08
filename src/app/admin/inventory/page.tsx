@@ -217,7 +217,7 @@ export default function AdminInventoryPage() {
                         <div className="flex items-center gap-3">
                           <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-brand-cream-100 dark:bg-zinc-800 border border-brand-cream-300 dark:border-zinc-700 shrink-0">
                             <Image
-                              src={prod.images[0]?.image_url || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80'}
+                              src={prod.images[0]?.image_url || '/products/bento-5-compartment-hero.png'}
                               alt={prod.name}
                               fill
                               className="object-cover"

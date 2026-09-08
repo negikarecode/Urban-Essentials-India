@@ -9,7 +9,7 @@ const AUDIENCES = [
     title: 'School Juniors',
     tagline: 'Safe, Ergonomic & Non-Toxic',
     description: 'Orthopedic posture-aligning bags, drop-proof stainless bento sets, and standing pen cases.',
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
+    image: '/products/bento-5-compartment-hero.png',
     link: '/audience/school',
   },
   {
@@ -17,7 +17,7 @@ const AUDIENCES = [
     title: 'Campus & Transit',
     tagline: 'Durable, Laptop Ready & All-Day',
     description: '16-inch laptop backpacks, 24-hour vacuum thermal flasks, and fountain-pen friendly dot journals.',
-    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
+    image: '/products/koool-backpack-straps.jpg',
     link: '/audience/college',
   },
   {
@@ -25,7 +25,7 @@ const AUDIENCES = [
     title: 'Work & Executive',
     tagline: 'Minimalist, Sophisticated & Solid',
     description: 'Executive vegan leather desk mats, solid machined brass pens, and shockproof laptop carry sleeves.',
-    image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80',
+    image: '/products/hello-tuesday-stacked-blue.png',
     link: '/audience/office',
   },
 ];

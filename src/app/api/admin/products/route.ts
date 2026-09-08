@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
             sort_order: img.sort_order || 1,
             is_primary: img.is_primary || false,
           }))
-        : [{ id: "img-" + p.id, image_url: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", sort_order: 1, is_primary: true }];
+        : [{ id: "img-" + p.id, image_url: "/products/bento-5-compartment-hero.png", sort_order: 1, is_primary: true }];
 
       const matchedCat = CATEGORIES.find((c) => p.tags && p.tags.includes(c.slug)) || CATEGORIES[0];
 

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'Urban Essentials',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+        url: '/products/koool-backpack-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Urban Essentials',

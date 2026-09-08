@@ -34,7 +34,7 @@ export function ImageGallery({
       return images.length > 0 ? images : [
         {
           id: 'placeholder',
-          image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
+          image_url: '/products/bento-5-compartment-hero.png',
           sort_order: 1,
           is_primary: true,
         },
@@ -85,7 +85,7 @@ export function ImageGallery({
     return images.length > 0 ? images : [
       {
         id: 'placeholder',
-        image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
+        image_url: '/products/bento-5-compartment-hero.png',
         sort_order: 1,
         is_primary: true,
       },
@@ -94,7 +94,7 @@ export function ImageGallery({
 
   const activeImage =
     effectiveImages[selectedIndex] || effectiveImages[0] || {
-      image_url: activeVariantImage || images[0]?.image_url || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
+      image_url: activeVariantImage || images[0]?.image_url || '/products/bento-5-compartment-hero.png',
       alt_text: productName,
     };
 

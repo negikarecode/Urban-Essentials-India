@@ -174,7 +174,7 @@ export default function CheckoutPage() {
           currency: 'INR',
           name: 'Urban Essentials',
           description: `Order #${orderData.orderNumber}`,
-          image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=200&q=80',
+          image: 'https://urbanessentialsindia.com/products/bento-5-compartment-hero.png',
           order_id: orderData.razorpayOrderId.startsWith('order_') ? orderData.razorpayOrderId : undefined,
           prefill: {
             name: fullName.trim(),

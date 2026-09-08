@@ -102,7 +102,7 @@ export function saveProduct(product: Product): Product[] {
     images: product.images && product.images.length > 0 ? product.images : [
       {
         id: `img-${Date.now()}`,
-        image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+        image_url: '/products/bento-5-compartment-hero.png',
         alt_text: product.name,
         sort_order: 1,
         is_primary: true,

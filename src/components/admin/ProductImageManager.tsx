@@ -151,8 +151,8 @@ export function ProductImageManager({
       {showUrlInput && (
         <form onSubmit={handleAddByUrl} className="flex gap-2 p-3 bg-brand-cream-100 dark:bg-zinc-800 rounded-2xl border border-brand-cream-300 dark:border-zinc-700">
           <input
-            type="url"
-            placeholder="https://images.unsplash.com/..."
+            type="text"
+            placeholder="https://... or /products/..."
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             className="flex-1 px-3 py-1.5 text-xs rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-brand-charcoal-900 dark:text-zinc-100"

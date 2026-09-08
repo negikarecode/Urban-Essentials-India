@@ -406,7 +406,7 @@ export default function AdminOrdersPage() {
                     <div className="flex items-center gap-3">
                       <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-brand-cream-200 dark:bg-zinc-700 shrink-0 border border-brand-cream-300 dark:border-zinc-600">
                         <Image
-                          src={item.product_image || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80'}
+                          src={item.product_image || '/products/bento-5-compartment-hero.png'}
                           alt={item.product_name}
                           fill
                           className="object-cover"

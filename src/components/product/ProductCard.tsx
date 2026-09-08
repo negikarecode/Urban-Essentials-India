@@ -29,7 +29,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const primaryImage =
     currentVariant?.image_url ||
     product.images[0]?.image_url ||
-    'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80';
+    '/products/bento-5-compartment-hero.png';
   const secondaryImage =
     (currentVariant?.image_url ? currentVariant.image_url : product.images[1]?.image_url) ||
     primaryImage;

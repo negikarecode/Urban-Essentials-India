@@ -142,7 +142,7 @@ export default function AdminProductsPage() {
       images: newImages.length > 0 ? newImages : [
         {
           id: `img-${Date.now()}`,
-          image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+          image_url: '/products/bento-5-compartment-hero.png',
           alt_text: newName,
           sort_order: 1,
           is_primary: true,
@@ -336,7 +336,7 @@ export default function AdminProductsPage() {
                         <div className="flex items-center gap-3">
                           <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-brand-cream-100 dark:bg-zinc-800 border border-brand-cream-300 dark:border-zinc-700 shrink-0">
                             <Image
-                              src={product.images[0]?.image_url || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80'}
+                              src={product.images[0]?.image_url || '/products/bento-5-compartment-hero.png'}
                               alt={product.name}
                               fill
                               unoptimized={Boolean(product.images[0]?.image_url?.startsWith('data:') || product.images[0]?.image_url?.startsWith('blob:'))}

@@ -15,7 +15,7 @@ export const CATEGORIES: Category[] = [
     name: 'Lunch Boxes',
     slug: 'lunch-boxes',
     description: 'Insulated, leak-proof bento and SUS304 stainless steel lunch boxes designed for school & work.',
-    image_url: '/products/hello-tuesday-hero.png',
+    image_url: '/products/bento-5-compartment-tabletop.png',
     sort_order: 2,
     is_active: true,
   },

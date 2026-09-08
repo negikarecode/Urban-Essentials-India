@@ -50,7 +50,7 @@ export default function OrderSuccessPage({ params }: Props) {
         unit_price: 1499,
         quantity: 1,
         total_price: 1499,
-        product_image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80',
+        product_image: '/products/hello-tuesday-blue-yellow.png',
       },
       {
         id: 'item-2',
@@ -62,7 +62,7 @@ export default function OrderSuccessPage({ params }: Props) {
         unit_price: 999,
         quantity: 1,
         total_price: 999,
-        product_image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80',
+        product_image: '/products/tedemei-soup-mug-hero.png',
       },
     ],
     created_at: new Date().toISOString(),

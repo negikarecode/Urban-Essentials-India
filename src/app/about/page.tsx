@@ -30,8 +30,8 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-xl border border-brand-cream-300 dark:border-zinc-800">
             <Image
-              src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80"
-              alt="Engineering lunch boxes"
+              src="/products/hello-tuesday-sus304-liner.png"
+              alt="Engineering SUS304 food-grade stainless steel lunch boxes"
               fill
               className="object-cover"
             />

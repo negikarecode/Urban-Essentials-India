@@ -58,10 +58,9 @@ export function PromotionalSection() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-forest-900 border border-white/20 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80"
+                src="/products/tedemei-food-jar-box-green.jpg"
                 alt="Back to Routine Starter Capsule"
                 fill
-                unoptimized={true}
                 className="object-cover hover:scale-103 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 500px"
               />

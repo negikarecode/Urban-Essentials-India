@@ -13,7 +13,7 @@ export function PromoBanner() {
           {/* Background image & gradient overlay */}
           <div className="absolute inset-0 z-0 opacity-20">
             <Image
-              src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1600&q=80"
+              src="/products/koool-backpack-gift-box.jpg"
               alt="Gift Sets Bundle"
               fill
               className="object-cover"
@@ -53,7 +53,7 @@ export function PromoBanner() {
             <div className="lg:col-span-4 hidden lg:flex justify-end">
               <div className="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80"
+                  src="/products/bento-5-compartment-tabletop.png"
                   alt="Bundle preview"
                   fill
                   className="object-cover"

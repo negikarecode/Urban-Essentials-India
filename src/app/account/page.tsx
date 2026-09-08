@@ -290,7 +290,7 @@ export default function AccountPage() {
                           <div key={idx} className="flex items-center gap-4">
                             <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-brand-cream-100 dark:bg-zinc-800 border border-brand-cream-300 dark:border-zinc-700 shrink-0">
                               <Image
-                                src={it.product_image || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80'}
+                                src={it.product_image || '/products/bento-5-compartment-hero.png'}
                                 alt={it.product_name}
                                 fill
                                 className="object-cover"

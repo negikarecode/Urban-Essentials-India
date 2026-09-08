@@ -439,7 +439,7 @@ export default function AdminDashboardPage() {
                     <div className="flex items-center gap-3">
                       <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-brand-cream-200 dark:bg-zinc-700 shrink-0">
                         <Image
-                          src={item.product_image || 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80'}
+                          src={item.product_image || '/products/bento-5-compartment-hero.png'}
                           alt={item.product_name}
                           fill
                           className="object-cover"
