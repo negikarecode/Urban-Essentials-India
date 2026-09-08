@@ -149,12 +149,7 @@ export function Header() {
               )}
             </button>
 
-            {/* Dark Theme Mode Toggle - visible on sm+ screens, available in drawer for mobile */}
-            <div className="hidden sm:inline-flex">
-              <ThemeToggle />
-            </div>
-
-            {/* Wishlist Button - visible on sm+ screens, available in drawer for mobile */}
+            {/* Wishlist Button - visible on sm+ screens */}
             <Link
               href="/wishlist"
               className="hidden sm:inline-flex relative p-2 rounded-full text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors"
@@ -269,6 +264,11 @@ export function Header() {
                   )}
                 </div>
               )}
+            </div>
+
+            {/* Theme Toggle - placed on the right of navbar, visible on mobile & desktop */}
+            <div className="inline-flex shrink-0">
+              <ThemeToggle />
             </div>
           </div>
         </div>
