@@ -302,7 +302,7 @@ export default function CheckoutPage() {
                   placeholder="Enter full name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                 />
               </div>
               <div>
@@ -315,7 +315,7 @@ export default function CheckoutPage() {
                   placeholder="your.email@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                 />
               </div>
               <div className="sm:col-span-2">
@@ -323,7 +323,7 @@ export default function CheckoutPage() {
                   Mobile Number (for delivery OTP) *
                 </label>
                 <div className="flex">
-                  <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-brand-cream-400 dark:border-zinc-700 bg-brand-cream-100 dark:bg-zinc-800 text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300">
+                  <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-brand-cream-400 dark:border-zinc-700 bg-brand-cream-100 dark:bg-zinc-800 text-base sm:text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300">
                     +91
                   </span>
                   <input
@@ -333,7 +333,7 @@ export default function CheckoutPage() {
                     placeholder="10-digit mobile number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="flex-1 px-3.5 py-2.5 rounded-r-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                    className="flex-1 px-3.5 py-2.5 rounded-r-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                   />
                 </div>
               </div>
@@ -356,7 +356,7 @@ export default function CheckoutPage() {
                   placeholder="House / Flat No., Street, Area"
                   value={addressLine1}
                   onChange={(e) => setAddressLine1(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                 />
               </div>
 
@@ -369,7 +369,7 @@ export default function CheckoutPage() {
                   placeholder="Landmark (Optional)"
                   value={addressLine2}
                   onChange={(e) => setAddressLine2(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                 />
               </div>
 
@@ -384,7 +384,7 @@ export default function CheckoutPage() {
                     placeholder="Enter city"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                   />
                 </div>
 
@@ -395,7 +395,7 @@ export default function CheckoutPage() {
                   <select
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 text-xs bg-white dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-100 focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 text-base sm:text-xs bg-white dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-100 focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500"
                   >
                     {INDIAN_STATES.map((st) => (
                       <option key={st} value={st}>
@@ -416,7 +416,7 @@ export default function CheckoutPage() {
                     placeholder="6-digit PIN"
                     value={postalCode}
                     onChange={(e) => setPostalCode(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-900 dark:text-zinc-100 text-base sm:text-xs focus:outline-none focus:ring-1 focus:ring-brand-forest-800 dark:focus:ring-emerald-500 font-mono"
                   />
                 </div>
               </div>

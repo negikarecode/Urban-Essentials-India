@@ -84,15 +84,15 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Minimal Corner Tag */}
         {product.is_bestseller && (
-          <div className="absolute top-3 left-3 z-10 pointer-events-none">
-            <span className="px-2 py-0.5 text-[9px] font-bold tracking-[0.2em] uppercase bg-brand-forest-950 dark:bg-emerald-900 text-white">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 pointer-events-none">
+            <span className="px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase bg-brand-forest-950 dark:bg-emerald-900 text-white rounded-xs sm:rounded-none">
               Bestseller
             </span>
           </div>
         )}
         {!product.is_bestseller && product.is_new_arrival && (
-          <div className="absolute top-3 left-3 z-10 pointer-events-none">
-            <span className="px-2 py-0.5 text-[9px] font-bold tracking-[0.2em] uppercase bg-brand-forest-800 dark:bg-emerald-800 text-white">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 pointer-events-none">
+            <span className="px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase bg-brand-forest-800 dark:bg-emerald-800 text-white rounded-xs sm:rounded-none">
               New
             </span>
           </div>
@@ -103,10 +103,10 @@ export function ProductCard({ product }: ProductCardProps) {
           type="button"
           onClick={handleWishlistClick}
           aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
-          className={`absolute top-3 right-3 p-2 transition-all z-10 ${
+          className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full transition-all z-10 ${
             inWishlist
               ? 'text-rose-600 bg-white/90 dark:bg-zinc-900/90 shadow-xs'
-              : 'text-brand-charcoal-500 dark:text-zinc-400 bg-white/70 dark:bg-zinc-800/70 hover:bg-white dark:hover:bg-zinc-700 hover:text-rose-600 backdrop-blur-xs'
+              : 'text-brand-charcoal-500 dark:text-zinc-400 bg-white/80 dark:bg-zinc-800/80 hover:bg-white dark:hover:bg-zinc-700 hover:text-rose-600 backdrop-blur-xs'
           }`}
         >
           <Heart className={`w-3.5 h-3.5 ${inWishlist ? 'fill-rose-600' : ''}`} />
@@ -126,61 +126,61 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Editorial Information Box */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3 bg-white dark:bg-zinc-900">
-        <div className="space-y-1">
+      <div className="p-2.5 sm:p-4 md:p-5 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3 bg-white dark:bg-zinc-900">
+        <div className="space-y-0.5 sm:space-y-1">
           {/* Category Line */}
-          <div className="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal-400 dark:text-zinc-500 font-semibold">
+          <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-brand-charcoal-400 dark:text-zinc-500 font-semibold truncate">
             <span>{product.category_name || 'Essential'}</span>
           </div>
 
           {/* Product Headline */}
-          <h3 className="font-serif font-bold text-sm sm:text-base text-brand-charcoal-900 dark:text-zinc-100 line-clamp-1 hover:text-brand-forest-800 dark:hover:text-emerald-400 transition-colors pt-0.5">
+          <h3 className="font-serif font-bold text-xs sm:text-base text-brand-charcoal-900 dark:text-zinc-100 line-clamp-1 hover:text-brand-forest-800 dark:hover:text-emerald-400 transition-colors pt-0.5 leading-snug">
             <Link href={`/products/${product.slug}`}>
               {product.name}
             </Link>
           </h3>
 
           {/* Rating or Guarantee Tag */}
-          <div className="flex items-center justify-between gap-1 pt-0.5 min-h-[18px]">
+          <div className="flex items-center justify-between gap-1 pt-0.5 min-h-[16px] sm:min-h-[18px]">
             {product.review_count > 0 ? (
-              <div className="flex items-center gap-1 text-[11px] text-brand-charcoal-500 dark:text-zinc-400">
+              <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-brand-charcoal-500 dark:text-zinc-400">
                 <div className="flex items-center text-brand-amber-500">
-                  <Star className="w-3 h-3 fill-brand-amber-500 text-brand-amber-500" />
+                  <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-brand-amber-500 text-brand-amber-500" />
                 </div>
                 <span className="font-bold text-brand-charcoal-800 dark:text-zinc-200">{product.rating}</span>
                 <span className="text-brand-charcoal-400 dark:text-zinc-500">({product.review_count})</span>
               </div>
             ) : (
-              <span className="text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-medium tracking-wide">
+              <span className="text-[9px] sm:text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-medium tracking-wide">
                 Authentic Guarantee
               </span>
             )}
             {product.stock_quantity > 0 && product.stock_quantity <= 15 && (
-              <span className="text-[9px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.2 rounded-full border border-amber-200/60 dark:border-amber-800/60">
-                Only {product.stock_quantity} left
+              <span className="text-[8px] sm:text-[9px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1 sm:px-1.5 py-0.2 rounded-full border border-amber-200/60 dark:border-amber-800/60 truncate">
+                {product.stock_quantity} left
               </span>
             )}
           </div>
 
           {/* Color Palette Section - High-End E-Commerce Swatch Bar */}
           {product.variants && product.variants.length > 1 ? (
-            <div className="pt-1.5 pb-0.5 space-y-1.5">
+            <div className="pt-1 pb-0.5 space-y-1">
               {/* Active Color Name Label + Available Colors Count */}
-              <div className="flex items-center justify-between text-[11px] leading-tight">
-                <span className="text-brand-charcoal-600 dark:text-zinc-300 font-medium truncate max-w-[150px]">
+              <div className="flex items-center justify-between text-[10px] sm:text-[11px] leading-tight">
+                <span className="text-brand-charcoal-600 dark:text-zinc-300 font-medium truncate max-w-[105px] sm:max-w-[150px]">
                   Color:{' '}
-                  <strong className="text-brand-forest-950 dark:text-white font-extrabold text-[11px]">
+                  <strong className="text-brand-forest-950 dark:text-white font-extrabold text-[10px] sm:text-[11px]">
                     {currentColorName}
                   </strong>
                 </span>
-                <span className="text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-semibold tracking-tight shrink-0">
+                <span className="text-[9px] sm:text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-semibold tracking-tight shrink-0">
                   {product.variants.length} colors
                 </span>
               </div>
 
               {/* Real Colored Swatch Dots */}
-              <div className="flex items-center gap-1.5 flex-wrap py-0.5">
-                {product.variants.slice(0, 6).map((variant, idx) => {
+              <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap py-0.5">
+                {product.variants.slice(0, 5).map((variant, idx) => {
                   const hex =
                     variant.color_code ||
                     variant.attributes?.color_code ||
@@ -207,7 +207,7 @@ export function ProductCard({ product }: ProductCardProps) {
                       }`}
                     >
                       <span
-                        className={`w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full block shadow-inner ${
+                        className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full block shadow-inner ${
                           isLight ? 'border border-neutral-300 dark:border-neutral-500' : 'border border-black/15 dark:border-white/20'
                         }`}
                         style={{ backgroundColor: hex }}
@@ -215,16 +215,16 @@ export function ProductCard({ product }: ProductCardProps) {
                     </button>
                   );
                 })}
-                {product.variants.length > 6 && (
-                  <span className="text-[10px] font-extrabold text-brand-charcoal-400 dark:text-zinc-500 pl-0.5">
-                    +{product.variants.length - 6}
+                {product.variants.length > 5 && (
+                  <span className="text-[9px] sm:text-[10px] font-extrabold text-brand-charcoal-400 dark:text-zinc-500 pl-0.5">
+                    +{product.variants.length - 5}
                   </span>
                 )}
               </div>
             </div>
           ) : (
-            <div className="pt-1.5 min-h-[38px] flex items-center">
-              <span className="text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-medium">
+            <div className="pt-1 min-h-[28px] sm:min-h-[38px] flex items-center">
+              <span className="text-[9px] sm:text-[10px] text-brand-charcoal-400 dark:text-zinc-500 font-medium">
                 Standard Edition
               </span>
             </div>
@@ -232,9 +232,9 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Pricing & Mobile Quick Action */}
-        <div className="pt-2.5 border-t border-brand-cream-200 dark:border-zinc-800 flex items-center justify-between">
-          <div className="flex items-baseline gap-2">
-            <span className="font-extrabold text-sm sm:text-base text-brand-forest-950 dark:text-white tracking-tight">
+        <div className="pt-2 sm:pt-2.5 border-t border-brand-cream-200 dark:border-zinc-800 flex items-center justify-between gap-1">
+          <div className="flex items-baseline gap-1 sm:gap-2 min-w-0">
+            <span className="font-extrabold text-xs sm:text-base text-brand-forest-950 dark:text-white tracking-tight truncate">
               {formatCurrency(currentPrice)}
             </span>
           </div>
@@ -242,10 +242,11 @@ export function ProductCard({ product }: ProductCardProps) {
           {/* Mobile Action */}
           <button
             onClick={handleQuickAdd}
-            className="sm:hidden px-3 py-1.5 bg-brand-forest-950 dark:bg-zinc-800 text-white text-[10px] font-bold uppercase tracking-wider hover:bg-black dark:hover:bg-zinc-700"
+            className="sm:hidden px-2.5 py-1 bg-brand-forest-950 dark:bg-zinc-800 text-white text-[9px] font-bold uppercase tracking-wider rounded hover:bg-black dark:hover:bg-zinc-700 active:scale-95 transition-transform flex items-center gap-1 shrink-0 shadow-2xs"
             aria-label="Add to bag"
           >
-            Add
+            <ShoppingBag className="w-2.5 h-2.5" />
+            <span>Add</span>
           </button>
         </div>
       </div>

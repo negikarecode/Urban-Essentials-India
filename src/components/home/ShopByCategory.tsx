@@ -52,40 +52,40 @@ export function ShopByCategory() {
           </Link>
         </div>
 
-        {/* 3 Prominent High-Fashion Category Lookbooks */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {/* 3 Prominent High-Fashion Category Lookbooks: Horizontal swipe on mobile, 3-col grid on tablet/desktop */}
+        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-2 md:pb-0">
           {CATEGORY_CARDS.map((cat, idx) => (
             <Link
               key={idx}
               href={`/category/${cat.slug}`}
-              className="group relative flex flex-col bg-white dark:bg-zinc-900 border border-brand-cream-300 dark:border-zinc-800 hover:border-brand-forest-900 dark:hover:border-emerald-500 transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col bg-white dark:bg-zinc-900 border border-brand-cream-300 dark:border-zinc-800 hover:border-brand-forest-900 dark:hover:border-emerald-500 transition-all duration-300 overflow-hidden shrink-0 w-[82vw] max-w-[340px] md:w-auto md:max-w-none snap-center rounded-2xl md:rounded-none shadow-xs hover:shadow-md"
             >
-              {/* Editorial 4:5 Photo Frame */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-cream-100 dark:bg-zinc-800">
+              {/* Editorial Photo Frame */}
+              <div className="relative aspect-[16/11] sm:aspect-[4/5] w-full overflow-hidden bg-brand-cream-100 dark:bg-zinc-800">
                 <Image
                   src={cat.image}
                   alt={cat.name}
                   fill
                   unoptimized={true}
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 85vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80" />
                 
                 {/* Floating Bottom Metadata */}
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white space-y-1">
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-cream-300 block">
                     {cat.itemCount}
                   </span>
-                  <h3 className="font-serif font-bold text-2xl text-white uppercase tracking-tight">
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl text-white uppercase tracking-tight">
                     {cat.name}
                   </h3>
                 </div>
               </div>
 
               {/* Minimal Caption */}
-              <div className="p-5 flex items-center justify-between bg-white dark:bg-zinc-900 border-t border-brand-cream-200 dark:border-zinc-800">
-                <p className="text-xs text-brand-charcoal-600 dark:text-zinc-400 font-medium">
+              <div className="p-3.5 sm:p-5 flex items-center justify-between bg-white dark:bg-zinc-900 border-t border-brand-cream-200 dark:border-zinc-800">
+                <p className="text-xs text-brand-charcoal-600 dark:text-zinc-400 font-medium line-clamp-1">
                   {cat.subtitle}
                 </p>
                 <ArrowRight className="w-4 h-4 text-brand-forest-950 dark:text-white group-hover:translate-x-1.5 transition-transform shrink-0 ml-2" />

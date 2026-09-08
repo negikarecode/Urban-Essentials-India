@@ -243,18 +243,31 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
   return (
     <div className="space-y-8">
       {/* Top Filter Bar & Search */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-brand-cream-300 dark:border-zinc-800 shadow-xs">
-        {/* Mobile Filter Button */}
-        <button
-          onClick={() => setIsMobileFilterOpen(true)}
-          className="lg:hidden flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-brand-forest-800 text-white text-xs font-bold shadow-xs"
-        >
-          <SlidersHorizontal className="w-4 h-4" />
-          <span>Filter Products ({activeFilterCount})</span>
-        </button>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-2xl border border-brand-cream-300 dark:border-zinc-800 shadow-xs">
+        {/* Mobile Filter & Sort Bar */}
+        <div className="flex items-center gap-2 lg:hidden w-full">
+          <button
+            onClick={() => setIsMobileFilterOpen(true)}
+            className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-brand-forest-800 text-white text-xs font-bold shadow-xs active:scale-98 transition-transform"
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            <span>Filters {activeFilterCount > 0 ? `(${activeFilterCount})` : ''}</span>
+          </button>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-2.5 py-2 text-xs font-semibold rounded-xl border border-brand-cream-400 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-200 focus:outline-none focus:ring-1 focus:ring-brand-forest-800 cursor-pointer"
+          >
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: Low</option>
+            <option value="price-high">Price: High</option>
+            <option value="rating">Rating</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
 
         {/* Search within catalog */}
-        <div className="relative flex-1 max-w-md">
+        <div className="relative flex-1 max-w-md w-full">
           <input
             type="text"
             placeholder="Search within results..."
@@ -273,14 +286,14 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
           )}
         </div>
 
-        {/* Results count & Sort Dropdown */}
-        <div className="flex items-center justify-between sm:justify-end gap-4">
+        {/* Results count & Desktop Sort Dropdown */}
+        <div className="hidden lg:flex items-center justify-end gap-4">
           <span className="text-xs text-brand-charcoal-500 dark:text-zinc-400 font-medium">
             Showing <strong className="text-brand-charcoal-900 dark:text-zinc-100">{filteredProducts.length}</strong> items
           </span>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-brand-charcoal-500 dark:text-zinc-400 font-medium hidden sm:inline">Sort:</span>
+            <span className="text-xs text-brand-charcoal-500 dark:text-zinc-400 font-medium">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -293,6 +306,19 @@ export function ProductCatalogClient({ initialProducts }: ProductCatalogClientPr
               <option value="newest">Newest Arrivals</option>
             </select>
           </div>
+        </div>
+
+        {/* Mobile item count */}
+        <div className="lg:hidden flex items-center justify-between text-[11px] text-brand-charcoal-500 dark:text-zinc-400 px-1">
+          <span>Showing <strong className="text-brand-charcoal-900 dark:text-zinc-100">{filteredProducts.length}</strong> products</span>
+          {activeFilterCount > 0 && (
+            <button
+              onClick={resetFilters}
+              className="text-rose-600 dark:text-rose-400 font-bold hover:underline text-[11px]"
+            >
+              Reset Filters
+            </button>
+          )}
         </div>
       </div>
 

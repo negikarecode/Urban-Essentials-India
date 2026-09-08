@@ -355,8 +355,8 @@ export function ProductDetailClient({
       </div>
 
       {/* Tabs Section */}
-      <div className="mt-16 pt-8 border-t border-brand-cream-300 dark:border-zinc-800">
-        <div className="flex items-center gap-8 border-b border-brand-cream-300 dark:border-zinc-800">
+      <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-cream-300 dark:border-zinc-800">
+        <div className="flex items-center gap-4 sm:gap-8 border-b border-brand-cream-300 dark:border-zinc-800 overflow-x-auto no-scrollbar whitespace-nowrap">
           <button
             onClick={() => setActiveTab('features')}
             className={`pb-3 text-sm font-bold transition-all border-b-2 ${
@@ -450,17 +450,52 @@ export function ProductDetailClient({
 
       {/* Related Products Carousel / Grid */}
       {relatedProducts.length > 0 && (
-        <div className="mt-16 pt-12 border-t border-brand-cream-300 dark:border-zinc-800">
-          <h3 className="font-serif font-bold text-2xl text-brand-forest-950 dark:text-white mb-8">
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-brand-cream-300 dark:border-zinc-800 pb-16 sm:pb-0">
+          <h3 className="font-serif font-bold text-xl sm:text-2xl text-brand-forest-950 dark:text-white mb-6 sm:mb-8">
             You Might Also Like
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {relatedProducts.slice(0, 4).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
         </div>
       )}
+
+      {/* Mobile Sticky Add to Bag Bar */}
+      <div className="sm:hidden fixed bottom-14 left-0 right-0 z-30 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-t border-brand-cream-300 dark:border-zinc-800 p-2.5 px-4 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
+          <div className="min-w-0">
+            <span className="text-[10px] text-brand-charcoal-500 dark:text-zinc-400 block truncate">
+              {selectedVariant?.name || product.name}
+            </span>
+            <span className="font-extrabold text-sm text-brand-forest-950 dark:text-white">
+              {formatCurrency(currentPrice)}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => toggleWishlist(product)}
+              aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+              className={`p-2.5 rounded-xl border transition-all ${
+                inWishlist
+                  ? 'border-rose-300 bg-rose-50 dark:bg-rose-950/40 text-rose-600'
+                  : 'border-brand-cream-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brand-charcoal-700 dark:text-zinc-300'
+              }`}
+            >
+              <Heart className={`w-4 h-4 ${inWishlist ? 'fill-rose-600' : ''}`} />
+            </button>
+            <button
+              onClick={handleAddToCart}
+              disabled={currentStock <= 0}
+              className="py-2.5 px-4 bg-brand-forest-800 hover:bg-brand-forest-900 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform disabled:opacity-50"
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              <span>Add to Bag</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

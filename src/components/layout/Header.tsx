@@ -76,7 +76,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
           {/* Mobile menu trigger */}
           <button
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className="lg:hidden p-1.5 sm:p-2 rounded-lg text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-200 dark:hover:bg-zinc-800 transition-colors shrink-0"
             aria-label="Open navigation menu"
           >

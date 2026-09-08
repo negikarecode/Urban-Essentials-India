@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -8,6 +8,7 @@ import { AuthProvider } from '@/context/AuthContext';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/layout/CartDrawer';
+import { MobileBottomNav } from '@/components/layout/MobileBottomNav';
 import { Toaster } from 'sonner';
 
 const inter = Inter({
@@ -60,6 +61,16 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FAF8F5' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -99,9 +110,10 @@ export default function RootLayout({
             <WishlistProvider>
               <CartProvider>
                 <Header />
-                <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
+                <main className="flex-1 w-full max-w-full overflow-x-hidden pb-16 lg:pb-0">{children}</main>
                 <Footer />
                 <CartDrawer />
+                <MobileBottomNav />
                 <Toaster
                   position="top-right"
                   toastOptions={{

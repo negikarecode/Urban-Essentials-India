@@ -360,11 +360,102 @@ export default function AdminLayout({
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-brand-cream-300 hover:text-white"
+              aria-label="Toggle admin menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
+
+        {/* Mobile Admin Navigation Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 z-50 flex">
+            {/* Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/70 backdrop-blur-xs"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Slide-out Menu Panel */}
+            <div className="relative w-full sm:max-w-xs bg-brand-forest-950 text-white h-full shadow-2xl flex flex-col z-10 animate-slide-right border-r border-brand-forest-800">
+              {/* Header */}
+              <div className="p-4 border-b border-brand-forest-800 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-7 h-7 rounded-lg bg-brand-forest-800 text-brand-amber-400 flex items-center justify-center text-xs font-serif font-extrabold border border-brand-forest-700">
+                    U
+                  </span>
+                  <span className="font-serif font-bold text-base text-white">Admin Console</span>
+                </div>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg text-brand-cream-300 hover:text-white hover:bg-brand-forest-900"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Admin info */}
+              <div className="p-4 bg-brand-forest-900/60 border-b border-brand-forest-800 flex items-center gap-2.5 text-xs text-brand-cream-200">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <span className="font-mono text-[11px] truncate">{user?.email || 'Admin'}</span>
+              </div>
+
+              {/* Nav Items */}
+              <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+                {NAV_ITEMS.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-colors ${
+                        isActive
+                          ? 'bg-brand-forest-800 text-white shadow-sm'
+                          : 'text-brand-cream-200 hover:bg-brand-forest-900 hover:text-white'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Icon className={`w-4 h-4 ${isActive ? 'text-brand-amber-300' : 'text-brand-cream-300'}`} />
+                        <span>{item.label}</span>
+                      </div>
+                      {item.badge !== undefined && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-forest-900 text-brand-amber-300 border border-brand-forest-700">
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* Footer Actions */}
+              <div className="p-4 border-t border-brand-forest-800 space-y-2 bg-brand-forest-950">
+                <Link
+                  href="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-brand-cream-200 hover:text-white bg-brand-forest-900 rounded-xl"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Return to Public Store</span>
+                </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    signOut();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full text-xs text-rose-300 border-rose-800/60 hover:bg-rose-950/40"
+                >
+                  <LogOut className="w-3.5 h-3.5 mr-1" />
+                  <span>Logout</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Main Admin Sub-Navigation */}
@@ -403,7 +494,7 @@ export default function AdminLayout({
       </div>
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
         {children}
       </main>
     </div>

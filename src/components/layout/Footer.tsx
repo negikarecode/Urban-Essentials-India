@@ -19,10 +19,10 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full max-w-full overflow-hidden bg-brand-forest-950 text-brand-cream-200 pt-16 pb-12 border-t border-brand-forest-900">
+    <footer className="w-full max-w-full overflow-hidden bg-brand-forest-950 text-brand-cream-200 pt-10 sm:pt-16 pb-20 lg:pb-12 border-t border-brand-forest-900">
       {/* Main Footer Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12">
           {/* Brand & Newsletter Column (2 cols wide) */}
           <div className="lg:col-span-2 space-y-4 text-left">
             <div className="flex items-center gap-2.5">
@@ -46,7 +46,7 @@ export function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="min-w-0 flex-1 px-3.5 py-2.5 text-xs bg-brand-forest-900 border border-brand-forest-700 rounded-l-xl text-white placeholder:text-brand-cream-300/50 focus:outline-none focus:border-brand-sage-400"
+                  className="min-w-0 flex-1 px-3.5 py-2.5 text-base sm:text-xs bg-brand-forest-900 border border-brand-forest-700 rounded-l-xl text-white placeholder:text-brand-cream-300/50 focus:outline-none focus:border-brand-sage-400"
                 />
                 <button
                   type="submit"

@@ -179,11 +179,11 @@ export default function AccountPage() {
 
       {/* Navigation Tabs & Main Area */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Sidebar Nav */}
-        <div className="lg:col-span-3 bg-white dark:bg-zinc-900 rounded-3xl p-4 border border-brand-cream-300 dark:border-zinc-800 shadow-xs space-y-1">
+        {/* Sidebar Nav: Horizontal pills on mobile, vertical sidebar on desktop */}
+        <div className="lg:col-span-3 bg-white dark:bg-zinc-900 rounded-2xl sm:rounded-3xl p-2 sm:p-4 border border-brand-cream-300 dark:border-zinc-800 shadow-xs flex flex-row lg:flex-col overflow-x-auto no-scrollbar gap-2 lg:gap-1">
           <button
             onClick={() => setActiveTab('orders')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left ${
+            className={`flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-left shrink-0 lg:w-full whitespace-nowrap ${
               activeTab === 'orders'
                 ? 'bg-brand-forest-800 text-white shadow-sm'
                 : 'text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800'
@@ -195,7 +195,7 @@ export default function AccountPage() {
 
           <button
             onClick={() => setActiveTab('addresses')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left ${
+            className={`flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-left shrink-0 lg:w-full whitespace-nowrap ${
               activeTab === 'addresses'
                 ? 'bg-brand-forest-800 text-white shadow-sm'
                 : 'text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800'
@@ -207,20 +207,20 @@ export default function AccountPage() {
 
           <Link
             href="/wishlist"
-            className="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800 transition-colors"
+            className="flex items-center justify-between gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800 transition-colors shrink-0 lg:w-full whitespace-nowrap"
           >
-            <span className="flex items-center gap-3">
+            <span className="flex items-center gap-2.5">
               <Heart className="w-4 h-4 text-rose-500" />
               <span>Wishlist</span>
             </span>
-            <span className="px-2 py-0.5 rounded-full bg-brand-cream-200 dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-200 text-[10px]">
+            <span className="px-1.5 py-0.2 rounded-full bg-brand-cream-200 dark:bg-zinc-800 text-brand-charcoal-800 dark:text-zinc-200 text-[10px]">
               {wishlistCount}
             </span>
           </Link>
 
           <button
             onClick={() => setActiveTab('profile')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left ${
+            className={`flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-xs font-bold transition-all text-left shrink-0 lg:w-full whitespace-nowrap ${
               activeTab === 'profile'
                 ? 'bg-brand-forest-800 text-white shadow-sm'
                 : 'text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800'
