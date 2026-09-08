@@ -24,11 +24,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
     try {
       const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-      if (stored === 'dark' || stored === 'light' || stored === 'system') {
+      if (stored === 'dark' || stored === 'light') {
         setThemeState(stored);
       } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setThemeState(prefersDark ? 'dark' : 'light');
+        setThemeState('light');
       }
     } catch {
       // ignore
