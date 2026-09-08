@@ -5,7 +5,7 @@ import { Product } from '@/types';
 import { PRODUCTS, CATEGORIES } from '@/lib/data/products';
 import { slugify } from '@/lib/utils';
 
-export const PRODUCTS_STORAGE_KEY = 'urban_custom_catalog_v10';
+export const PRODUCTS_STORAGE_KEY = 'urban_custom_catalog_v11';
 export const CATALOG_UPDATED_EVENT = 'urban_catalog_updated';
 
 /**
@@ -13,11 +13,12 @@ export const CATALOG_UPDATED_EVENT = 'urban_catalog_updated';
  */
 export function getStoredProducts(): Product[] {
   if (typeof window === 'undefined') {
-    return [];
+    return PRODUCTS;
   }
 
   try {
     // Purge old demo storage keys from client browser
+    localStorage.removeItem('urban_custom_catalog_v10');
     localStorage.removeItem('urban_custom_catalog_v9');
     localStorage.removeItem('urban_custom_catalog_v8');
     localStorage.removeItem('urban_custom_catalog_v7');
@@ -33,16 +34,20 @@ export function getStoredProducts(): Product[] {
 
     const raw = localStorage.getItem(PRODUCTS_STORAGE_KEY);
     if (!raw) {
-      localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify([]));
-      return [];
+      localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(PRODUCTS));
+      return PRODUCTS;
     }
     const parsed: Product[] = JSON.parse(raw);
     if (Array.isArray(parsed)) {
+      if (parsed.length === 0 && PRODUCTS.length > 0) {
+        localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(PRODUCTS));
+        return PRODUCTS;
+      }
       return parsed;
     }
-    return [];
+    return PRODUCTS;
   } catch {
-    return [];
+    return PRODUCTS;
   }
 }
 

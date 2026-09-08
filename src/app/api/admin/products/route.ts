@@ -6,7 +6,7 @@ import { checkRateLimit, rateLimitResponse } from "@/lib/rateLimit";
 
 export const dynamic = "force-dynamic";
 
-let serverProductsStore: Product[] = [];
+let serverProductsStore: Product[] = [...PRODUCTS];
 
 export async function GET(req: NextRequest) {
   const rateLimit = checkRateLimit(req, {
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
       .order("created_at", { ascending: false });
 
     if (error || !dbProducts || dbProducts.length === 0) {
-      return NextResponse.json({ products: serverProductsStore });
+      return NextResponse.json({ products: serverProductsStore.length > 0 ? serverProductsStore : PRODUCTS });
     }
 
 
