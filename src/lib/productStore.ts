@@ -5,7 +5,7 @@ import { Product } from '@/types';
 import { PRODUCTS, CATEGORIES } from '@/lib/data/products';
 import { slugify } from '@/lib/utils';
 
-export const PRODUCTS_STORAGE_KEY = 'urban_custom_catalog_v11';
+export const PRODUCTS_STORAGE_KEY = 'urban_custom_catalog_v12';
 export const CATALOG_UPDATED_EVENT = 'urban_catalog_updated';
 
 /**
@@ -18,6 +18,7 @@ export function getStoredProducts(): Product[] {
 
   try {
     // Purge old demo storage keys from client browser
+    localStorage.removeItem('urban_custom_catalog_v11');
     localStorage.removeItem('urban_custom_catalog_v10');
     localStorage.removeItem('urban_custom_catalog_v9');
     localStorage.removeItem('urban_custom_catalog_v8');
