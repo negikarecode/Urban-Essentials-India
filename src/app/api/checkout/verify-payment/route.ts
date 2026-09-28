@@ -3,6 +3,7 @@ import { verifyRazorpaySignature } from '@/lib/razorpay';
 import { saveOrder } from '@/lib/data/orders';
 import { Order } from '@/types';
 import { checkRateLimit, rateLimitResponse } from '@/lib/rateLimit';
+import { sendOrderNotificationToAdmin } from '@/lib/email';
 
 export async function POST(req: Request) {
   try {
@@ -100,6 +101,11 @@ export async function POST(req: Request) {
     };
 
     saveOrder(finalOrder);
+
+    // Trigger full order notification to admin contact phone & email
+    sendOrderNotificationToAdmin(finalOrder).catch((err) =>
+      console.warn('Background order notification error:', err)
+    );
 
     return NextResponse.json({
       success: true,

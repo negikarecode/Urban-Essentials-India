@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { Order } from '@/types';
 
 export interface EmailOptions {
   to: string | string[];
@@ -246,3 +247,153 @@ export async function sendAdminOtpEmail(toEmail: string, otpCode: string): Promi
     text: `Your Urban Essentials Admin Verification Code is: ${otpCode}\n\nThis code will expire in 5 minutes.\nIf you did not request this code, please ignore this email.`,
   });
 }
+
+/**
+ * Formats full plain-text order notification message.
+ */
+export function formatOrderSummaryMessage(order: Order): string {
+  const addr = order.shipping_address;
+  const itemsText = order.items
+    .map(
+      (item, idx) =>
+        `${idx + 1}. ${item.product_name}${item.variant_name ? ` (${item.variant_name})` : ''}\n` +
+        `   SKU: ${item.sku}\n` +
+        `   Qty: ${item.quantity} x ₹${item.unit_price} = ₹${item.total_price}`
+    )
+    .join('\n\n');
+
+  const formattedDate = new Date(order.created_at || Date.now()).toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+
+  return `📦 NEW ORDER RECEIVED!
+Order Number: ${order.order_number}
+Date: ${formattedDate}
+
+👤 CUSTOMER DETAILS:
+Name: ${addr?.full_name || 'Customer'}
+Phone: +91 ${order.guest_phone || addr?.phone || 'N/A'}
+Email: ${order.guest_email || addr?.email || 'N/A'}
+
+📍 SHIPPING ADDRESS:
+${addr?.address_line1 || ''}${addr?.address_line2 ? `, ${addr.address_line2}` : ''}
+${addr?.city || ''}, ${addr?.state || ''} - ${addr?.postal_code || ''}, ${addr?.country || 'India'}
+
+🛍️ ORDER ITEMS:
+${itemsText}
+
+💰 PAYMENT SUMMARY:
+Subtotal: ₹${order.subtotal}
+Discount: ${order.discount_amount ? `-₹${order.discount_amount}` : '₹0'}
+Shipping: ${order.shipping_fee ? `₹${order.shipping_fee}` : 'FREE (₹0)'}
+----------------------------------------
+TOTAL PAID: ₹${order.total_amount}
+Payment Status: ${(order.payment_status || 'PAID').toUpperCase()} (${order.payment_method || 'Razorpay'})
+Payment ID: ${order.razorpay_payment_id || 'N/A'}
+Order ID: ${order.id}`;
+}
+
+/**
+ * Sends a full order notification to admin / store owner contact number & email.
+ */
+export async function sendOrderNotificationToAdmin(order: Order): Promise<EmailResult> {
+  const adminEmail = (
+    process.env.ADMIN_NOTIFICATION_EMAIL ||
+    process.env.SMTP_USER ||
+    process.env.GMAIL_USER ||
+    'urbanessentsialindia@gmail.com'
+  ).trim();
+
+  const plainTextMessage = formatOrderSummaryMessage(order);
+
+  const htmlMessage = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>New Order Alert: ${order.order_number}</title>
+      </head>
+      <body style="margin: 0; padding: 0; background-color: #f4f6f8; font-family: sans-serif;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f4f6f8; padding: 20px;">
+          <tr>
+            <td align="center">
+              <table width="100%" max-width="600" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
+                <tr>
+                  <td style="background-color: #064e3b; padding: 24px; text-align: center; color: #ffffff;">
+                    <h1 style="margin: 0; font-size: 22px;">🎉 NEW ORDER RECEIVED!</h1>
+                    <p style="margin: 6px 0 0 0; color: #fbbf24; font-weight: bold; font-size: 16px;">Order #${order.order_number} - Total ₹${order.total_amount}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 24px;">
+                    <pre style="white-space: pre-wrap; font-family: monospace; font-size: 13px; background-color: #f9fafb; padding: 16px; border-radius: 8px; border: 1px solid #e5e7eb; color: #111827;">${plainTextMessage}</pre>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
+  `;
+
+  // Log notification to server output
+  console.log('====================================================');
+  console.log('[FULL ORDER NOTIFICATION DISPATCHED]');
+  console.log(plainTextMessage);
+  console.log('====================================================');
+
+  // Trigger optional SMS / Fast2SMS API if key is provided
+  const fast2smsKey = process.env.FAST2SMS_API_KEY;
+  const adminPhone = (process.env.ADMIN_NOTIFICATION_PHONE || '').replace(/\D/g, '');
+  if (fast2smsKey && adminPhone) {
+    try {
+      await fetch('https://www.fast2sms.com/dev/bulkV2', {
+        method: 'POST',
+        headers: {
+          authorization: fast2smsKey,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          route: 'v3',
+          sender_id: 'TXTIND',
+          message: `New Order ${order.order_number}! Customer: ${order.shipping_address.full_name}, Phone: ${order.guest_phone}, Total: Rs ${order.total_amount}.`,
+          language: 'english',
+          numbers: adminPhone,
+        }),
+      });
+      console.log(`[SMS DISPATCH] Fast2SMS sent to +91 ${adminPhone}`);
+    } catch (smsErr) {
+      console.error('[SMS DISPATCH] Fast2SMS error:', smsErr);
+    }
+  }
+
+  // Trigger optional WhatsApp Webhook API if configured
+  const whatsappWebhookUrl = process.env.WHATSAPP_WEBHOOK_URL;
+  if (whatsappWebhookUrl) {
+    try {
+      await fetch(whatsappWebhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: plainTextMessage,
+          order: order,
+          phone: adminPhone || order.guest_phone,
+        }),
+      });
+      console.log('[WHATSAPP DISPATCH] Order alert sent to WhatsApp Webhook');
+    } catch (waErr) {
+      console.error('[WHATSAPP DISPATCH] Webhook error:', waErr);
+    }
+  }
+
+  return sendEmail({
+    to: adminEmail,
+    subject: `📦 NEW ORDER RECEIVED: ${order.order_number} (₹${order.total_amount})`,
+    html: htmlMessage,
+    text: plainTextMessage,
+  });
+}
+
