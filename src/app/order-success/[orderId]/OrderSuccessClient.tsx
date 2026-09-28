@@ -15,10 +15,12 @@ import {
   MapPin,
   CreditCard,
   ShieldCheck,
+  MessageCircle,
 } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
 import { Order } from '@/types';
 import { getStoredOrders } from '@/lib/orderStore';
+import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 
 interface OrderSuccessClientProps {
   order: Order;
@@ -89,6 +91,15 @@ export function OrderSuccessClient({ order: initialOrder }: OrderSuccessClientPr
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <a
+              href={getWhatsAppOrderUrl(order)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold transition-colors shadow-xs"
+            >
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span>Send via WhatsApp</span>
+            </a>
             <button
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-brand-cream-300 dark:border-zinc-700 text-xs font-bold text-brand-charcoal-700 dark:text-zinc-300 hover:bg-brand-cream-100 dark:hover:bg-zinc-800 transition-colors"

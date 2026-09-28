@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { Order } from '@/types';
+import { sendWhatsAppNotification, formatOrderSummaryMessage } from '@/lib/whatsapp';
 
 export interface EmailOptions {
   to: string | string[];
@@ -249,53 +250,6 @@ export async function sendAdminOtpEmail(toEmail: string, otpCode: string): Promi
 }
 
 /**
- * Formats full plain-text order notification message.
- */
-export function formatOrderSummaryMessage(order: Order): string {
-  const addr = order.shipping_address;
-  const itemsText = order.items
-    .map(
-      (item, idx) =>
-        `${idx + 1}. ${item.product_name}${item.variant_name ? ` (${item.variant_name})` : ''}\n` +
-        `   SKU: ${item.sku}\n` +
-        `   Qty: ${item.quantity} x ₹${item.unit_price} = ₹${item.total_price}`
-    )
-    .join('\n\n');
-
-  const formattedDate = new Date(order.created_at || Date.now()).toLocaleString('en-IN', {
-    timeZone: 'Asia/Kolkata',
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  });
-
-  return `📦 NEW ORDER RECEIVED!
-Order Number: ${order.order_number}
-Date: ${formattedDate}
-
-👤 CUSTOMER DETAILS:
-Name: ${addr?.full_name || 'Customer'}
-Phone: +91 ${order.guest_phone || addr?.phone || 'N/A'}
-Email: ${order.guest_email || addr?.email || 'N/A'}
-
-📍 SHIPPING ADDRESS:
-${addr?.address_line1 || ''}${addr?.address_line2 ? `, ${addr.address_line2}` : ''}
-${addr?.city || ''}, ${addr?.state || ''} - ${addr?.postal_code || ''}, ${addr?.country || 'India'}
-
-🛍️ ORDER ITEMS:
-${itemsText}
-
-💰 PAYMENT SUMMARY:
-Subtotal: ₹${order.subtotal}
-Discount: ${order.discount_amount ? `-₹${order.discount_amount}` : '₹0'}
-Shipping: ${order.shipping_fee ? `₹${order.shipping_fee}` : 'FREE (₹0)'}
-----------------------------------------
-TOTAL PAID: ₹${order.total_amount}
-Payment Status: ${(order.payment_status || 'PAID').toUpperCase()} (${order.payment_method || 'Razorpay'})
-Payment ID: ${order.razorpay_payment_id || 'N/A'}
-Order ID: ${order.id}`;
-}
-
-/**
  * Sends a full order notification to admin / store owner contact number & email.
  */
 export async function sendOrderNotificationToAdmin(order: Order): Promise<EmailResult> {
@@ -388,6 +342,11 @@ export async function sendOrderNotificationToAdmin(order: Order): Promise<EmailR
       console.error('[WHATSAPP DISPATCH] Webhook error:', waErr);
     }
   }
+
+  // Trigger WhatsApp order notification
+  sendWhatsAppNotification(order).catch((waErr) =>
+    console.warn('[WHATSAPP DISPATCH] Background notification error:', waErr)
+  );
 
   return sendEmail({
     to: adminEmail,
