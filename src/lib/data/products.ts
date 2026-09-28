@@ -31,6 +31,7 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRODUCTS: Product[] = [
+
   {
     id: 'prod-01',
     name: 'Hello Tuesday 2-Tier Stackable Stainless Steel Tiffin Box',
@@ -1791,6 +1792,2140 @@ export const PRODUCTS: Product[] = [
     ],
     created_at: '2026-03-08T21:00:00Z',
     updated_at: '2026-03-08T21:00:00Z'
+  }
+,
+  {
+    "id": "prod-amz-01",
+    "name": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+    "slug": "2-layer-stainless-steel-lunch-box-locking-lid-spoon",
+    "description": "Say hello to a smarter way of carrying your meals with this stylish 2-layer stainless steel lunch box. Crafted from premium 304 food-grade stainless steel with a non-toxic PP exterior, it keeps your meals hot, fresh, and perfectly organized. Features independent leakproof compartments, steam release valve, fold-away handles, and included spoon.",
+    "short_description": "2-layer SUS304 stainless steel tiffin with 2-compartment tray, locking lid, and spoon.",
+    "sku": "Hello Tuesday 1",
+    "price": 950,
+    "compare_at_price": 1499,
+    "discount": 36,
+    "category_id": "c2",
+    "category_name": "Lunch Boxes",
+    "category_slug": "lunch-boxes",
+    "target_audience": "office",
+    "brand": "Urban Essentials",
+    "tags": [
+      "lunch-box",
+      "tiffin",
+      "stainless-steel",
+      "2-layer",
+      "office",
+      "school",
+      "bestseller"
+    ],
+    "stock_quantity": 45,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 42,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "Food-grade SUS304 stainless steel inner containers for health and safety",
+      "Airtight silicone seal and secure side lock clips prevent any spill or leak",
+      "Built-in steam release valve on the lid allows easy pressure equalisation",
+      "Includes ergonomic foldable spoon neatly docked in the lid compartment",
+      "Double-wall insulation keeps food hot and hands comfortable"
+    ],
+    "specifications": {
+      "Material": "SUS304 Stainless Steel & Food-Grade PP",
+      "Capacity": "1100 ml Dual Tier",
+      "Parent ASIN": "B0HKKHQYKP",
+      "Item Dimensions": "20cm x 14cm x 12cm",
+      "Included Accessories": "Foldable Stainless Steel Spoon"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-01-1",
+        "image_url": "https://m.media-amazon.com/images/I/41-rdTgiHVL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-2",
+        "image_url": "https://m.media-amazon.com/images/I/61TDgKst5cL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-3",
+        "image_url": "https://m.media-amazon.com/images/I/617x15ggO-L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-4",
+        "image_url": "https://m.media-amazon.com/images/I/61YnrbJKfGL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-5",
+        "image_url": "https://m.media-amazon.com/images/I/617LAlB+JuL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-6",
+        "image_url": "https://m.media-amazon.com/images/I/61gnzbtMc4L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-7",
+        "image_url": "https://m.media-amazon.com/images/I/41FHnQdlkIL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-8",
+        "image_url": "https://m.media-amazon.com/images/I/611yuINmv1L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-01-9",
+        "image_url": "https://m.media-amazon.com/images/I/61MmkIX5TqL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with 2-Compartment Tray Locking Lid & Spoon",
+        "sort_order": 9,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-1-1",
+        "product_id": "prod-amz-01",
+        "name": "Mint Green",
+        "sku": "09-O3EY-9YB4",
+        "price": 950,
+        "compare_at_price": 950,
+        "attributes": {
+          "color": "Mint Green",
+          "color_code": "#6EE7B7",
+          "asin": "B0HKKMRZH7",
+          "image_url": "https://m.media-amazon.com/images/I/41-rdTgiHVL.jpg"
+        },
+        "color_code": "#6EE7B7",
+        "image_url": "https://m.media-amazon.com/images/I/41-rdTgiHVL.jpg",
+        "stock": 2,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-1-2",
+        "product_id": "prod-amz-01",
+        "name": "Mint Green (Deluxe Edition)",
+        "sku": "TL-WUWT-O5EV",
+        "price": 950,
+        "compare_at_price": 1499,
+        "attributes": {
+          "color": "Mint Green (Deluxe)",
+          "color_code": "#34D399",
+          "asin": "B0HJ6BZ18S",
+          "image_url": "https://m.media-amazon.com/images/I/41-rdTgiHVL.jpg"
+        },
+        "color_code": "#34D399",
+        "image_url": "https://m.media-amazon.com/images/I/41-rdTgiHVL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-1-3",
+        "product_id": "prod-amz-01",
+        "name": "Sky Blue & Yellow",
+        "sku": "S1-ZQ5I-7VXH",
+        "price": 950,
+        "compare_at_price": 950,
+        "attributes": {
+          "color": "Sky Blue & Yellow",
+          "color_code": "#38BDF8",
+          "asin": "B0HJ64H555",
+          "image_url": "https://m.media-amazon.com/images/I/41FHnQdlkIL.jpg"
+        },
+        "color_code": "#38BDF8",
+        "image_url": "https://m.media-amazon.com/images/I/41FHnQdlkIL.jpg",
+        "stock": 0,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-02",
+    "name": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+    "slug": "kids-school-backpack-astronaut-cartoon-12l",
+    "description": "Make back-to-school exciting for your little one with this adorable kids backpack, perfectly sized for children aged 3 to 7 years. Measuring 32 cm in height and 26 cm in width, with a generous 12-litre capacity, it offers ample room for a lunch box, water bottle, stationery, and small books. Features 3 separate compartments, water-repellent fabric, and ergonomic padded straps.",
+    "short_description": "Ergonomic 12L water-repellent kids backpack with 3 compartments for ages 3 to 7.",
+    "sku": "D6-HXA5-ZCGW",
+    "price": 799,
+    "compare_at_price": 1999,
+    "discount": 60,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "backpack",
+      "kids-school-bag",
+      "astronaut",
+      "dinosaur",
+      "kuromi",
+      "school",
+      "bestseller"
+    ],
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "rating": 4.9,
+    "review_count": 58,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "12 Litre generous capacity tailored for kindergarten and primary school kids",
+      "3 separate organised zip compartments and dual stretch mesh water bottle side pockets",
+      "High-density water-repellent soft outer fabric is easy to clean and extra durable",
+      "Ergonomic breathable mesh padded shoulder straps and back panel for comfort",
+      "Weighs only 400g to reduce shoulder strain for young children"
+    ],
+    "specifications": {
+      "Dimensions": "32 cm Height x 26 cm Width x 14 cm Depth",
+      "Capacity": "12 Litres",
+      "Recommended Age": "3 to 7 Years",
+      "Weight": "400 g",
+      "Parent ASIN": "B0HJX4WP9R"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-02-1",
+        "image_url": "https://m.media-amazon.com/images/I/41wUK-3wXmL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-2",
+        "image_url": "https://m.media-amazon.com/images/I/61MYLzVz8+L.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-3",
+        "image_url": "https://m.media-amazon.com/images/I/61jARGWQFYL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-4",
+        "image_url": "https://m.media-amazon.com/images/I/6197aYDhS4L.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-5",
+        "image_url": "https://m.media-amazon.com/images/I/61UHnafNBiL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-6",
+        "image_url": "https://m.media-amazon.com/images/I/61Ic0piKXbL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-7",
+        "image_url": "https://m.media-amazon.com/images/I/61rzxE2JVgL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-8",
+        "image_url": "https://m.media-amazon.com/images/I/519XthGWnHL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-9",
+        "image_url": "https://m.media-amazon.com/images/I/613f9WMQK5L.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-02-10",
+        "image_url": "https://m.media-amazon.com/images/I/51YnmrE-kWL.jpg",
+        "alt_text": "Kids School Backpack with Astronaut & Cartoon Designs, 12L",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-2-1",
+        "product_id": "prod-amz-02",
+        "name": "Astronaut Space Explorer",
+        "sku": "1I-32TA-QXQI",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Astronaut Space",
+          "color_code": "#1E3A8A",
+          "asin": "B0HJQN1LRG",
+          "image_url": "https://m.media-amazon.com/images/I/41wUK-3wXmL.jpg"
+        },
+        "color_code": "#1E3A8A",
+        "image_url": "https://m.media-amazon.com/images/I/41wUK-3wXmL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-2-2",
+        "product_id": "prod-amz-02",
+        "name": "Space Rocket (Astronaut)",
+        "sku": "AS1",
+        "price": 899,
+        "compare_at_price": 899,
+        "attributes": {
+          "color": "Space Rocket",
+          "color_code": "#2563EB",
+          "asin": "B0HJX84LT1",
+          "image_url": "https://m.media-amazon.com/images/I/41wUK-3wXmL.jpg"
+        },
+        "color_code": "#2563EB",
+        "image_url": "https://m.media-amazon.com/images/I/41wUK-3wXmL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-2-3",
+        "product_id": "prod-amz-02",
+        "name": "Color Block Pastel",
+        "sku": "CL1",
+        "price": 899,
+        "compare_at_price": 899,
+        "attributes": {
+          "color": "Color Block",
+          "color_code": "#EC4899",
+          "asin": "B0HJXK54TP",
+          "image_url": "https://m.media-amazon.com/images/I/519XthGWnHL.jpg"
+        },
+        "color_code": "#EC4899",
+        "image_url": "https://m.media-amazon.com/images/I/519XthGWnHL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-2-4",
+        "product_id": "prod-amz-02",
+        "name": "Cute Animals Pastel",
+        "sku": "CT1",
+        "price": 899,
+        "compare_at_price": 899,
+        "attributes": {
+          "color": "Cute Animals",
+          "color_code": "#F472B6",
+          "asin": "B0HJX9MLMQ",
+          "image_url": "https://m.media-amazon.com/images/I/41oTqZKs2GL.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/41oTqZKs2GL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-2-5",
+        "product_id": "prod-amz-02",
+        "name": "Kuromi Lavender",
+        "sku": "DD1",
+        "price": 899,
+        "compare_at_price": 899,
+        "attributes": {
+          "color": "Kuromi Lavender",
+          "color_code": "#A855F7",
+          "asin": "B0HKMN74N2",
+          "image_url": "https://m.media-amazon.com/images/I/41rKLdyMf9L.jpg"
+        },
+        "color_code": "#A855F7",
+        "image_url": "https://m.media-amazon.com/images/I/41rKLdyMf9L.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-2-6",
+        "product_id": "prod-amz-02",
+        "name": "Dinosaur Roar",
+        "sku": "DN1",
+        "price": 899,
+        "compare_at_price": 899,
+        "attributes": {
+          "color": "Dinosaur Roar",
+          "color_code": "#10B981",
+          "asin": "B0HJX9J75Q",
+          "image_url": "https://m.media-amazon.com/images/I/51Ja3FosgoL.jpg"
+        },
+        "color_code": "#10B981",
+        "image_url": "https://m.media-amazon.com/images/I/51Ja3FosgoL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-03",
+    "name": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+    "slug": "mermaid-theme-kids-backpack-3d-molded-shell",
+    "description": "Make every school day a magical underwater adventure with this Premium Retro Mermaid Kids Backpack! Featuring an adorable 3D moulded mermaid graphic with shiny sequin accents, lightweight EVA hard shell front, and spacious interior pockets. Made from durable, water-resistant polyester.",
+    "short_description": "Magical 3D molded mermaid EVA backpack with sequin details and ergonomic padded straps.",
+    "sku": "AS11",
+    "price": 690,
+    "compare_at_price": 1999,
+    "discount": 65,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "mermaid",
+      "backpack",
+      "3d-shell",
+      "sequins",
+      "kids",
+      "school"
+    ],
+    "stock_quantity": 30,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 35,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "3D molded hard-shell EVA front panel with shimmering mermaid sequin details",
+      "Generous main compartment holds A4 books, notebooks, lunch box, and pouch",
+      "Ergonomic S-shaped shoulder straps prevent slipping and distribute load evenly",
+      "Waterproof high-density polyester fabric protects books from rain",
+      "Heavy-duty dual smooth zippers with custom pull tags"
+    ],
+    "specifications": {
+      "Dimensions": "36cm Height x 28cm Width x 15cm Depth",
+      "Material": "3D EVA Shell & High-Grade Polyester",
+      "Parent ASIN": "B0HK89F8P9",
+      "Age Group": "4 to 9 Years"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-03-1",
+        "image_url": "https://m.media-amazon.com/images/I/51OGhMbXE1L.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-2",
+        "image_url": "https://m.media-amazon.com/images/I/61mPBiOhQmL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-3",
+        "image_url": "https://m.media-amazon.com/images/I/61zfHsKPOQL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-4",
+        "image_url": "https://m.media-amazon.com/images/I/71aLfHpkd6L.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-5",
+        "image_url": "https://m.media-amazon.com/images/I/71YiE3+7-cL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-6",
+        "image_url": "https://m.media-amazon.com/images/I/71Od30jFIuL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-7",
+        "image_url": "https://m.media-amazon.com/images/I/5163euttd2L.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-8",
+        "image_url": "https://m.media-amazon.com/images/I/61Gp5yl3ISL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-9",
+        "image_url": "https://m.media-amazon.com/images/I/71GUbaxrnOL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-03-10",
+        "image_url": "https://m.media-amazon.com/images/I/71n1X8bg3kL.jpg",
+        "alt_text": "Mermaid Theme Kids Backpack and Lunch Bag Series with 3D Molded Shell",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-3-1",
+        "product_id": "prod-amz-03",
+        "name": "Purple & Pink Mermaid",
+        "sku": "AS12",
+        "price": 690,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Purple & Pink",
+          "color_code": "#C084FC",
+          "asin": "B0HK8FWF6L",
+          "image_url": "https://m.media-amazon.com/images/I/51OGhMbXE1L.jpg"
+        },
+        "color_code": "#C084FC",
+        "image_url": "https://m.media-amazon.com/images/I/51OGhMbXE1L.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-3-2",
+        "product_id": "prod-amz-03",
+        "name": "Pink & Blue Mermaid",
+        "sku": "AS13",
+        "price": 690,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Pink & Blue",
+          "color_code": "#F472B6",
+          "asin": "B0HK8CRYMN",
+          "image_url": "https://m.media-amazon.com/images/I/5163euttd2L.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/5163euttd2L.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-3-3",
+        "product_id": "prod-amz-03",
+        "name": "Ocean Blue Mermaid",
+        "sku": "AS33",
+        "price": 690,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Ocean Blue",
+          "color_code": "#38BDF8",
+          "asin": "B0HK8CX2NW",
+          "image_url": "https://m.media-amazon.com/images/I/51Hjfmy-EML.jpg"
+        },
+        "color_code": "#38BDF8",
+        "image_url": "https://m.media-amazon.com/images/I/51Hjfmy-EML.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-04",
+    "name": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+    "slug": "2-layer-stainless-steel-lunch-box-carry-handle",
+    "description": "Stay organised and well-fed throughout your busy day with this 2-Layer Stainless Steel Lunch Box, specially designed for office goers, school kids, and travelers. High quality SUS304 food-grade inner core, outer insulated plastic shell, and heavy-duty locking side clips with a comfortable top carrying handle.",
+    "short_description": "2-layer SUS304 stainless steel tiffin container with ergonomic top carry handle.",
+    "sku": "LK-Y0J2-W83Y",
+    "price": 899,
+    "compare_at_price": 1999,
+    "discount": 55,
+    "category_id": "c2",
+    "category_name": "Lunch Boxes",
+    "category_slug": "lunch-boxes",
+    "target_audience": "office",
+    "brand": "Urban Essentials",
+    "tags": [
+      "lunch-box",
+      "tiffin",
+      "2-layer",
+      "handle",
+      "office",
+      "stainless-steel"
+    ],
+    "stock_quantity": 40,
+    "low_stock_threshold": 5,
+    "rating": 4.7,
+    "review_count": 29,
+    "is_featured": false,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "Dual stackable stainless steel compartments keep dishes completely separated",
+      "Sturdy integrated fold-flat carrying handle makes transport easy",
+      "Airtight silicone seal rim prevents leaks and locks in aroma and heat",
+      "High temperature resistant food-grade plastic outer shell remains cool to touch",
+      "Wide mouth design makes packing food and hand-washing effortless"
+    ],
+    "specifications": {
+      "Material": "SUS304 Stainless Steel & PP Exterior",
+      "Capacity": "1600 ml",
+      "Parent ASIN": "B0HK3VGVS9",
+      "Thermal Retention": "3-4 Hours"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-04-1",
+        "image_url": "https://m.media-amazon.com/images/I/41Sb5UA1EuL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-2",
+        "image_url": "https://m.media-amazon.com/images/I/419iVvcXjDL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-3",
+        "image_url": "https://m.media-amazon.com/images/I/51V8yyMbtUL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-4",
+        "image_url": "https://m.media-amazon.com/images/I/510R46AHd1L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-5",
+        "image_url": "https://m.media-amazon.com/images/I/514K8Z0lI9L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-6",
+        "image_url": "https://m.media-amazon.com/images/I/51vuxBwEz5L.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-7",
+        "image_url": "https://m.media-amazon.com/images/I/41B8pMTXksL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-8",
+        "image_url": "https://m.media-amazon.com/images/I/31LxUJUcfHL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-9",
+        "image_url": "https://m.media-amazon.com/images/I/41Rxr72onjL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-04-10",
+        "image_url": "https://m.media-amazon.com/images/I/31NntSs9nTL.jpg",
+        "alt_text": "2 Layer Stainless Steel Lunch Box with Carry Handle & Leak Resistant Seal",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-4-1",
+        "product_id": "prod-amz-04",
+        "name": "Ocean Blue",
+        "sku": "BL1",
+        "price": 899,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Ocean Blue",
+          "color_code": "#2563EB",
+          "asin": "B0HK3W5WLW",
+          "image_url": "https://m.media-amazon.com/images/I/41Sb5UA1EuL.jpg"
+        },
+        "color_code": "#2563EB",
+        "image_url": "https://m.media-amazon.com/images/I/41Sb5UA1EuL.jpg",
+        "stock": 2,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-4-2",
+        "product_id": "prod-amz-04",
+        "name": "Blush Pink",
+        "sku": "PK1",
+        "price": 899,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Blush Pink",
+          "color_code": "#EC4899",
+          "asin": "B0HK42G2H5",
+          "image_url": "https://m.media-amazon.com/images/I/31NntSs9nTL.jpg"
+        },
+        "color_code": "#EC4899",
+        "image_url": "https://m.media-amazon.com/images/I/31NntSs9nTL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-05",
+    "name": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+    "slug": "dinosaur-theme-kids-backpack-3d-design",
+    "description": "Make every school day a roaring adventure with this Premium Retro Dinosaur Kids Backpack! Featuring a vibrant 3D moulded T-Rex graphic, lightweight EVA hard shell front, soft-padded back panel, and multi-compartment interior for school gear.",
+    "short_description": "Vibrant 3D dinosaur EVA hard-shell school backpack for kids.",
+    "sku": "XK-AUTX-5P07",
+    "price": 699,
+    "compare_at_price": 1999,
+    "discount": 65,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "dinosaur",
+      "backpack",
+      "3d-shell",
+      "kids-bag",
+      "school"
+    ],
+    "stock_quantity": 35,
+    "low_stock_threshold": 5,
+    "rating": 4.9,
+    "review_count": 48,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "3D T-Rex dinosaur molded hard shell front face with vivid color detail",
+      "Ultra-lightweight high-density water-resistant composite body",
+      "Soft breathable honeycomb mesh back panel for all-day ventilation",
+      "Spacious dual main zip compartments with stretch bottle mesh pockets",
+      "Reflective safety strip accents for evening walk visibility"
+    ],
+    "specifications": {
+      "Dimensions": "34cm Height x 26cm Width x 14cm Depth",
+      "Weight": "420 g",
+      "Parent ASIN": "B0HK89RJX5",
+      "Age Group": "3 to 8 Years"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-05-1",
+        "image_url": "https://m.media-amazon.com/images/I/51lUbC7gWmL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-2",
+        "image_url": "https://m.media-amazon.com/images/I/61ablbvnKPL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-3",
+        "image_url": "https://m.media-amazon.com/images/I/61UI4bzrEIL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-4",
+        "image_url": "https://m.media-amazon.com/images/I/71aLfHpkd6L.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-5",
+        "image_url": "https://m.media-amazon.com/images/I/71wdYyDp8bL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-6",
+        "image_url": "https://m.media-amazon.com/images/I/61sqbzAfxKL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-7",
+        "image_url": "https://m.media-amazon.com/images/I/51WgTSWHbSL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-8",
+        "image_url": "https://m.media-amazon.com/images/I/61DvRRtkZNL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-9",
+        "image_url": "https://m.media-amazon.com/images/I/612lDeW1JiL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-05-10",
+        "image_url": "https://m.media-amazon.com/images/I/51mG3LLmhwL.jpg",
+        "alt_text": "Dinosaur Theme Kids Backpack and Lunch Bag Series with 3D Design",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-5-1",
+        "product_id": "prod-amz-05",
+        "name": "Green Dino",
+        "sku": "CC1",
+        "price": 699,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Green Dino",
+          "color_code": "#10B981",
+          "asin": "B0HK89D6NG",
+          "image_url": "https://m.media-amazon.com/images/I/51lUbC7gWmL.jpg"
+        },
+        "color_code": "#10B981",
+        "image_url": "https://m.media-amazon.com/images/I/51lUbC7gWmL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-5-2",
+        "product_id": "prod-amz-05",
+        "name": "Navy Dino",
+        "sku": "CC2",
+        "price": 699,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Navy Dino",
+          "color_code": "#1E3A8A",
+          "asin": "B0HK83PFYY",
+          "image_url": "https://m.media-amazon.com/images/I/51WgTSWHbSL.jpg"
+        },
+        "color_code": "#1E3A8A",
+        "image_url": "https://m.media-amazon.com/images/I/51WgTSWHbSL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-5-3",
+        "product_id": "prod-amz-05",
+        "name": "Black Dino",
+        "sku": "CC3",
+        "price": 699,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Black Dino",
+          "color_code": "#1F2937",
+          "asin": "B0HK8B8FHH",
+          "image_url": "https://m.media-amazon.com/images/I/51mG3LLmhwL.jpg"
+        },
+        "color_code": "#1F2937",
+        "image_url": "https://m.media-amazon.com/images/I/51mG3LLmhwL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-06",
+    "name": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+    "slug": "lunch-box-stainless-steel-insulated-food-jar-450ml",
+    "description": "Keep your meals warm and fresh on the go with this adorable insulated food jar, perfect for soups, porridge, and other hot or cold foods. Crafted with a food-grade 304 stainless steel inner tank, this 450ml thermos container effectively maintains food temperature for up to 3-4 hours. Double-layer construction protects hands from heat, while built-in ventilation valve ensures easy opening.",
+    "short_description": "450ml double-layer SUS304 stainless steel food jar with collapsible spoon.",
+    "sku": "Y1-G42M-7TA5",
+    "price": 799,
+    "compare_at_price": 799,
+    "discount": 0,
+    "category_id": "c3",
+    "category_name": "Water Bottles & Flasks",
+    "category_slug": "water-bottles",
+    "target_audience": "all",
+    "brand": "Urban Essentials",
+    "tags": [
+      "food-jar",
+      "thermos",
+      "soup-flask",
+      "insulated",
+      "water-bottles"
+    ],
+    "stock_quantity": 40,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 31,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "SUS304 food-grade stainless steel interior container keeps soups fresh and hygienic",
+      "Maintains thermal heat for up to 3-4 hours without external power",
+      "Built-in pressure release button on top lid allows easy opening without vacuum seal sticking",
+      "Includes neatly hidden foldable spoon stored inside the top lid chamber",
+      "Soft flexible silicone carry strap for easy holding on commute"
+    ],
+    "specifications": {
+      "Capacity": "450 ml",
+      "Dimensions": "17 cm Height x 10 cm Diameter",
+      "Material": "SUS304 Stainless Steel & Food-Grade PP",
+      "Parent ASIN": "B0HKFSH9QS"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-06-1",
+        "image_url": "https://m.media-amazon.com/images/I/31hvjnHkfjL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-2",
+        "image_url": "https://m.media-amazon.com/images/I/31LZzG0wViL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-3",
+        "image_url": "https://m.media-amazon.com/images/I/51pKWN8dciL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-4",
+        "image_url": "https://m.media-amazon.com/images/I/51ECSV7KxiL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-5",
+        "image_url": "https://m.media-amazon.com/images/I/41wWdSR+fhL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-6",
+        "image_url": "https://m.media-amazon.com/images/I/51xAzvPWxTL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-7",
+        "image_url": "https://m.media-amazon.com/images/I/41iDmApKgAL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-8",
+        "image_url": "https://m.media-amazon.com/images/I/31ux1Vj4PEL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-9",
+        "image_url": "https://m.media-amazon.com/images/I/31e178H+lQL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-06-10",
+        "image_url": "https://m.media-amazon.com/images/I/51rCNrzZHHL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Insulated Food Jar with Folding Spoon 450ML",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-6-1",
+        "product_id": "prod-amz-06",
+        "name": "Pastel Green",
+        "sku": "FT2",
+        "price": 799,
+        "compare_at_price": 799,
+        "attributes": {
+          "color": "Pastel Green",
+          "color_code": "#6EE7B7",
+          "asin": "B0HKG19V36",
+          "image_url": "https://m.media-amazon.com/images/I/31hvjnHkfjL.jpg"
+        },
+        "color_code": "#6EE7B7",
+        "image_url": "https://m.media-amazon.com/images/I/31hvjnHkfjL.jpg",
+        "stock": 2,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-6-2",
+        "product_id": "prod-amz-06",
+        "name": "Pastel Pink",
+        "sku": "FT3",
+        "price": 799,
+        "compare_at_price": 799,
+        "attributes": {
+          "color": "Pastel Pink",
+          "color_code": "#F472B6",
+          "asin": "B0HKMTGTLG",
+          "image_url": "https://m.media-amazon.com/images/I/31ux1Vj4PEL.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/31ux1Vj4PEL.jpg",
+        "stock": 2,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-07",
+    "name": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+    "slug": "lunch-box-stainless-steel-bento-3-compartment-700ml",
+    "description": "This premium stainless steel bento lunch box is thoughtfully designed for healthy, balanced meals on the go \u2014 perfect for kids at school as well as adults at the office. Crafted from high-quality 304 stainless steel and food-grade PP material, it is BPA-free, non-toxic, and leakproof. Features 700 ml capacity plus 100 ml dip container and chopsticks.",
+    "short_description": "700ml 3-compartment SUS304 stainless steel bento lunch box with leakproof silicone seals.",
+    "sku": "KW-MKVB-DBPX",
+    "price": 850,
+    "compare_at_price": 1999,
+    "discount": 57,
+    "category_id": "c2",
+    "category_name": "Lunch Boxes",
+    "category_slug": "lunch-boxes",
+    "target_audience": "all",
+    "brand": "Urban Essentials",
+    "tags": [
+      "bento",
+      "lunch-box",
+      "3-compartment",
+      "stainless-steel",
+      "office",
+      "school",
+      "bestseller"
+    ],
+    "stock_quantity": 45,
+    "low_stock_threshold": 5,
+    "rating": 4.9,
+    "review_count": 52,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "Food-grade 304 stainless steel inner tray is stain-free, durable, and rust-proof",
+      "3 separate food sections keep main course, sides, and snacks fresh without mixing",
+      "100% leakproof silicone rim seal and 4 side latch locks prevent bag spills",
+      "Includes stainless steel spoon, chopsticks, and removable dip container",
+      "Dishwasher safe inner tray and easy removable top lid"
+    ],
+    "specifications": {
+      "Dimensions": "23cm Length x 17cm Width x 7cm Height",
+      "Capacity": "700 ml Main + 100 ml Dip",
+      "Weight": "310 g",
+      "Parent ASIN": "B0HKMV4FSX"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-07-1",
+        "image_url": "https://m.media-amazon.com/images/I/51tuJW+o4uL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-2",
+        "image_url": "https://m.media-amazon.com/images/I/41a357gY7QL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-3",
+        "image_url": "https://m.media-amazon.com/images/I/71ssMnWT32L.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-4",
+        "image_url": "https://m.media-amazon.com/images/I/51-UqI+M-3L.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-5",
+        "image_url": "https://m.media-amazon.com/images/I/51eSlaQcUgL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-6",
+        "image_url": "https://m.media-amazon.com/images/I/61VR8Fq1a4L.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-7",
+        "image_url": "https://m.media-amazon.com/images/I/61D27v6WlhL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-8",
+        "image_url": "https://m.media-amazon.com/images/I/51L8EKqYG4L.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-9",
+        "image_url": "https://m.media-amazon.com/images/I/51q5kosdOeL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-07-10",
+        "image_url": "https://m.media-amazon.com/images/I/51zSHyyR1IL.jpg",
+        "alt_text": "Lunch Box Stainless Steel Bento 3 Compartment, 700 ml",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-7-1",
+        "product_id": "prod-amz-07",
+        "name": "Navy Blue",
+        "sku": "LLL1",
+        "price": 850,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Navy Blue",
+          "color_code": "#1E3A8A",
+          "asin": "B0HKFWNF23",
+          "image_url": "https://m.media-amazon.com/images/I/51tuJW+o4uL.jpg"
+        },
+        "color_code": "#1E3A8A",
+        "image_url": "https://m.media-amazon.com/images/I/51tuJW+o4uL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-7-2",
+        "product_id": "prod-amz-07",
+        "name": "Mint Green",
+        "sku": "LLL2",
+        "price": 850,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Mint Green",
+          "color_code": "#10B981",
+          "asin": "B0HKFZZ5XJ",
+          "image_url": "https://m.media-amazon.com/images/I/51zSHyyR1IL.jpg"
+        },
+        "color_code": "#10B981",
+        "image_url": "https://m.media-amazon.com/images/I/51zSHyyR1IL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-7-3",
+        "product_id": "prod-amz-07",
+        "name": "Blush Pink",
+        "sku": "LLL3",
+        "price": 850,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Blush Pink",
+          "color_code": "#EC4899",
+          "asin": "B0HKFWHM66",
+          "image_url": "https://m.media-amazon.com/images/I/51OU9RDcnBL.jpg"
+        },
+        "color_code": "#EC4899",
+        "image_url": "https://m.media-amazon.com/images/I/51OU9RDcnBL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-7-4",
+        "product_id": "prod-amz-07",
+        "name": "Lemon Yellow",
+        "sku": "LLL4",
+        "price": 850,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Lemon Yellow",
+          "color_code": "#EAB308",
+          "asin": "B0HKMVC87V",
+          "image_url": "https://m.media-amazon.com/images/I/51tuJW+o4uL.jpg"
+        },
+        "color_code": "#EAB308",
+        "image_url": "https://m.media-amazon.com/images/I/51tuJW+o4uL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-08",
+    "name": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+    "slug": "retro-telephone-theme-kids-backpack-3d-eva-shell",
+    "description": "Give your little one a backpack that truly stands out with this charming Premium Retro Telephone Kids Backpack! Featuring a nostalgic rotary phone design with interactive dial pad element, 3D EVA hard-shell body, soft padded back panel, and water-repellent finish.",
+    "short_description": "Unique 3D rotary telephone hard-shell EVA toddler backpack.",
+    "sku": "47-4CQK-DIQA",
+    "price": 799,
+    "compare_at_price": 1999,
+    "discount": 60,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "retro-telephone",
+      "backpack",
+      "3d-shell",
+      "kids",
+      "toddler"
+    ],
+    "stock_quantity": 30,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 27,
+    "is_featured": false,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "Interactive rotary phone dial motif on durable 3D molded EVA front shell",
+      "Water-repellent oxford fabric back and side panels keep contents dry",
+      "Breathable padded mesh back panel reduces sweating during outdoor play",
+      "Internal slip pockets and elastic retention loops for bottle and pencil box",
+      "Easy-glide oversized double zippers tailored for small hands"
+    ],
+    "specifications": {
+      "Dimensions": "28cm Height x 25cm Width x 12cm Depth",
+      "Weight": "380 g",
+      "Parent ASIN": "B0HK83TR2Y",
+      "Material": "3D EVA & Water-Resistant Polyester"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-08-1",
+        "image_url": "https://m.media-amazon.com/images/I/51ORmBZ6tgL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-2",
+        "image_url": "https://m.media-amazon.com/images/I/613CPX5fgFL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-3",
+        "image_url": "https://m.media-amazon.com/images/I/61C16VPVnuL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-4",
+        "image_url": "https://m.media-amazon.com/images/I/71KQ5RS-4TL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-5",
+        "image_url": "https://m.media-amazon.com/images/I/61sHr9OkZML.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-6",
+        "image_url": "https://m.media-amazon.com/images/I/51AfA41A0NL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-7",
+        "image_url": "https://m.media-amazon.com/images/I/61wupsUprxL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-8",
+        "image_url": "https://m.media-amazon.com/images/I/61QbR+R640L.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-9",
+        "image_url": "https://m.media-amazon.com/images/I/61fXp7EnczL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-08-10",
+        "image_url": "https://m.media-amazon.com/images/I/71EB3tZinBL.jpg",
+        "alt_text": "Retro Telephone Theme Kids Backpack and Lunch Bag Series 3D EVA Shell",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-8-1",
+        "product_id": "prod-amz-08",
+        "name": "Pastel Pink",
+        "sku": "QT-PEXL-NLPW",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Pastel Pink",
+          "color_code": "#F472B6",
+          "asin": "B0HK84C2B1",
+          "image_url": "https://m.media-amazon.com/images/I/51ORmBZ6tgL.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/51ORmBZ6tgL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-8-2",
+        "product_id": "prod-amz-08",
+        "name": "Sky Blue",
+        "sku": "QT-PEXL-NLPX",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Sky Blue",
+          "color_code": "#38BDF8",
+          "asin": "B0HK83GR1B",
+          "image_url": "https://m.media-amazon.com/images/I/51AfA41A0NL.jpg"
+        },
+        "color_code": "#38BDF8",
+        "image_url": "https://m.media-amazon.com/images/I/51AfA41A0NL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-8-3",
+        "product_id": "prod-amz-08",
+        "name": "Lavender Purple",
+        "sku": "QT-PEXL-NLPY",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Lavender Purple",
+          "color_code": "#C084FC",
+          "asin": "B0HK891SGY",
+          "image_url": "https://m.media-amazon.com/images/I/51hTaQEcEXL.jpg"
+        },
+        "color_code": "#C084FC",
+        "image_url": "https://m.media-amazon.com/images/I/51hTaQEcEXL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-09",
+    "name": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+    "slug": "smie-stainless-steel-4-compartment-bento-lunch-box-950ml",
+    "description": "Keep your meals fresh, organised, and ready to go with this Stainless Steel 4 Compartment Bento Lunch Box 950ml. Crafted from premium SUS304 food-grade stainless steel interior tray, it features 4 distinct food sections to separate main dishes, rotis, salads, and snacks cleanly.",
+    "short_description": "950ml 4-compartment SUS304 stainless steel bento lunch box with leakproof lid.",
+    "sku": "ON-O66E-3EGG",
+    "price": 799,
+    "compare_at_price": 1999,
+    "discount": 60,
+    "category_id": "c2",
+    "category_name": "Lunch Boxes",
+    "category_slug": "lunch-boxes",
+    "target_audience": "all",
+    "brand": "Urban Essentials",
+    "tags": [
+      "bento",
+      "lunch-box",
+      "4-compartment",
+      "stainless-steel",
+      "office",
+      "school"
+    ],
+    "stock_quantity": 40,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 38,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "4 generous compartments prevent sauce mixing and preserve distinct flavors",
+      "High-grade SUS304 stainless steel inner container is non-reactive and odor-free",
+      "Thick silicone lid seal strip and 4 snap-lock side latches guarantee leak resistance",
+      "Outer thermal plastic tray allows hot water pouring underneath to reheat food",
+      "Includes dedicated cutlery holder compartment on top lid"
+    ],
+    "specifications": {
+      "Capacity": "950 ml",
+      "Dimensions": "24cm x 18cm x 6.5cm",
+      "Material": "SUS304 Stainless Steel & PP Outer Container",
+      "Parent ASIN": "B0HKFWLJDY"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-09-1",
+        "image_url": "https://m.media-amazon.com/images/I/61ANkMkET7L.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-2",
+        "image_url": "https://m.media-amazon.com/images/I/61b5YP7QOkL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-3",
+        "image_url": "https://m.media-amazon.com/images/I/51a4Bod8tlL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-4",
+        "image_url": "https://m.media-amazon.com/images/I/51nKDPictbL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-5",
+        "image_url": "https://m.media-amazon.com/images/I/71MbzDt2djL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-6",
+        "image_url": "https://m.media-amazon.com/images/I/51BJOeo5GlL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-7",
+        "image_url": "https://m.media-amazon.com/images/I/51rVatupnjL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-8",
+        "image_url": "https://m.media-amazon.com/images/I/51Hl8BeiTzL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-9",
+        "image_url": "https://m.media-amazon.com/images/I/51ploaeT6SL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-09-10",
+        "image_url": "https://m.media-amazon.com/images/I/617GBitLcJL.jpg",
+        "alt_text": "Smie Stainless Steel 4 Compartment Bento Lunch Box 950ml",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-9-1",
+        "product_id": "prod-amz-09",
+        "name": "Pastel Pink",
+        "sku": "SS1",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Pastel Pink",
+          "color_code": "#F472B6",
+          "asin": "B0HKFK556S",
+          "image_url": "https://m.media-amazon.com/images/I/61ANkMkET7L.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/61ANkMkET7L.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-9-2",
+        "product_id": "prod-amz-09",
+        "name": "Sky Blue",
+        "sku": "SS2",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Sky Blue",
+          "color_code": "#38BDF8",
+          "asin": "B0HKFVH4V1",
+          "image_url": "https://m.media-amazon.com/images/I/51ploaeT6SL.jpg"
+        },
+        "color_code": "#38BDF8",
+        "image_url": "https://m.media-amazon.com/images/I/51ploaeT6SL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-9-3",
+        "product_id": "prod-amz-09",
+        "name": "Sunny Yellow",
+        "sku": "SS3",
+        "price": 799,
+        "compare_at_price": 1999,
+        "attributes": {
+          "color": "Sunny Yellow",
+          "color_code": "#FBBF24",
+          "asin": "B0HKFRRZG6",
+          "image_url": "https://m.media-amazon.com/images/I/51RI38vtpfL.jpg"
+        },
+        "color_code": "#FBBF24",
+        "image_url": "https://m.media-amazon.com/images/I/51RI38vtpfL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-10",
+    "name": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+    "slug": "koool-backpack-kids-school-travel-yellow-silicone-charms",
+    "description": "Introducing the KOOOL Animal Backpack \u2014 a delightfully quirky and functional bag designed especially for little adventurers. Made with a waterproof silicone outer shell featuring customizable DIY shoe-charm style pop pins, ergonomic shoulder straps, and gift box packaging.",
+    "short_description": "Waterproof yellow silicone EVA kids DIY backpack with customizable charms.",
+    "sku": "Yellow 1",
+    "price": 2499,
+    "compare_at_price": 5000,
+    "discount": 50,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "koool",
+      "backpack",
+      "silicone",
+      "diy-charms",
+      "yellow",
+      "premium",
+      "bestseller"
+    ],
+    "stock_quantity": 25,
+    "low_stock_threshold": 3,
+    "rating": 5.0,
+    "review_count": 64,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "100% waterproof food-grade silicone EVA outer hull resists stain and dirt",
+      "Includes set of collectible 3D silicone pop-pin charms for personalized DIY creation",
+      "Ultra-durable scratch-proof build stands up to active playtime usage",
+      "Soft breathable shoulder straps with chest safety clip",
+      "Delivered in premium gift box packaging \u2014 ideal birthday present"
+    ],
+    "specifications": {
+      "Dimensions": "30cm Height x 24cm Width x 12cm Depth",
+      "ASIN": "B0HKFZY583",
+      "Weight": "520 g",
+      "Material": "EVA & Food-Grade Silicone"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-10-1",
+        "image_url": "https://m.media-amazon.com/images/I/51knkJb9JsL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-2",
+        "image_url": "https://m.media-amazon.com/images/I/719yLUrc7gL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-3",
+        "image_url": "https://m.media-amazon.com/images/I/718mUwrItnL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-4",
+        "image_url": "https://m.media-amazon.com/images/I/71HrJHIt3kL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-5",
+        "image_url": "https://m.media-amazon.com/images/I/71OBKiC-+XL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-6",
+        "image_url": "https://m.media-amazon.com/images/I/61kXXAEzwoL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-10-7",
+        "image_url": "https://m.media-amazon.com/images/I/71sfjYFjjIL.jpg",
+        "alt_text": "KOOOL Backpack for Kids School & Travel Yellow Silicone with Charms",
+        "sort_order": 7,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-10-1",
+        "product_id": "prod-amz-10",
+        "name": "Sunshine Yellow Silicone",
+        "sku": "Yellow 1",
+        "price": 2499,
+        "compare_at_price": 5000,
+        "attributes": {
+          "color": "Sunshine Yellow",
+          "color_code": "#FACC15",
+          "asin": "B0HKFZY583",
+          "image_url": "https://m.media-amazon.com/images/I/51knkJb9JsL.jpg"
+        },
+        "color_code": "#FACC15",
+        "image_url": "https://m.media-amazon.com/images/I/51knkJb9JsL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-11",
+    "name": "Fruit Style Water Sipper For School & Office Going with Straw, 800ml",
+    "slug": "fruit-style-water-sipper-school-office-straw-800ml",
+    "description": "Meet your perfect everyday mug \u2014 the Kunmao Stainless Steel Tumbler with Straw! With a generous 800ml capacity, this stylish gingham & fruit-patterned water bottle keeps your water, iced coffee, or tea refreshingly cold for up to 12 hours or warm for 6 hours.",
+    "short_description": "800ml SUS304 insulated stainless steel fruit tumbler with straw and handle.",
+    "sku": "HT111",
+    "price": 840,
+    "compare_at_price": 1500,
+    "discount": 44,
+    "category_id": "c3",
+    "category_name": "Water Bottles & Flasks",
+    "category_slug": "water-bottles",
+    "target_audience": "all",
+    "brand": "Urban Essentials",
+    "tags": [
+      "water-bottle",
+      "sipper",
+      "tumbler",
+      "straw-bottle",
+      "fruit-design",
+      "800ml"
+    ],
+    "stock_quantity": 30,
+    "low_stock_threshold": 5,
+    "rating": 4.7,
+    "review_count": 22,
+    "is_featured": false,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "Double-wall vacuum insulated SUS304 stainless steel keeps drinks cold for 12 hrs",
+      "800ml large capacity reduces frequent refill trips throughout work or school",
+      "Dual drink opening: sip through silicone straw or flip-top wide mouth spout",
+      "Built-in sturdy carry handle for easy portability",
+      "Sweat-proof powder-coated exterior with charming fruit graphic design"
+    ],
+    "specifications": {
+      "Capacity": "800 ml",
+      "Dimensions": "22 cm Height x 9 cm Base Diameter",
+      "Material": "SUS304 Stainless Steel & Food-Grade Silicone",
+      "ASIN": "B0HKN4JKNG"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-11-1",
+        "image_url": "https://m.media-amazon.com/images/I/41brRzrRJFL.jpg",
+        "alt_text": "Fruit Style Water Sipper For School & Office Going with Straw, 800ml",
+        "sort_order": 1,
+        "is_primary": true
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-11-1",
+        "product_id": "prod-amz-11",
+        "name": "Lemon Yellow Gingham",
+        "sku": "HT111",
+        "price": 840,
+        "compare_at_price": 1500,
+        "attributes": {
+          "color": "Lemon Yellow",
+          "color_code": "#FDE047",
+          "asin": "B0HKN4JKNG",
+          "image_url": "https://m.media-amazon.com/images/I/41brRzrRJFL.jpg"
+        },
+        "color_code": "#FDE047",
+        "image_url": "https://m.media-amazon.com/images/I/41brRzrRJFL.jpg",
+        "stock": 2,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-12",
+    "name": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+    "slug": "kids-school-backpack-3d-superhero-designs-combo",
+    "description": "Make school days more exciting with these vibrant kids' school backpacks, available in three thrilling series \u2014 Spider-Man, Batman, and Football. Designed with 3D embossed superhero graphics, ergonomic padded shoulder straps, dual water bottle mesh pockets, and heavy-duty water-resistant oxford fabric.",
+    "short_description": "Premium 3D superhero hard-shell kids school backpack combo series.",
+    "sku": "Kids-Backpack",
+    "price": 1999,
+    "compare_at_price": 4000,
+    "discount": 50,
+    "category_id": "c1",
+    "category_name": "Backpacks",
+    "category_slug": "backpacks",
+    "target_audience": "school",
+    "brand": "Urban Essentials",
+    "tags": [
+      "spiderman",
+      "batman",
+      "superhero",
+      "backpack",
+      "3d-backpack",
+      "school-bag",
+      "bestseller"
+    ],
+    "stock_quantity": 40,
+    "low_stock_threshold": 5,
+    "rating": 4.9,
+    "review_count": 71,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": true,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "3D high-relief molded superhero face shell front panel",
+      "Waterproof high-grade 600D oxford cloth protects school notebooks from rain",
+      "Multi-compartment layout with laptop/tablet sleeve and pencil organizer",
+      "Padded S-shape shoulder straps with breathable mesh spine backing",
+      "Heavy duty rubberized zip heads with smooth metal tracks"
+    ],
+    "specifications": {
+      "Dimensions": "40cm Height x 30cm Width x 16cm Depth",
+      "Parent ASIN": "B0HL87JXT8",
+      "Weight": "650 g",
+      "Recommended Grade": "Primary School (Class 1 to 6)"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-12-1",
+        "image_url": "https://m.media-amazon.com/images/I/71crsn4z5ML.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-2",
+        "image_url": "https://m.media-amazon.com/images/I/714O8oR6kiL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-3",
+        "image_url": "https://m.media-amazon.com/images/I/71uyf3waq1L.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-4",
+        "image_url": "https://m.media-amazon.com/images/I/611qrWQabuL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-5",
+        "image_url": "https://m.media-amazon.com/images/I/61Q-1mwpTxL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-6",
+        "image_url": "https://m.media-amazon.com/images/I/71D5D4Jg6LL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-7",
+        "image_url": "https://m.media-amazon.com/images/I/619HTdQy-HL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-8",
+        "image_url": "https://m.media-amazon.com/images/I/71M2gtWdY0L.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-9",
+        "image_url": "https://m.media-amazon.com/images/I/71JpNUf8NzL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-12-10",
+        "image_url": "https://m.media-amazon.com/images/I/61hYu9KT5CL.jpg",
+        "alt_text": "Kids School Backpack with 3D Superhero Designs (Spider-Man & Batman Combo)",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-12-1",
+        "product_id": "prod-amz-12",
+        "name": "Spider-Man Hero Blue & Red",
+        "sku": "Kids 1",
+        "price": 1999,
+        "compare_at_price": 4000,
+        "attributes": {
+          "color": "Spider-Man Red/Blue",
+          "color_code": "#EF4444",
+          "asin": "B0HL8941V6",
+          "image_url": "https://m.media-amazon.com/images/I/71crsn4z5ML.jpg"
+        },
+        "color_code": "#EF4444",
+        "image_url": "https://m.media-amazon.com/images/I/71crsn4z5ML.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-12-2",
+        "product_id": "prod-amz-12",
+        "name": "Batman Dark Knight Black",
+        "sku": "Kids 2",
+        "price": 1999,
+        "compare_at_price": 4000,
+        "attributes": {
+          "color": "Batman Black",
+          "color_code": "#18181B",
+          "asin": "B0HL8D3Y1D",
+          "image_url": "https://m.media-amazon.com/images/I/619HTdQy-HL.jpg"
+        },
+        "color_code": "#18181B",
+        "image_url": "https://m.media-amazon.com/images/I/619HTdQy-HL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-12-3",
+        "product_id": "prod-amz-12",
+        "name": "Football Champions Gold & Black",
+        "sku": "Kids 3",
+        "price": 1999,
+        "compare_at_price": 4000,
+        "attributes": {
+          "color": "Football Gold/Black",
+          "color_code": "#EAB308",
+          "asin": "B0HL826R4Q",
+          "image_url": "https://m.media-amazon.com/images/I/71OqKPqHLhL.jpg"
+        },
+        "color_code": "#EAB308",
+        "image_url": "https://m.media-amazon.com/images/I/71OqKPqHLhL.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "id": "prod-amz-13",
+    "name": "Water Sipper for Kids & Adults with Handle 750ml",
+    "slug": "water-sipper-kids-adults-handle-750ml",
+    "description": "Make hydration fun and exciting for your little one with this adorable Cute Straw Tumbler with Handle! Standing 26cm tall with a 750ml capacity, it features a leakproof locking cap, silicone straw, flip handle, and double-wall vacuum insulation.",
+    "short_description": "750ml cute straw tumbler with carry handle and leakproof locking cap.",
+    "sku": "TT111",
+    "price": 850,
+    "compare_at_price": 1500,
+    "discount": 43,
+    "category_id": "c3",
+    "category_name": "Water Bottles & Flasks",
+    "category_slug": "water-bottles",
+    "target_audience": "all",
+    "brand": "Urban Essentials",
+    "tags": [
+      "water-sipper",
+      "tumbler",
+      "straw-bottle",
+      "750ml",
+      "handle"
+    ],
+    "stock_quantity": 30,
+    "low_stock_threshold": 5,
+    "rating": 4.8,
+    "review_count": 26,
+    "is_featured": true,
+    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_active": true,
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-09-28T12:00:00Z",
+    "features": [
+      "750ml generous volume keeps children hydrated throughout school hours",
+      "Food-grade soft silicone straw protects young teeth and gums",
+      "One-touch pop-up lid button with safety latch prevents accidental opening in bags",
+      "Wide ergonomic top loop handle for easy carrying by kids and parents",
+      "Dishwasher safe top lid components with easy disassembly"
+    ],
+    "specifications": {
+      "Capacity": "750 ml",
+      "Height": "26 cm",
+      "Parent ASIN": "B0HKN697LR",
+      "Material": "SUS304 Inner Core & Food-Grade PP"
+    },
+    "images": [
+      {
+        "id": "amz-live-img-prod-amz-13-1",
+        "image_url": "https://m.media-amazon.com/images/I/41W95NRY1NL.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 1,
+        "is_primary": true
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-2",
+        "image_url": "https://m.media-amazon.com/images/I/618XKfoez1L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 2,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-3",
+        "image_url": "https://m.media-amazon.com/images/I/61EGLJUxS4L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 3,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-4",
+        "image_url": "https://m.media-amazon.com/images/I/41T2EHNfQhL.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 4,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-5",
+        "image_url": "https://m.media-amazon.com/images/I/61BVtXHkc+L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 5,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-6",
+        "image_url": "https://m.media-amazon.com/images/I/61GXz2LJEaL.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 6,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-7",
+        "image_url": "https://m.media-amazon.com/images/I/71WnYLEZX9L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 7,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-8",
+        "image_url": "https://m.media-amazon.com/images/I/41m9CAleV1L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 8,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-9",
+        "image_url": "https://m.media-amazon.com/images/I/51aMtACuj2L.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 9,
+        "is_primary": false
+      },
+      {
+        "id": "amz-live-img-prod-amz-13-10",
+        "image_url": "https://m.media-amazon.com/images/I/61ohUEOIUzL.jpg",
+        "alt_text": "Water Sipper for Kids & Adults with Handle 750ml",
+        "sort_order": 10,
+        "is_primary": false
+      }
+    ],
+    "variants": [
+      {
+        "id": "amz-v-13-1",
+        "product_id": "prod-amz-13",
+        "name": "Pastel Pink",
+        "sku": "PP2",
+        "price": 850,
+        "compare_at_price": 1500,
+        "attributes": {
+          "color": "Pastel Pink",
+          "color_code": "#F472B6",
+          "asin": "B0HKN2HLHQ",
+          "image_url": "https://m.media-amazon.com/images/I/41W95NRY1NL.jpg"
+        },
+        "color_code": "#F472B6",
+        "image_url": "https://m.media-amazon.com/images/I/41W95NRY1NL.jpg",
+        "stock": 1,
+        "is_active": true
+      },
+      {
+        "id": "amz-v-13-2",
+        "product_id": "prod-amz-13",
+        "name": "Ocean Blue",
+        "sku": "PPP1",
+        "price": 950,
+        "compare_at_price": 1500,
+        "attributes": {
+          "color": "Ocean Blue",
+          "color_code": "#38BDF8",
+          "asin": "B0HKMXSJFH",
+          "image_url": "https://m.media-amazon.com/images/I/41m9CAleV1L.jpg"
+        },
+        "color_code": "#38BDF8",
+        "image_url": "https://m.media-amazon.com/images/I/41m9CAleV1L.jpg",
+        "stock": 1,
+        "is_active": true
+      }
+    ]
   }
 ];
 

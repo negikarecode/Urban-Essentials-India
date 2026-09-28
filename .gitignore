@@ -40,3 +40,8 @@ next-env.d.ts
 # raw image imports
 /imgs
 drive-download-*
+
+# python helpers
+__pycache__/
+*.py
+amazon_products.json
